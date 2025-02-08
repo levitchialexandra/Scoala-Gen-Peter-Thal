@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Carti</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Funcția de căutare AJAX
+        function searchBooks() {
+            var title = $('#title').val();
+            var author = $('#author').val();
+            var genre = $('#genre').val();
+            var publicationYear = $('#publicationYear').val();
+
+            $.ajax({
+                url: '/searchBooks',
+                data: {
+                    title: title,
+                    author: author,
+                    genre: genre,
+                    publicationYear: publicationYear
+                },
+                success: function(response) {
+                    var tableBody = $('#booksTable tbody');
+                    tableBody.empty();  // Ștergem datele existente
+
+                    
+                    response.forEach(function(book) {
+                        var row = $('<tr>');
+                        row.append('<td>' + book.title + '</td>');
+                        row.append('<td>' + book.author + '</td>');
+                        row.append('<td>' + book.genre.name + '</td>');
+                        row.append('<td>' + book.publicationYear + '</td>');
+                        tableBody.append(row);
+                    });
+                }
+            });
+        }
+
+        
+        $(document).ready(function() {
+        	 searchBooks();
+            $('#title, #author, #genre, #publicationYear').on('input', function() {
+                searchBooks();
+            });
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+<table>
+    <thead>
+        <tr>
+            <th>
+                <form th:action="@{/books}" method="get">
+                    <input type="text" name="titleSearch" th:value="${titleSearch}" placeholder="Search by title"/>
+                    <a th:href="@{/books(sortBy='title', direction=${direction == 'asc' ? 'desc' : 'asc'}, titleSearch=${titleSearch}, authorSearch=${authorSearch}, genreSearch=${genreSearch}, yearSearch=${yearSearch})}">
+                        Title
+                        <span th:if="${sortBy == 'title' && direction == 'asc'}">↑</span>
+                        <span th:if="${sortBy == 'title' && direction == 'desc'}">↓</span>
+                    </a>
+                </form>
+            </th>
+            <th>
+                <form th:action="@{/books}" method="get">
+                    <input type="text" name="authorSearch" th:value="${authorSearch}" placeholder="Search by author"/>
+                    <a th:href="@{/books(sortBy='author', direction=${direction == 'asc' ? 'desc' : 'asc'}, titleSearch=${titleSearch}, authorSearch=${authorSearch}, genreSearch=${genreSearch}, yearSearch=${yearSearch})}">
+                        Author
+                        <span th:if="${sortBy == 'author' && direction == 'asc'}">↑</span>
+                        <span th:if="${sortBy == 'author' && direction == 'desc'}">↓</span>
+                    </a>
+                </form>
+            </th>
+            <th>
+                <form th:action="@{/books}" method="get">
+                    <input type="text" name="yearSearch" th:value="${yearSearch}" placeholder="Search by year"/>
+                    <a th:href="@{/books(sortBy='publicationYear', direction=${direction == 'asc' ? 'desc' : 'asc'}, titleSearch=${titleSearch}, authorSearch=${authorSearch}, genreSearch=${genreSearch}, yearSearch=${yearSearch})}">
+                        Publication Year
+                        <span th:if="${sortBy == 'publicationYear' && direction == 'asc'}">↑</span>
+                        <span th:if="${sortBy == 'publicationYear' && direction == 'desc'}">↓</span>
+                    </a>
+                </form>
+            </th>
+            <th>
+                <form th:action="@{/books}" method="get">
+                    <input type="text" name="genreSearch" th:value="${genreSearch}" placeholder="Search by genre"/>
+                    <a th:href="@{/books(sortBy='genre', direction=${direction == 'asc' ? 'desc' : 'asc'}, titleSearch=${titleSearch}, authorSearch=${authorSearch}, genreSearch=${genreSearch}, yearSearch=${yearSearch})}">
+                        Genre
+                        <span th:if="${sortBy == 'genre' && direction == 'asc'}">↑</span>
+                        <span th:if="${sortBy == 'genre' && direction == 'desc'}">↓</span>
+                    </a>
+                </form>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="book : ${books}">
+            <td th:text="${book.title}"></td>
+            <td th:text="${book.author}"></td>
+            <td th:text="${book.publicationYear}"></td>
+            <td th:text="${book.genre.name}"></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

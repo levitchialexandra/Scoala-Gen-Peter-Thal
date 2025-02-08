@@ -1,0 +1,8 @@
+package ro.scoalaPeterThal;
+
+public class AdminController {
+	@GetMapping("/adminpage")
+	public String AdminPage() {
+		return "adminpage";
+	}
+}

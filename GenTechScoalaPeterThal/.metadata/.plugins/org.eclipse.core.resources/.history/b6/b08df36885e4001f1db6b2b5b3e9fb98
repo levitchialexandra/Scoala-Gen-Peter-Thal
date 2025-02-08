@@ -1,0 +1,29 @@
+package ro.scoalaPeterThal;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class AdminController {
+	@GetMapping("/login")
+    public String loginPage() {
+    
+        return "login";  
+    }
+	
+	@PostMapping("/login")
+	public String login(@RequestParam String username, @RequestParam String password, Model model) {
+        
+    	try {
+            AppUser appUser = loginUser(username, password); 
+            session.setAttribute("sessionUser", appUser);
+            String redirectUrl = getUserRoleAndRedirect(appUser);
+
+            return "redirect:/" + redirectUrl; 
+
+        } catch (RuntimeException e) {
+            model.addAttribute("error", e.getMessage());
+            return "login"; 
+        }
+    }
+}

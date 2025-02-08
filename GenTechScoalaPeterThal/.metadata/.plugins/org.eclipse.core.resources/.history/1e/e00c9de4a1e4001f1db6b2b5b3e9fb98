@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Carti</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+ <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <!-- Include CSS pentru Bootstrap (optional pentru stiluri generale) -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Include DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Inițializarea DataTables
+              var sortBy = /*[[${sortBy}]]*/ 'title';  // Default value is 'title'
+    		var direction = /*[[${direction}]]*/ 'asc';  // Default value is 'asc'
+            var table = $('#booksTable').DataTable({
+                "processing": true, // arată un indicator de încărcare
+                "serverSide": true, // folosește server-side pentru manipularea datelor
+                "ajax": {
+                    "url": "/searchBooksAjax", // endpoint-ul de la care să obțină datele
+                    "type": "GET",
+                    "data": function(d) {
+                        // Adăugăm parametrii suplimentari pentru căutare
+                        d.title = $('#title').val();
+                        d.author = $('#author').val();
+                        d.genre = $('#genre').val();
+                        d.publicationYear = $('#publicationYear').val();
+                        d.sortBy = sortBy;  // Add the current sorting column
+                        d.direction = direction;  // Add the current sorting direction
+                    }
+                },
+                
+                "columnDefs": [
+                    {
+                        "targets": [0, 1, 2, 3], 
+                        "orderable": true
+                    }
+                ],
+                "columns": [
+                    { "data": "title" },
+                    { "data": "author" },
+                    { "data": "genre" },
+                    { "data": "publicationYear" }
+                ]
+            });
+
+            // Căutarea instantanee pe baza inputurilor
+            $('#title, #author, #genre, #publicationYear').on('input', function() {
+                table.ajax.reload(); // Reîncărcăm datele în tabel
+            });
+        });
+    </script>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+	 <form id="searchForm" method="get" action="/searchBooksAjax">
+        <!-- Tabelul pentru DataTable -->
+       <table id="booksTable" class="display">
+        <thead>
+            <tr>
+                <th>Title <input type="text" id="titleSearch" placeholder="Search Title"></th>
+                <th>Author <input type="text" id="authorSearch" placeholder="Search Author"></th>
+                <th>Genre <input type="text" id="genreSearch" placeholder="Search Genre"></th>
+                <th>Publication Year <input type="number" id="yearSearch" placeholder="Search Year"></th>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th>Publication Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Cărțile vor fi populate aici prin AJAX -->
+        </tbody>
+    </table>
+    </form>
+
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+package repository;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import basics.Book;
+
+import java.util.List;
+public interface BookRepository extends JpaRepository<Book, Long> {
+
+	List<Book> findByTitleContainingAndAuthorContainingAndGenreContainingAndPublicationYear(String Yitle, String author, String genre, Integer publicationYear);
+}

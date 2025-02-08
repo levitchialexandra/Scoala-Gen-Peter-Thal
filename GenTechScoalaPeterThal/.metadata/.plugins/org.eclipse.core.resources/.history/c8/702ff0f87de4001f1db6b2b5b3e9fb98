@@ -1,0 +1,80 @@
+package ro.scoalaPeterThal;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import repository.BookRepository;
+import repository.BookSpecification;
+import repository.GenreRepository;
+import basics.*;
+import java.util.List;
+@Controller
+public class BookContrl {
+	@Autowired
+	BookRepository bookRepository;
+	
+	@Autowired
+	GenreRepository genreRepository;
+	
+	@GetMapping("/books1")
+	public String BooksList() {
+		return "bookslist";
+	}
+	 public List<Genre> getAllGenres() {
+	        return genreRepository.findAll();
+	    }
+	 public List<Book> searchBooks1(String title, String author, Long genreId, Integer publicationYear) {
+		 Genre genre = null;
+	        
+	        // Dacă 'genreId' este furnizat, căutăm obiectul 'Genre'
+	        if (genreId != null) {
+	            genre = genreRepository.findById(genreId).orElse(null);
+	        }
+	        
+	        if ((title != null && !title.isEmpty())||
+	        		(author != null && !author.isEmpty())||
+	        		(genre != null)||
+	        		publicationYear!=null) {
+	            return bookRepository.findByTitleContainingAndAuthorContainingAndGenreIdAndPublicationYear(title, author, genreId, publicationYear);
+	        } else {
+	        	List<Book> searchBooks= bookRepository.findAll();
+	        	 System.out.println(searchBooks);
+	        	return searchBooks;
+	        }
+	    }
+	 
+	 public List<Book> searchBooks(String title, String author, Long genreId, Integer publicationYear) {
+	        // Construim specificația de căutare pe baza parametrilor
+	        Specification<Book> spec = BookSpecification.buildSpecification(title, author, genreId, publicationYear);
+	        
+	        // Căutăm cărțile pe baza specificației
+	        return bookRepository.findAll(spec);
+	    }
+	 @GetMapping("/books")
+	    public String showBooks(
+	            @RequestParam(value = "title", required = false) String title,
+	            @RequestParam(value = "author", required = false) String author,
+	            @RequestParam(value = "genre", required = false) Long genreId,
+	            @RequestParam(value = "publicationYear", required = false) Integer publicationYear,
+	            Model model) {
+	        
+	        model.addAttribute("books", searchBooks(title, author, genreId, publicationYear));
+	        model.addAttribute("genres", getAllGenres());  // Trimiterea genurilor
+	        return "bookslist";
+	    }
+
+	    // Metoda AJAX pentru căutare în timp real
+	    @GetMapping("/searchBooks")
+	    @ResponseBody
+	    public List<Book> searchBooksAjax(
+	            @RequestParam(value = "title", required = false) String title,
+	            @RequestParam(value = "author", required = false) String author,
+	            @RequestParam(value = "genre", required = false) Long genre,
+	            @RequestParam(value = "publicationYear", required = false) Integer publicationYear) {
+	        
+	        return searchBooks(title, author, genre, publicationYear);
+	    }
+}

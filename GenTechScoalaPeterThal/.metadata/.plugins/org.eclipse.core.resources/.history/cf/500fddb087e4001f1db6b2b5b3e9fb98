@@ -1,0 +1,14 @@
+package basics;
+import jakarta.persistence.*;
+import java.time.LocalDate;
+
+@Entity
+public class Loan {
+	 @Id
+	    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	    private Long id;
+
+	    @ManyToOne
+	    @JoinColumn(name = "book_id", nullable = false)
+	    private Book book; 
+}

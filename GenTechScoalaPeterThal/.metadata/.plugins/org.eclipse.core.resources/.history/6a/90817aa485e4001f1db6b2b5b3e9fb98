@@ -1,0 +1,7 @@
+package repository;
+
+@Repository
+public interface UserRepository extends CrudRepository<AppUser, Long> {
+	Optional<AppUser> findByUsername(String username);
+	Optional<AppUser> findByStudentId(Long id);
+}

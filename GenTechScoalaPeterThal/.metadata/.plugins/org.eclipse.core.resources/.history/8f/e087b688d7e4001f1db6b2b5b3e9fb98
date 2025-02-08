@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Carti</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css" />
+<script type="text/javascript" charset="utf8"
+	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8"
+	src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+<style type="text/css">
+#booksTable thead tr:nth-child(2) {
+    background-color: #f4f4f4;
+}
+
+#booksTable thead input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 5px;
+}
+</style>
+<script>
+	$(document).ready(
+			function() {
+				var table = $('#booksTable').DataTable({
+					"paging" : true,
+					"searching" : false,
+					ordering : true,
+					 "order": [],
+					"bSort" : true, // Activează sortarea pentru tabelul principal
+					"bSortClasses" : false,
+					"serverSide" : true,
+					"ajax" : {
+						"url" : "/books2", // Endpoint-ul pentru obținerea cărților
+						"type" : "GET",
+						"data" : function(d) {
+
+							d.title = $('#titleSearch').val();
+							d.author = $('#authorSearch').val();
+							d.publicationYear = $('#yearSearch').val();
+							d.genre = $('#genreSearch').val();
+						},
+						"dataSrc" : function(json) {
+							// Check the response structure in the console
+							console.log(json);
+							return json.data;
+						}
+					},
+
+					"columns" : [ {
+						"data" : "title"
+					}, {
+						"data" : "author"
+					}, {
+						"data" : "genre.name"
+					}, {
+						"data" : "publicationYear"
+					} ]
+				});
+
+				// Căutarea pe fiecare coloană
+				/*$('#titleSearch, #authorSearch, #genreSearch, #yearSearch').on(
+						'keyup change', function() {
+
+							// Only reload the table if no input is focused
+							table.ajax.reload();
+
+						});*/
+				$('#titleSearch').on('keyup change', function() {
+					table.columns(0).search(this.value).draw();
+				});
+
+				$('#authorSearch').on('keyup change', function() {
+					table.columns(1).search(this.value).draw();
+				});
+
+				$('#genreSearch').on('keyup change', function() {
+					table.columns(2).search(this.value).draw();
+				});
+
+				$('#yearSearch').on('keyup change', function() {
+					table.columns(3).search(this.value).draw();
+				});
+
+				var disableSorting = false;
+				var order = [];
+				$('#searchForm').on('submit', function(e) {
+					e.preventDefault();
+					table.ajax.reload();
+				});
+
+				$('#titleSearch, #authorSearch, #genreSearch, #yearSearch').on(
+						'focus', function(e) {
+
+						});
+
+				$('#titleSearch, #authorSearch, #genreSearch, #yearSearch').on(
+						'blur', function() {
+
+						});
+
+				// Ensure that the second row does not interfere with sorting
+				// $('#booksTable thead tr:nth-child(2)').css('display', 'none'); 
+				$("#booksTable_length").hide();
+				$("#booksTable_filter").hide();
+			});
+</script>
+</head>
+<body>
+	<form id="searchForm" method="get">
+		<!-- Tabelul pentru DataTable -->
+		<table id="booksTable" class="display">
+			<thead>
+				<tr>
+					<th>Titlu</th>
+					<th>Autor</th>
+					<th>Gen</th>
+					<th>Anul publicarii</th>
+				</tr>
+				
+			</thead>
+			<tfoot>
+        <tr>
+            <td><input type="text" id="titleSearch" placeholder="Căutați după titlu"></td>
+            <td><input type="text" id="authorSearch" placeholder="Căutați după autor"></td>
+            <td><input type="text" id="genreSearch" placeholder="Căutați după gen"></td>
+            <td><input type="number" id="yearSearch" placeholder="Căutați după an"></td>
+        </tr>
+    </tfoot>
+			<tbody>
+				<!-- Cărțile vor fi populate aici prin AJAX -->
+			</tbody>
+		</table>
+	</form>
+
+
+</body>
+</html>

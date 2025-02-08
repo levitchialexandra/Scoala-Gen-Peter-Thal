@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Carti</title>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"/>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet"
+	href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"/>
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"/>
+<script type="text/javascript" charset="utf8"
+	src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" charset="utf8"
+	src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<script>
+	$(document).ready(
+			function() {
+				var table = $('#booksTable').DataTable({
+					// "processing": true,
+					"serverSide" : true,
+					"ajax" : {
+						"url" : "/books2", // Endpoint-ul pentru obținerea cărților
+						"type" : "GET",
+						"data" : function(d) {
+							// Parametri pentru căutare
+							d.title = $('#titleSearch').val();
+							d.author = $('#authorSearch').val();
+							d.publicationYear = $('#yearSearch').val();
+							d.genre = $('#genreSearch').val();
+						},
+						"dataSrc" : function(json) {
+							// Check the response structure in the console
+							console.log(json);
+							return json.data;
+						}
+					},
+					"columns" : [ {
+						"data" : "title"
+					}, {
+						"data" : "author"
+					}, {
+						"data" : "genre.name"
+					}, {
+						"data" : "publicationYear"
+					} ]
+				});
+				
+				// Căutarea pe fiecare coloană
+				$('#titleSearch, #authorSearch, #genreSearch, #yearSearch').on(
+						'keyup change', function() {
+							table.ajax.reload();
+						});
+
+				// Răspuns la căutare globală
+				$('#searchForm').on('submit', function(e) {
+					e.preventDefault(); 
+					table.ajax.reload(); 
+				});
+			});
+</script>
+</head>
+<body>
+	<form id="searchForm" method="get">
+		<!-- Tabelul pentru DataTable -->
+		<table id="booksTable" class="display">
+			<thead>
+				<tr>
+					<th>Title <input type="text" id="titleSearch"
+						placeholder="Search Title"></th>
+					<th>Author <input type="text" id="authorSearch"
+						placeholder="Search Author"></th>
+					<th>Genre <input type="text" id="genreSearch"
+						placeholder="Search Genre"></th>
+					<th>Publication Year <input type="number" id="yearSearch"
+						placeholder="Search Year"></th>
+				</tr>
+				<tr>
+					<th>Title</th>
+					<th>Author</th>
+					<th>Genre</th>
+					<th>Publication Year</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Cărțile vor fi populate aici prin AJAX -->
+			</tbody>
+		</table>
+	</form>
+
+
+</body>
+</html>

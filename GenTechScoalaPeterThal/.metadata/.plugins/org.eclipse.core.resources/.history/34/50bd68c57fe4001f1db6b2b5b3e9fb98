@@ -1,0 +1,5 @@
+book.title.required=Titlu este necesar
+book.title.size=Title must be between 3 and 255 characters
+book.author.required=Author is required
+book.publicationYear.required=Publication Year is required
+book.genre.required=Genre is required

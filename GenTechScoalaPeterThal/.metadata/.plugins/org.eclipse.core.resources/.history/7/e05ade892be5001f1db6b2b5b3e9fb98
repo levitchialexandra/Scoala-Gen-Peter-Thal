@@ -1,0 +1,8 @@
+package basics;
+
+public class BookDTO {
+	 private String title;
+	    private String author;
+	    private Integer publicationYear;
+	    private String availability;
+}

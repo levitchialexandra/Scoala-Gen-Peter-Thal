@@ -1,0 +1,9 @@
+package repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import basics.Genre;
+
+public interface GenreRepository extends JpaRepository<Genre, Long> {
+	List<Genre> findFirstByName(String name);
+}

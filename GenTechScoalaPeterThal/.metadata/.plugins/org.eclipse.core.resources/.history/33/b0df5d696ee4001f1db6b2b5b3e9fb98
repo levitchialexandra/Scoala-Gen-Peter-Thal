@@ -1,0 +1,12 @@
+package ro.scoalaPeterThal;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class BookContrl {
+	@GetMapping("/books1")
+	public String BooksList() {
+		return "bookslist";
+	}
+}

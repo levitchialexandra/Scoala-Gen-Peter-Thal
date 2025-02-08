@@ -1,0 +1,8 @@
+package ro.scoalaPeterThal;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public class BoolController {
+
+}

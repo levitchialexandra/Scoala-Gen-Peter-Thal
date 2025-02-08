@@ -1,0 +1,38 @@
+package repository;
+import java.util.List;
+
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import basics.Book;
+import basics.Genre;
+public interface BookRepository extends JpaRepository<Book, Long> {
+
+	 List<Book> findByTitleContainingAndAuthorContainingAndGenreIdAndPublicationYear(
+		        String title, 
+		        String author, 
+		        Long genreId, 
+		        Integer publicationYear
+		    );
+	List<Book> findByTitleContainingAndAuthorContainingAndGenreAndPublicationYear(
+	        String title, 
+	        String author, 
+	        Genre genre, 
+	        Integer publicationYear
+	    );
+	Page<Book> findAll(Specification<Book> spec, Pageable pageable);
+	
+	List<Book> findByTitleContainingAndAuthorContainingAndGenreAndPublicationYear(
+            String title, String author, Long genre, Integer publicationYear, Sort sort);
+	
+	@Query("SELECT b FROM Book b WHERE (:title IS NULL OR b.title LIKE %:title%) AND " +
+            "(:author IS NULL OR b.author LIKE %:author%) AND " +
+            "(:genreId IS NULL OR b.genre.id = :genreId) AND " +
+            "(:publicationYear IS NULL OR b.publicationYear = :publicationYear) AND " +
+            "(:searchValue IS NULL OR b.title LIKE %:searchValue% OR b.author LIKE %:searchValue%)")
+    Page<Book> findBooksByCriteria(String title, String author, Long genreId, Integer publicationYear,
+                                   String searchValue, Pageable pageable);
+}
