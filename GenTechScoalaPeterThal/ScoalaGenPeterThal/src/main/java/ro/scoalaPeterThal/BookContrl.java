@@ -1,11 +1,9 @@
 package ro.scoalaPeterThal;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -14,7 +12,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import repository.BookRepository;
-import repository.BookSpecification;
 import repository.GenreRepository;
 import repository.LoanRepository;
 import basics.*;
@@ -27,7 +24,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Controller
 public class BookContrl {
@@ -132,17 +128,17 @@ public class BookContrl {
 
 	@GetMapping("/booksAjax")
 	@ResponseBody
-	public Map<String, Object> getBooks(@RequestParam(value = "title", required = false) String title,
-			@RequestParam("draw") int draw, @RequestParam(value = "author", required = false) String author,
-			@RequestParam(value = "publicationYear", required = false) Integer publicationYear,
+	public Map<String, Object> getBooks(@RequestParam( required = false) String title,
+			@RequestParam int draw, @RequestParam(required = false) String author,
+			@RequestParam( required = false) Integer publicationYear,
 			@RequestParam(value = "genre", required = false) String genreId,
 			@RequestParam(value = "search[value]", required = false) String searchValue,
-			@RequestParam(value = "start", defaultValue = "0") int start,
-			@RequestParam(value = "length", defaultValue = "10") int length,
+			@RequestParam( defaultValue = "0") int start,
+			@RequestParam( defaultValue = "10") int length,
 			@RequestParam(value = "order[0][column]", defaultValue = "0") int orderColumn,
 			@RequestParam(value = "order[0][dir]", defaultValue = "asc") String orderDir) {
 
-		// Paginare
+		
 		Pageable pageable = PageRequest.of(start / length, length, "asc".equals(orderDir)
 				? Sort.by(orderColumn == 0 ? "title" : orderColumn == 1 ? "author" : "publicationYear")
 				: Sort.by(orderColumn == 0 ? "title" : orderColumn == 1 ? "author" : "publicationYear").descending());
@@ -167,18 +163,18 @@ public class BookContrl {
 	@GetMapping("/booksAjaxWithAvailabilityWithPag")
 	@ResponseBody
 	public Map<String, Object> getBooksWithAvailabilityWithPag(
-			@RequestParam(value = "title", required = false) String title, @RequestParam("draw") int draw,
-			@RequestParam(value = "author", required = false) String author,
-			@RequestParam(value = "publicationYear", required = false) Integer publicationYear,
+			@RequestParam( required = false) String title, @RequestParam int draw,
+			@RequestParam( required = false) String author,
+			@RequestParam( required = false) Integer publicationYear,
 			@RequestParam(value = "genre", required = false) String genreId,
 			@RequestParam(value = "search[value]", required = false) String searchValue,
-			@RequestParam(value = "start", defaultValue = "0") int start,
-			@RequestParam(value = "length", defaultValue = "10") int length,
+			@RequestParam( defaultValue = "0") int start,
+			@RequestParam( defaultValue = "10") int length,
 			@RequestParam(value = "order[0][column]", defaultValue = "0") int orderColumn,
 			@RequestParam(value = "order[0][dir]", defaultValue = "asc") String orderDir,
-			@RequestParam(value = "availability", required = false) String availability) {
+			@RequestParam(required = false) String availability) {
 
-		// Creare Pageable pentru sortare
+		
 		Pageable pageable = PageRequest.of(start / length, length, "asc".equals(orderDir)
 				? Sort.by(orderColumn == 0 ? "title" : orderColumn == 1 ? "author" : "publicationYear")
 				: Sort.by(orderColumn == 0 ? "title" : orderColumn == 1 ? "author" : "publicationYear").descending());
@@ -189,11 +185,11 @@ public class BookContrl {
 			genId = (genres != null && !genres.isEmpty()) ? genres.get(0).getId() : null;
 		}
 
-		// Aplică filtrul
+		
 		List<Book> books = searchBooksByFilter(title, author, genId, publicationYear, searchValue, pageable);
 		List<BookDTO> bookDTOs = new ArrayList<>();
 
-		// Iterează prin cărți și creează DTO-uri
+		
 		for (Book book : books) {
 			BookDTO bookDTO = new BookDTO();
 			var avab = getAvailabilityStatus(book);
@@ -210,15 +206,15 @@ public class BookContrl {
 			}
 		}
 
-		// Obține numărul total de cărți filtrate
+		
 		long totalFilteredRecords = bookDTOs.size();
-		long totalRecords = bookRepository.count(); // Numărul total de cărți, fără filtre
+		long totalRecords = bookRepository.count(); 
 
-		// Calculăm sublista de cărți pentru pagina curentă
+		
 		int toIndex = (int) Math.min(start + length, totalFilteredRecords);
 		List<BookDTO> paginatedBooks = bookDTOs.subList(start, toIndex);
 
-		// Răspunsul paginat
+		
 		Map<String, Object> response = new HashMap<>();
 		response.put("draw", draw);
 		response.put("recordsTotal", totalRecords); // Total cărți (fără filtrare)
@@ -231,16 +227,17 @@ public class BookContrl {
 	@GetMapping("/booksAjaxWithAvailability")
 	@ResponseBody
 	public Map<String, Object> getBooksWithAvailability(@RequestParam(value = "title", required = false) String title,
-			@RequestParam("draw") int draw, @RequestParam(value = "author", required = false) String author,
-			@RequestParam(value = "publicationYear", required = false) Integer publicationYear,
+			@RequestParam int draw, @RequestParam(value = "author", required = false) String author,
+			@RequestParam(required = false) Integer publicationYear,
 			@RequestParam(value = "genre", required = false) String genreId,
 			@RequestParam(value = "search[value]", required = false) String searchValue,
 
 			@RequestParam(value = "order[0][column]", defaultValue = "0") int orderColumn,
 			@RequestParam(value = "order[0][dir]", defaultValue = "asc") String orderDir,
-			@RequestParam(value = "availability", required = false) String availability) {
+			@RequestParam(required = false) String availability) {
 
-		// Creare Pageable pentru sortare
+		
+		
 		Pageable pageable = PageRequest.of(0, Integer.MAX_VALUE, "asc".equals(orderDir)
 				? Sort.by(orderColumn == 0 ? "title" : orderColumn == 1 ? "author" : "publicationYear")
 				: Sort.by(orderColumn == 0 ? "title" : orderColumn == 1 ? "author" : "publicationYear").descending());
