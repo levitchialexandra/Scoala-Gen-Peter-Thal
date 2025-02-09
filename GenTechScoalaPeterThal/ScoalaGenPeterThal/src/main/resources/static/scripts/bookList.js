@@ -11,32 +11,32 @@ var cols = [{
 	"orderable": false
 }];
 var extraCols = [{ "data": "actions", "orderable": false, "searchable": false }];
-$(document).ready(function() {
+$(document).ready(function () {
 	var currentUrl = window.location.href;
 	var isAdmin = currentUrl.toLowerCase().indexOf("addbook") >= 0;
 	cols = isAdmin ? cols.concat(extraCols) : cols;
 	var table = $('#booksTable').DataTable({
 
 		"paging": false,  // Disable pagination
-		   "lengthChange": true,
-		   "pageLength": 10,
-		   "searching": false,
-		   "ordering": true,
-		   "serverSide": true,
-		   "pagingType": "full_numbers",
-		   "processing": true, // Can be useful to show that data is being processed
-		   "language": {
-		       "emptyTable": "No records available",
-		       "info": "Showing _START_ to _END_ of _TOTAL_ entries",
-		       "infoFiltered": "(filtered from _MAX_ total entries)",
-		       "lengthMenu": "Show _MENU_ entries", // Allows user to change the number of records per page
-		   },
-		   "dom": '<"H"lfr>t<"F"ip>',
+		"lengthChange": true,
+		"pageLength": 10,
+		"searching": false,
+		"ordering": true,
+		"serverSide": true,
+		"pagingType": "full_numbers",
+		"processing": true, // Can be useful to show that data is being processed
+		"language": {
+			"emptyTable": "No records available",
+			"info": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"infoFiltered": "(filtered from _MAX_ total entries)",
+			"lengthMenu": "Show _MENU_ entries", // Allows user to change the number of records per page
+		},
+		"dom": '<"H"lfr>t<"F"ip>',
 		"ajax": {
 			"url": "/booksAjaxWithAvailability",
 			//"/booksAjax",
 			"type": "GET",
-			"data": function(d) {
+			"data": function (d) {
 				console.log("Data sent to server:", d);
 				d.title = $('#titleSearch').val();
 				d.author = $('#authorSearch').val();
@@ -44,10 +44,10 @@ $(document).ready(function() {
 				d.genre = $('#genreSearch').val();
 				d.availability = $('#availabilityFilter').val();
 			},
-			"dataSrc": function(json) {
-				
+			"dataSrc": function (json) {
+
 				if (isAdmin) {
-					json.data.forEach(function(item) {
+					json.data.forEach(function (item) {
 						item.actions = '<button class="btn btn-danger btn-sm delete-btn" data-id="' + item.id + '">Șterge</button>';
 						if (item.availability === "Disponibil") {
 							item.actions += '<button class="btn btn-success btn-sm borrow-btn" data-id="' + item.id + '">Împrumută</button>';
@@ -57,6 +57,8 @@ $(document).ready(function() {
 					});
 
 				}
+				$("#booksTable_length").hide();
+				$("#booksTable_filter").hide();
 				return json.data;
 			}
 		},
@@ -64,25 +66,25 @@ $(document).ready(function() {
 		"columns": cols
 	});
 
-	$('#titleSearch, #authorSearch,#genreSearch,#yearSearch').on('keyup change', function() {
+	$('#titleSearch, #authorSearch,#genreSearch,#yearSearch').on('keyup change', function () {
 		table.ajax.reload();
 	});
 
 
 
-	$('#searchForm').on('submit', function(e) {
+	$('#searchForm').on('submit', function (e) {
 		e.preventDefault();
 		table.ajax.reload();
 	});
 
-	$('#availabilityFilter').on('change', function() {
+	$('#availabilityFilter').on('change', function () {
 
 		table.ajax.reload();
 	});
 
 	$("#booksTable_length").hide();
 	$("#booksTable_filter").hide();
-	$('#booksTable').on('click', '.delete-btn', function() {
+	$('#booksTable').on('click', '.delete-btn', function () {
 		var bookId = $(this).data('id');
 		var confirmation = confirm("Sigur doriți să ștergeți această carte?");
 		if (confirmation) {
@@ -90,18 +92,18 @@ $(document).ready(function() {
 			$.ajax({
 				url: '/deleteBook/' + bookId,
 				type: 'DELETE',
-				success: function(response) {
+				success: function (response) {
 
 					table.ajax.reload();
 					alert('Cartea a fost ștearsă cu succes!');
 				},
-				error: function(error) {
+				error: function (error) {
 					alert('A apărut o eroare la ștergerea cărții.');
 				}
 			});
 		}
 	});
-	$('#booksTable').on('click', '.borrow-btn', function() {
+	$('#booksTable').on('click', '.borrow-btn', function () {
 		var bookId = $(this).data('id');
 		var confirmation = confirm("Sigur doriți să împrumutați această carte?");
 		if (confirmation) {
@@ -109,18 +111,18 @@ $(document).ready(function() {
 			$.ajax({
 				url: '/borrowBook/' + bookId,
 				type: 'POST',
-				success: function(response) {
+				success: function (response) {
 
 					table.ajax.reload();
 					alert('Cartea a fost împrumutată cu succes!');
 				},
-				error: function(error) {
+				error: function (error) {
 					alert('A apărut o eroare la împrumutarea cărții.');
 				}
 			});
 		}
 	});
-	$('#booksTable').on('click', '.return-btn', function() {
+	$('#booksTable').on('click', '.return-btn', function () {
 		var bookId = $(this).data('id');
 		var confirmation = confirm("Sigur doriți să restituiți această carte?");
 		if (confirmation) {
@@ -128,12 +130,12 @@ $(document).ready(function() {
 			$.ajax({
 				url: '/returnBook/' + bookId,
 				type: 'POST',
-				success: function(response) {
+				success: function (response) {
 
 					table.ajax.reload();
 					alert('Cartea a fost restituită cu succes!');
 				},
-				error: function(error) {
+				error: function (error) {
 					alert('A apărut o eroare la restituirea cărții.');
 				}
 			});
@@ -141,7 +143,7 @@ $(document).ready(function() {
 	});
 	adjustTableHeight();
 });
-$(window).resize(function() {
+$(window).resize(function () {
 	adjustTableHeight()
 });
 

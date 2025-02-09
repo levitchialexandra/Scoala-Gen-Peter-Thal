@@ -15,13 +15,13 @@ public class AdminController {
 	UserRepository appUserRepo;
 	@Autowired
     private HttpSession session;
-	@GetMapping("/login")
+	@GetMapping("/pages/login")
     public String loginPage() {
     
-        return "login";  
+        return "pages/login";  
     }
 	
-	@PostMapping("/login")
+	@PostMapping("/pages/login")
 	public String login(@RequestParam String username, @RequestParam String password, Model model) {
         
     	try {
@@ -29,11 +29,11 @@ public class AdminController {
             session.setAttribute("sessionUser", appUser);
            
 
-            return "redirect:/addBook"; 
+            return "redirect:/pages/addBook"; 
 
         } catch (RuntimeException e) {
             model.addAttribute("error", e.getMessage());
-            return "login"; 
+            return "pages/login"; 
         }
     }
 	public AppUser loginUser(String username, String password) {

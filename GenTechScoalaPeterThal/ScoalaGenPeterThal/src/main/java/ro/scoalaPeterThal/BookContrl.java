@@ -42,21 +42,22 @@ public class BookContrl {
 	public String BooksList() {
 		return "bookslist";
 	}
+	
 
 	public List<Genre> getAllGenres() {
 		return genreRepository.findAll();
 	}
 
-	@GetMapping("/addBook")
+	@GetMapping("/pages/addBook")
 	public String showAddBookForm(Model model) {
 		if (!CheckIfUserIsLoggedIn())
-			return "redirect:/login";
+			return "redirect:/pages/login";
 		model.addAttribute("book", new Book());
 		model.addAttribute("genres", genreRepository.findAll());
-		return "addBook";
+		return "pages/addBook";
 	}
 
-	@PostMapping("/addBook")
+	@PostMapping("/pages/addBook")
 	public String addBook(@Valid @ModelAttribute Book book, BindingResult result, Model model) {
 
 		if (result.hasErrors()) {
@@ -65,7 +66,7 @@ public class BookContrl {
 			return "addBook";
 		}
 		bookRepository.save(book);
-		return "addBook";
+		return "pages/addBook";
 	}
 
 	@DeleteMapping("/deleteBook/{id}")

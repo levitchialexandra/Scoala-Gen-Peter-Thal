@@ -4,7 +4,6 @@ INDEX VERSION 1.134+C:\Users\Cristi\Documents\GitHub\Scoala-Gen-Peter-Thal\GenTe
 692892120.index
 2396051084.index
 3833545483.index
-3124070714.index
 3172642368.index
 1362112211.index
 282472329.index
