@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Controller
 public class BookContrl {
@@ -42,7 +43,6 @@ public class BookContrl {
 	public String BooksList() {
 		return "bookslist";
 	}
-	
 
 	public List<Genre> getAllGenres() {
 		return genreRepository.findAll();
@@ -129,17 +129,16 @@ public class BookContrl {
 
 	@GetMapping("/booksAjax")
 	@ResponseBody
-	public Map<String, Object> getBooks(@RequestParam( required = false) String title,
+	public Map<String, Object> getBooks(@RequestParam(required = false) String title,
 			@RequestParam int draw, @RequestParam(required = false) String author,
-			@RequestParam( required = false) Integer publicationYear,
+			@RequestParam(required = false) Integer publicationYear,
 			@RequestParam(value = "genre", required = false) String genreId,
 			@RequestParam(value = "search[value]", required = false) String searchValue,
-			@RequestParam( defaultValue = "0") int start,
-			@RequestParam( defaultValue = "10") int length,
+			@RequestParam(defaultValue = "0") int start,
+			@RequestParam(defaultValue = "10") int length,
 			@RequestParam(value = "order[0][column]", defaultValue = "0") int orderColumn,
 			@RequestParam(value = "order[0][dir]", defaultValue = "asc") String orderDir) {
 
-		
 		Pageable pageable = PageRequest.of(start / length, length, "asc".equals(orderDir)
 				? Sort.by(orderColumn == 0 ? "title" : orderColumn == 1 ? "author" : "publicationYear")
 				: Sort.by(orderColumn == 0 ? "title" : orderColumn == 1 ? "author" : "publicationYear").descending());
@@ -164,18 +163,17 @@ public class BookContrl {
 	@GetMapping("/booksAjaxWithAvailabilityWithPag")
 	@ResponseBody
 	public Map<String, Object> getBooksWithAvailabilityWithPag(
-			@RequestParam( required = false) String title, @RequestParam int draw,
-			@RequestParam( required = false) String author,
-			@RequestParam( required = false) Integer publicationYear,
+			@RequestParam(required = false) String title, @RequestParam int draw,
+			@RequestParam(required = false) String author,
+			@RequestParam(required = false) Integer publicationYear,
 			@RequestParam(value = "genre", required = false) String genreId,
 			@RequestParam(value = "search[value]", required = false) String searchValue,
-			@RequestParam( defaultValue = "0") int start,
-			@RequestParam( defaultValue = "10") int length,
+			@RequestParam(defaultValue = "0") int start,
+			@RequestParam(defaultValue = "10") int length,
 			@RequestParam(value = "order[0][column]", defaultValue = "0") int orderColumn,
 			@RequestParam(value = "order[0][dir]", defaultValue = "asc") String orderDir,
 			@RequestParam(required = false) String availability) {
 
-		
 		Pageable pageable = PageRequest.of(start / length, length, "asc".equals(orderDir)
 				? Sort.by(orderColumn == 0 ? "title" : orderColumn == 1 ? "author" : "publicationYear")
 				: Sort.by(orderColumn == 0 ? "title" : orderColumn == 1 ? "author" : "publicationYear").descending());
@@ -186,11 +184,9 @@ public class BookContrl {
 			genId = (genres != null && !genres.isEmpty()) ? genres.get(0).getId() : null;
 		}
 
-		
 		List<Book> books = searchBooksByFilter(title, author, genId, publicationYear, searchValue, pageable);
 		List<BookDTO> bookDTOs = new ArrayList<>();
 
-		
 		for (Book book : books) {
 			BookDTO bookDTO = new BookDTO();
 			var avab = getAvailabilityStatus(book);
@@ -207,15 +203,12 @@ public class BookContrl {
 			}
 		}
 
-		
 		long totalFilteredRecords = bookDTOs.size();
-		long totalRecords = bookRepository.count(); 
+		long totalRecords = bookRepository.count();
 
-		
 		int toIndex = (int) Math.min(start + length, totalFilteredRecords);
 		List<BookDTO> paginatedBooks = bookDTOs.subList(start, toIndex);
 
-		
 		Map<String, Object> response = new HashMap<>();
 		response.put("draw", draw);
 		response.put("recordsTotal", totalRecords); // Total cărți (fără filtrare)
@@ -237,8 +230,6 @@ public class BookContrl {
 			@RequestParam(value = "order[0][dir]", defaultValue = "asc") String orderDir,
 			@RequestParam(required = false) String availability) {
 
-		
-		
 		Pageable pageable = PageRequest.of(0, Integer.MAX_VALUE, "asc".equals(orderDir)
 				? Sort.by(orderColumn == 0 ? "title" : orderColumn == 1 ? "author" : "publicationYear")
 				: Sort.by(orderColumn == 0 ? "title" : orderColumn == 1 ? "author" : "publicationYear").descending());
@@ -249,20 +240,23 @@ public class BookContrl {
 			genId = (genres != null && !genres.isEmpty()) ? genres.get(0).getId() : null;
 		}
 
-		
 		List<Book> books = searchBooksByFilter(title, author, genId, publicationYear, searchValue, pageable);
 		List<BookDTO> bookDTOs = new ArrayList<>();
 
-		
 		for (Book book : books) {
 			BookDTO bookDTO = new BookDTO();
-			bookDTO.setId(book.getId());
-			bookDTO.setTitle(book.getTitle());
-			bookDTO.setAuthor(book.getAuthor());
-			bookDTO.setGenre(book.getGenre());
-			bookDTO.setPublicationYear(book.getPublicationYear());
-			bookDTO.setAvailability( getAvailabilityStatus(book));
-			bookDTOs.add(bookDTO);
+			var avabStat = getAvailabilityStatus(book);
+			System.out.println(avabStat);
+			if (availability == "" || (avabStat.equalsIgnoreCase(availability)
+					|| avabStat.contains(availability))) {
+				bookDTO.setId(book.getId());
+				bookDTO.setTitle(book.getTitle());
+				bookDTO.setAuthor(book.getAuthor());
+				bookDTO.setGenre(book.getGenre());
+				bookDTO.setPublicationYear(book.getPublicationYear());
+				bookDTO.setAvailability(getAvailabilityStatus(book));
+				bookDTOs.add(bookDTO);
+			}
 
 		}
 
@@ -293,4 +287,20 @@ public class BookContrl {
 		}
 		return "Disponibil";
 	}
+
+	public List<BookDTO> filterBooksByAvailability(List<BookDTO> bookDTOs, String filterType) {
+		return bookDTOs.stream()
+				.filter(bookDTO -> {
+					if ("ALL".equalsIgnoreCase(filterType)) {
+						return true; // Show all books
+					} else if ("DISPONIBIL".equalsIgnoreCase(filterType)) {
+						return "Disponibil".equals(bookDTO.getAvailability());
+					} else if ("Împrumutat".equalsIgnoreCase(filterType)) {
+						return bookDTO.getAvailability().contains("Împrumutat");
+					}
+					return false;
+				})
+				.collect(Collectors.toList());
+	}
+
 }

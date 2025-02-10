@@ -16,12 +16,13 @@ $(document).ready(function () {
 	var isAdmin = currentUrl.toLowerCase().indexOf("addbook") >= 0;
 	cols = isAdmin ? cols.concat(extraCols) : cols;
 	var table = $('#booksTable').DataTable({
-
+		"order": [],
 		"paging": false,  // Disable pagination
 		"lengthChange": true,
 		"pageLength": 10,
 		"searching": false,
 		"ordering": true,
+		"orderCellsTop": true,
 		"serverSide": true,
 		"pagingType": "full_numbers",
 		"processing": true, // Can be useful to show that data is being processed
@@ -59,11 +60,13 @@ $(document).ready(function () {
 				}
 				$("#booksTable_length").hide();
 				$("#booksTable_filter").hide();
+				$("#booksTable_info").hide();
 				return json.data;
 			}
 		},
 
-		"columns": cols
+		"columns": cols,
+
 	});
 
 	$('#titleSearch, #authorSearch,#genreSearch,#yearSearch').on('keyup change', function () {

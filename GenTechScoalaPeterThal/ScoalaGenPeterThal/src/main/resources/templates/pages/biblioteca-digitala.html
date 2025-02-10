@@ -11,13 +11,9 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"
+      href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"
     />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.min.css"
-    />
+    
     
     <link href="/css/bookListStyle.css" rel="stylesheet" />
     <script
@@ -28,11 +24,12 @@
     <script
       type="text/javascript"
       charset="utf8"
-      src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"
+      src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"
     ></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"></script>
    
     <script src="/scripts/bookList.js"></script>
+   
   </head>
 
   <body>
@@ -53,8 +50,8 @@
                   <th>Anul publicării</th>
                   <th>Disponibilitate</th>
                 </tr>
-                <tr>
-                  <td>
+                <tr >
+                  <td >
                     <input
                       type="text"
                       id="titleSearch"
@@ -86,12 +83,17 @@
                       placeholder="Căutare după an"
                     />
                   </td>
-                  <td></td>
+                  <td> <select id="availabilityFilter" class="form-control">
+                    <option value="">Toate</option>
+                    <option value="Disponibil">Disponibil</option>
+                    <option value="Împrumutat">Împrumutat</option>
+                </select></td>
                 </tr>
               </thead>
               <tbody></tbody>
             </table>
           </div>
+          
         </div>
       </form>
     </div>
