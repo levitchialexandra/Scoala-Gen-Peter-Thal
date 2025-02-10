@@ -31,7 +31,7 @@
 	z-index: 1; /* Ensures the header stays on top */
 }
 body {
-	background-color: #ffb6c1; /* Soft pink background */
+	/*background-color: #ffb6c1;  Soft pink background */
 	justify-content: center;
 	align-items: center;
 	height: 100vh;

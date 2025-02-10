@@ -53,7 +53,7 @@ $(document).ready(function () {
 						if (item.availability === "Disponibil") {
 							item.actions += '<button class="btn btn-success btn-sm borrow-btn" data-id="' + item.id + '">Împrumută</button>';
 						} else {
-							item.actions += '<button class="btn btn-secondary btn-sm return-btn">Restituie</button>';
+							item.actions += '<button class="btn btn-secondary btn-sm return-btn " data-id="' + item.id + '">Restituie</button>';
 						}
 					});
 
