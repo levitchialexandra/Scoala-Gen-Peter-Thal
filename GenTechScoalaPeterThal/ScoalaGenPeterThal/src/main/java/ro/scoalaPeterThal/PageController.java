@@ -47,4 +47,8 @@ public class PageController {
     public String schedule() {
         return "pages/orar"; 
     }
+    @GetMapping("/pages/contact")
+    public String contact() {
+        return "pages/contact"; 
+    }
 }
