@@ -14,7 +14,7 @@ public class PageController {
     public String homePage() {
         return "/index";
     }
-    @GetMapping("/pages/bibliotecadigitala")
+    @GetMapping("/pages/biblioteca-digitala")
     public String bibliotecaDigitala() {
         return "pages/biblioteca-digitala"; 
     }
