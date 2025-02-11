@@ -1,0 +1,21 @@
+body {
+    background-image: url('/images/wood_texture.png');
+    background-size: cover;
+}
+.button {
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 10px;
+}
+.primary {
+    background-color: yellow;
+}
+.secondary {
+    background-color: lightgoldenrodyellow;
+}
+select {
+    font-size: 16px;
+    padding: 5px;
+}

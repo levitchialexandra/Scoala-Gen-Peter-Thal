@@ -43,10 +43,7 @@ public class PageController {
     public String ofertaEducationala() {
         return "pages/oferta-educationala"; 
     }
-    @GetMapping("/pages/orar")
-    public String schedule() {
-        return "pages/orar"; 
-    }
+    
     @GetMapping("/pages/contact")
     public String contact() {
         return "pages/contact"; 
