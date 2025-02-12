@@ -19,3 +19,57 @@ select {
     font-size: 16px;
     padding: 5px;
 }
+
+body {
+    background-color: #f3e1c3; /* Fundal bej deschis */
+   
+}
+.orar-container {
+    width: 100%;
+    margin: 30px auto;
+    border-radius: 15px;
+    overflow: hidden;
+    background-color: white;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    background-image: url("/assets/images/orarBg.jpeg");
+    background-repeat: no-repeat;
+}
+.orar-header {
+    background-color: #d49b6a;
+    color: #1a1a1a;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    font-size: 20px;
+}
+.orar-table th {
+    background-color: #dff2a1;
+    text-align: center;
+    vertical-align: middle;
+}
+.orar-table td, .orar-table th {
+    border: 1px solid #ccc;
+    text-align: center;
+    padding: 10px;
+}
+.orar-table tbody td:first-child {
+    background-color: #a2c2e0;
+    font-weight: bold;
+    color: white;
+}
+.orar-table{
+    width:80%;
+}
+.banner-intro {
+    background:
+    linear-gradient(
+      to bottom,
+      #3F6EAA,
+      #2C4E87
+    );
+    --mask:
+      radial-gradient(59.63px at 50% calc(100% - 82.5px),#000 99%,#0000 101%) calc(50% - 100px) 0/200px 100%,
+      radial-gradient(59.63px at 50% calc(100% + 32.5px),#0000 99%,#000 101%) 50% calc(100% - 50px)/200px 100% repeat-x;
+    -webkit-mask: var(--mask);
+            mask: var(--mask);
+  } 

@@ -14,12 +14,34 @@
 <body>
     <!-- Loader-ul navbar-ului  -->
     <div id="navbar-container"></div>
+    <section class="banner-intro">
+        <div class="container wrapper">
+            <div class="row align-items-center justify-content-center">
+                <div class="col col-3 image-1">
+                    <img src="/assets/images/scoala.jpeg">
+                </div>
+    
+                <div class="col col-5">
+                    <h3> Some text here</h3>
+                    <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                        Fusce tincidunt aliquam mi, ut semper lacus placerat a.
+                        Quisque volutpat massa ut ultricies molestie. Donec vehicula mollis nisl eu lobortis.
+                        Nam eu euismod elit, eget vehicula purus.
+                        Suspendisse leo nisi, feugiat ut lectus at, fringilla tempor ligula.
+                        Vestibulum efficitur eget odio vel tristique. </p>
+                </div>
+    
+    
+            </div>
+        </div>
+    </section>
+    
+    <div class="container main-container d-flex flex-column justify-content-center align-items-center"
+        style="min-height: 100vh;">
 
-    <div class="container main-container ">
 
-
-        <h1>Bun venit!</h1>
-        <p>Aceasta este pagina orar.</p>
+       
+        <div class="orar-container"> 
         <form method="get">
             <button type="submit" name="ciclu" value="PRIMAR" id="btnCicluPrimar"
                     class="button btnCiclu primary" >
@@ -43,7 +65,7 @@
             </select>
         </form>
             
-        <table border="1" th:if="${not #lists.isEmpty(orar)}">
+        <table border="1" th:if="${not #lists.isEmpty(orar)}" class="table orar-table">
            
             <thead >
                 <tr>
@@ -71,7 +93,7 @@
                 </tr>
             </tbody>
         </table>
-        
+    </div>
     </div>
 
 

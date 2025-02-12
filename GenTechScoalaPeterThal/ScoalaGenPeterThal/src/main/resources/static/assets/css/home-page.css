@@ -1,7 +1,6 @@
 .svg-background {
     position: absolute;
     top: 0;
-    /* Ajustează pentru poziționare */
     left: 0;
     width: 100%;
     height: 650px;
@@ -9,7 +8,6 @@
 }
 
 .home-page-title {
-    
     font-family: 'Tillana';
     font-weight: 500;
     letter-spacing: -1px;
@@ -35,8 +33,7 @@
   
     .subtitle-home-page {
         margin: auto;
-    }
-    
+    }  
 }
 
 .citat-home-page {
@@ -45,8 +42,371 @@
         letter-spacing: -1px;
         text-align: center;
         font-style: italic;
+        margin-left: 10%;
 }
 
 .main-container svg {    
- height: auto;
+    height: auto;
+}
+
+.de-ce-sa-alegi-scoala-gimnaziala-rasnov{
+    min-height: 420px;
+    background-color: #FFED89;
+    border-radius: 50px;
+    padding-bottom: 40px;
+    margin-bottom: 200px;
+    
+}
+
+.titlu-sectiune-home-alegere{
+    font-family: 'Poppins';
+    font-weight: 500;
+    line-height: 40px;
+    letter-spacing: 1px;
+}
+
+.subtitlu-sectiune-home-alegere{
+    font-family: 'Poppins';
+    font-weight: 600;
+    line-height: 40px;
+    letter-spacing: 2px;
+    margin-top: 20px;
+}
+
+ .custom-card-parent .col:nth-child(2) .custom-card {
+    padding-top: 100px;
+   
+ }
+
+.rectangulars-container{
+    margin-top: 100px;
+    margin-bottom: 100px;
+    overflow: hidden;
+}
+
+
+
+.rectangular1,
+.rectangular2,
+.rectangular3 {
+    margin-inline: 2.5vw;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    cursor: pointer;
+    border-radius: 30px;
+    overflow: hidden;
+   
+}
+    
+   .text-rectangulars {
+        font-family: 'Poppins';
+        font-weight: 500;
+        font-size: 2vw;
+        line-height: 39px;
+        letter-spacing: 1px;
+        text-align: center;
+        z-index: 3;
+    
+   }
+
+    .pictograma-rectangular{
+        margin-top: -7vh;
+        position: relative;
+        z-index: 3;
+    }
+
+    .arrow-circle-up{
+        position: relative;
+        z-index: 3;
+    }
+    .yellow-shape-rectangular{
+        position: relative;
+        z-index: 2;
+        bottom: 28%;
+        left: 45%;
+        transform: translateX(-50%);
+    }
+
+    .green-shape-rectangular {
+        position: relative;
+        z-index: 2;
+        bottom: 70%;
+        left: 123%;
+        transform: translateX(-50%);
+    }
+
+    .purple-shape-rectangular{
+        position: relative;
+        bottom: 70%;
+        left: 45%;
+        transform: translateX(-50%);
+    }
+
+    .rectangular1:hover, .rectangular2:hover, .rectangular3:hover{
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+    .rectangular1 {
+        background-color: #63D784;
+        border-radius: 30px;
+        height: 40vh;
+        width: 40vw;
+        min-height: 270px;
+}
+
+    .rectangular2 {
+        background-color: #AF9FF1;
+        border-radius: 30px;
+        height: 55vh;
+        width: 55vw;
+        min-height: 350px;
+    
+    }
+
+    .rectangular3 {
+        background-color: #E4FDB2;
+        border-radius: 30px;
+        height: 30vh;
+        width: 30vw;
+        min-height: 270px;
+       
+       
+    }
+
+
+.htag-images{
+    position: relative;
+    
+      
+}
+.htag-images img{
+    position: absolute;
+    width: 25vw;
+    top: -11vh;
+    right: 4vh;
+}
+
+
+
+@media (max-width: 767px) {
+    .de-ce-sa-alegi-scoala-gimnaziala-rasnov {
+        background-color: transparent !important;
+        /* Elimină fundalul */
+    }
+
+    .custom-card {
+        background-color: #FFED89;
+        border: 1px solid #ecda72;
+        padding: 20px;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .custom-card img {
+        max-width: 60px;
+        height: auto;
+    }
+
+    .row.mt-5.justify-content-center {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col.col-4.col-sm-12 {
+        width: 100%;
+        max-width: 320px;
+      
+    }
+    .custom-card-parent .col:nth-child(2) .custom-card {
+        padding-top: 20px;
+
+    }
+    .de-ce-sa-alegi-scoala-gimnaziala-rasnov {
+        
+    margin-bottom: -80px;
+
+    }
+
+.rectangulars-container {
+    margin-top: 100px;
+    margin-bottom: 80px;
+    overflow: hidden;
+}
+
+
+
+.rectangular1,
+.rectangular2,
+.rectangular3 {
+    margin-inline: 1vw;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+    cursor: pointer;
+    border-radius: 30px;
+    overflow: hidden;
+
+}
+
+.text-rectangulars {
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 2.8vh; 
+    line-height: 19px;
+    letter-spacing: 1px;
+    text-align: center;
+    z-index: 3;
+
+}
+
+.pictograma-rectangular {
+    margin-top: -8vh;
+    position: relative;
+    z-index: 3;
+    width: 17vw;
+}
+
+.arrow-circle-up {
+    margin-left: 72%;
+    position: relative;
+    z-index: 3;
+    width: 8vw;
+    
+}
+
+.yellow-shape-rectangular {
+    position: relative;
+    z-index: 2;
+    bottom: -12%;
+    left: 13%;
+    transform: translateX(-50%);
+    width: 8vw;
+}
+
+.green-shape-rectangular {
+    position: relative;
+    z-index: 2;
+    bottom: 45%;
+    left: 80%;
+    transform: translateX(-50%);
+    width: 12vw;
+}
+
+.purple-shape-rectangular {
+    position: relative;
+    bottom: 70%;
+    left: 15%;
+    transform: translateX(-50%);
+    width: 8vw;
+}
+
+.rectangular1:hover,
+.rectangular2:hover,
+.rectangular3:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.rectangular1 {
+    background-color: #63D784;
+    border-radius: 30px;
+    height: 40vh;
+    width: 40vw;
+    min-height: 170px;
+    max-height: 35vh;
+}
+
+.rectangular2 {
+    background-color: #AF9FF1;
+    border-radius: 30px;
+    height: 55vh;
+    width: 55vw;
+    min-height: 250px;
+    max-height: 45vh;
+
+}
+
+.rectangular3 {
+    background-color: #E4FDB2;
+    border-radius: 30px;
+    height: 30vh;
+    width: 30vw;
+    min-height: 170px;
+    max-height: 30vh;
+}
+
+.htag-images {
+    position: relative;
+}
+
+.htag-images img {
+    position: absolute;
+    width: 30vw;
+    top: 5vh;
+    right: -7vh;
+}
+
+}
+
+@media (max-width: 479px) {
+   
+.rectangular3 {
+    min-height: 130px;
+    max-height: 130px; 
+   
+    }
+
+.rectangular2{
+    min-height: 220px;
+    max-height: 220px;
+   
+
+}
+
+.rectangular1 {
+    min-height: 170px;
+    max-height: 170px; 
+  
+}
+
+.pictograma-rectangular {
+    margin-top: -4vh;
+    width: 17vw;
+}
+
+
+
+.yellow-shape-rectangular {
+    bottom: -21%;
+    left: 5%;
+
+}
+
+.green-shape-rectangular {
+
+    bottom: 52%;
+    left: 89%;
+
+}
+
+.purple-shape-rectangular {
+    bottom: 65%;
+    left: 8%;
+
+}
+.htag-images {
+    position: relative;
+}
+
+.htag-images img {
+    position: absolute;
+    width: 30vw;
+    top: 15vh;
+    right: 0vh;
+}
+
 }
