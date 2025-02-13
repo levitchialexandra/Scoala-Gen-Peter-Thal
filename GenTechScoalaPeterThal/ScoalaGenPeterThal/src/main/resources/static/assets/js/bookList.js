@@ -156,4 +156,10 @@ function adjustTableHeight() {
 	const tableContainer = document.querySelector('.table-responsive');
 
 	tableContainer.style.maxHeight = `${windowHeight * 0.8}px`;
+	if( $(window).width()<768){
+		var tbWrrapper=document.querySelector('#booksTable_wrapper');
+	tableContainer.style.maxHeight =tbWrrapper.style.maxHeight= `${windowHeight * 0.5}px`;
+	
+	
+	}
 }
