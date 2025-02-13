@@ -24,29 +24,38 @@
         <div class="row align-items-center justify-content-center text-center text-md-start">
           
          
-          <div class="col-10 col-sm-6 col-md-4 col-lg-3 mb-3 mb-md-0 imageCopii"></div>
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4 mb-md-0">
+            <img src="/assets/images/logo_copii.png" class="img-fluid d-block mx-auto mx-md-0" alt="Copii">
+          </div>
     
-          <!-- Text Column -->
-          <div class="col-12 col-md-6 col-lg-5" style="margin-top: 50px;">
+          
+          <div class="col-12 col-sm-6 col-md-6 col-lg-5" th:if="${#lists.isEmpty(orar)}">
             <h3>Orarul școlar</h3>
             <p>
               Pentru a asigura o organizare eficientă și o informare corectă, am
               pus la dispoziția elevilor și părinților orarele actualizate
-              pentru fiecare clasă. Astfel, puteți verifica rapid și ușor
-              programul zilnic al lecțiilor, evitând neclaritățile și
-              întârzierile.
+              pentru fiecare clasă.
             </p>
             <p>
-              Pentru a accesa orarul complet al unei clase specifice, selectați clasa dorită din lista disponibilă. Această
-              secțiune este concepută pentru a facilita accesul rapid la
-              programul zilnic, astfel încât atât elevii, cât și părinții să fie
-              mereu informați cu privire la desfășurarea activităților educaționale.
+              Pentru a accesa orarul complet al unei clase specifice, selectați clasa dorită din lista disponibilă.
             </p>
           </div>
-    
+          <div class="col-12 col-sm-6 col-md-6 col-lg-5" th:if="${not #lists.isEmpty(orar)}">
+            <h3>Orar detaliat pe clasă</h3>
+            <p>
+              Pentru a accesa orarul complet al unei clase specifice, selectați clasa dorită din lista disponibilă. Această secțiune este concepută pentru a facilita accesul rapid la programul zilnic, astfel încât atât elevii, cât și părinții să fie mereu informați cu privire la desfășurarea activităților educaționale.
+
+            </p>
+            <p>Prin această pagină, vă asigurăm că aveți la îndemână detalii clare despre desfășurarea orelor, contribuind la o organizare mai bună a timpului și a activităților școlare.
+              Pentru </p>
+            <p>
+              Pentru eventuale modificări sau actualizări, vă recomandăm să verificați periodic această secțiune.
+            </p>
         </div>
       </div>
     </section>
+    
+    
     
     <div
       class="container main-container d-flex flex-column justify-content-center align-items-center"
@@ -110,7 +119,7 @@
       >
         <div class="row justify-content-center mt-4">
           <div class="col-12">
-            <div th:text="${clasaSelectata}" class="text-dark"></div>
+            <div  class="text-dark"><h4 th:text="${clasaSelectata}"></h4></div>
             <div class="table-responsive">
               <table
                 border="1"
