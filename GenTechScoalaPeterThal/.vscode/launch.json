@@ -5,6 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "type": "java",
+            "name": "ScoalaGenPeterThalApplication",
+            "request": "launch",
+            "mainClass": "ro.scoalaPeterThal.ScoalaGenPeterThalApplication",
+            "projectName": "ScoalaGenPeterThal"
+        },
+        {
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
