@@ -63,9 +63,11 @@ public class BookContrl {
 		if (result.hasErrors()) {
 
 			model.addAttribute("genres", genreRepository.findAll());
-			return "addBook";
+			return "pages/addBook";
 		}
 		bookRepository.save(book);
+		model.addAttribute("genres", genreRepository.findAll());
+		model.addAttribute("book", new Book());
 		return "pages/addBook";
 	}
 
@@ -81,46 +83,7 @@ public class BookContrl {
 		}
 	}
 
-	@PostMapping("/borrowBook/{id}")
-	public ResponseEntity<String> borrowBook(@PathVariable Long id) {
-		Optional<Book> bookOptional = bookRepository.findById(id);
-		if (bookOptional.isPresent()) {
-			Book book = bookOptional.get();
-
-			Loan loan = new Loan();
-			loan.setBook(book);
-			loan.setLoanDate(LocalDate.now());
-			loan.setReturnDate(LocalDate.now().plusWeeks(2));
-
-			loanRepository.save(loan);
-
-			return ResponseEntity.ok("Cartea a fost împrumutată cu succes!");
-
-		} else {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cartea nu a fost găsită!");
-		}
-	}
-
-	@PostMapping("/returnBook/{id}")
-	public ResponseEntity<String> returnBook(@PathVariable Long id) {
-		Optional<Book> bookOptional = bookRepository.findById(id);
-		if (bookOptional.isPresent()) {
-			Book book = bookOptional.get();
-
-			Optional<Loan> loanOptional = loanRepository.findByBook(book);
-			if (loanOptional.isPresent()) {
-				Loan loan = loanOptional.get();
-				loan.setReturnDate(LocalDate.now());
-				loanRepository.save(loan);
-			}
-
-			return ResponseEntity.ok("Cartea a fost restituită cu succes!");
-
-		} else {
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cartea nu a fost găsită!");
-		}
-	}
-
+	
 	public Boolean CheckIfUserIsLoggedIn() {
 		AppUser sessionUser = (AppUser) session.getAttribute("sessionUser");
 
@@ -284,6 +247,9 @@ public class BookContrl {
 			if (loan.getReturnDate().isAfter(LocalDate.now())) {
 				return "Împrumutat până la " + loan.getReturnDate();
 			}
+			else{
+				return "Termen depasit! Data limită " + loan.getReturnDate();
+			}
 		}
 		return "Disponibil";
 	}
@@ -292,11 +258,13 @@ public class BookContrl {
 		return bookDTOs.stream()
 				.filter(bookDTO -> {
 					if ("ALL".equalsIgnoreCase(filterType)) {
-						return true; // Show all books
+						return true; 
 					} else if ("DISPONIBIL".equalsIgnoreCase(filterType)) {
 						return "Disponibil".equals(bookDTO.getAvailability());
 					} else if ("Împrumutat".equalsIgnoreCase(filterType)) {
 						return bookDTO.getAvailability().contains("Împrumutat");
+					} else if ("Termen".equalsIgnoreCase(filterType)) {
+						return bookDTO.getAvailability().contains("Termen");
 					}
 					return false;
 				})

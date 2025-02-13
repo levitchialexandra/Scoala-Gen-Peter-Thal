@@ -17,7 +17,7 @@ $(document).ready(function () {
 	cols = isAdmin ? cols.concat(extraCols) : cols;
 	var table = $('#booksTable').DataTable({
 		"order": [],
-		"paging": false,  // Disable pagination
+		"paging": false,  
 		"lengthChange": true,
 		"pageLength": 10,
 		"searching": false,
@@ -25,12 +25,12 @@ $(document).ready(function () {
 		"orderCellsTop": true,
 		"serverSide": true,
 		"pagingType": "full_numbers",
-		"processing": true, // Can be useful to show that data is being processed
+		"processing": true,
 		"language": {
 			"emptyTable": "No records available",
 			"info": "Showing _START_ to _END_ of _TOTAL_ entries",
 			"infoFiltered": "(filtered from _MAX_ total entries)",
-			"lengthMenu": "Show _MENU_ entries", // Allows user to change the number of records per page
+			"lengthMenu": "Show _MENU_ entries",
 		},
 		"dom": '<"H"lfr>t<"F"ip>',
 		"ajax": {
@@ -51,7 +51,7 @@ $(document).ready(function () {
 					json.data.forEach(function (item) {
 						item.actions = '<button class="btn btn-danger btn-sm delete-btn" data-id="' + item.id + '">Șterge</button>';
 						if (item.availability === "Disponibil") {
-							item.actions += '<button class="btn btn-success btn-sm borrow-btn" data-id="' + item.id + '">Împrumută</button>';
+							item.actions += '<button class="btn btn-success btn-sm borrow-btn" data-id="' + item.id + '" data-title="'+item.title+'">Împrumută</button>';
 						} else {
 							item.actions += '<button class="btn btn-secondary btn-sm return-btn " data-id="' + item.id + '">Restituie</button>';
 						}
@@ -106,7 +106,7 @@ $(document).ready(function () {
 			});
 		}
 	});
-	$('#booksTable').on('click', '.borrow-btn', function () {
+	/*$('#booksTable').on('click', '.borrow-btn', function () {
 		var bookId = $(this).data('id');
 		var confirmation = confirm("Sigur doriți să împrumutați această carte?");
 		if (confirmation) {
@@ -124,7 +124,7 @@ $(document).ready(function () {
 				}
 			});
 		}
-	});
+	});*/
 	$('#booksTable').on('click', '.return-btn', function () {
 		var bookId = $(this).data('id');
 		var confirmation = confirm("Sigur doriți să restituiți această carte?");
