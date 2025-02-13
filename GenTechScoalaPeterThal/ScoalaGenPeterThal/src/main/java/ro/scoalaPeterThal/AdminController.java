@@ -20,7 +20,13 @@ public class AdminController {
     
         return "pages/login";  
     }
-	
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+       session.invalidate();
+       
+        return "redirect:/pages/login";
+    }
+
 	@PostMapping("/pages/login")
 	public String login(@RequestParam String username, @RequestParam String password, Model model) {
         
