@@ -1,0 +1,142 @@
+.top-container {
+    position: relative;
+    /* text-align: center; */
+    color: white;
+}
+
+.top-title {
+    position: absolute;
+    top: 8vw;
+    left: 8vw;
+    font-family: 'Tillana';
+    font-weight: 500;
+    font-size: 4.5vw;
+    line-height: 5vw;
+    text-align: left;
+}
+
+.top-subtitle {
+    position: absolute;
+    top: 14vw;
+    left: 8vw;
+    font-family: 'Poppins';
+    font-weight: 400;
+    font-size: 1.9vw;
+    line-height: 2.8vw;
+    text-align: left;
+    max-width: 49vw;
+}
+
+
+.top-quote {
+    position: absolute;
+    top: 13vw;
+    left: 58vw;
+    font-family: 'Tillana';
+    font-weight: 400;
+    font-size: 3.6vw;
+    line-height: 4.7vw;
+    text-align: right;
+    max-width: 33.7vw;
+}
+
+
+/* De facut curba pentru text Elevul !!  */
+.top-circle-title {
+    position: absolute;
+    top: 40vw;
+    left: 21vw;
+    font-family: 'Tillana';
+    font-weight: 400;
+    font-size: 4.6vw;
+    line-height: 4.7vw;
+        
+}
+
+
+.top-circle-subtitle {
+    position: absolute;
+    top: 46vw;
+    left: 17.2vw;
+    font-family: 'Tillana';
+    font-weight: 400;
+    font-size: 1.8vw;
+    line-height: 2.7vw;
+    max-width: 22.9vw;
+    text-align: center;
+}
+
+.testimonial-container{
+    position: relative;
+    color: #0A2E5C;
+    text-align: center;
+    font-family: 'Poppins' ,sans-serif;
+    padding-top: 8vw;
+}
+
+.img-vector-testimonial{
+    position: absolute;
+    z-index: 1;
+    top: 19vw;
+    max-width: 95vw;
+}
+.testimonial-title {
+    font-weight: 400;
+    font-size: 6vw;
+    line-height: 6vw;
+    z-index: 2;
+    
+}
+
+.testimonial-subtitle{
+    font-weight: 400;
+    font-size: 2vw;
+    line-height: 3vw;
+    z-index: 2;
+
+}
+
+.img-cards-testimonial{
+
+    z-index: 2;
+}
+
+.img-comentariu1, .img-comentariu2, .img-comentariu3 {
+    position: absolute;
+    top: 21vw;
+    max-width: 8vw; 
+    z-index: 2;
+}
+
+.img-comentariu1{
+    left: 12vw;
+}
+
+.img-comentariu2 {
+    left: 46.2vw;
+}
+
+.img-comentariu3 {
+    right: 12vw;
+}
+
+.comment-title{
+    font-family: 'Poppins';
+    position: absolute;
+    top: 27.7vw;
+    max-width: fit-content;
+    z-index: 2;
+    font-size: 1.9vw;
+    font-weight: 400;
+    line-height: 3vw;
+}
+
+.comment-title1{
+    left: 7vw;
+}
+.comment-title2 {
+    left: 43vw;
+}
+.comment-title3 {
+    right: 10vw;
+}

@@ -95,3 +95,8 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus {
 .sortButton.sorted-desc i {
     transform: rotate(0deg);  
 }
+@media (max-width: 768px) {
+#booksTable_wrapper{
+    transform: scale(0.55);
+    transform-origin:top left;
+}}
