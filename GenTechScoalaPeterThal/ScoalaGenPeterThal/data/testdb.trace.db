@@ -8612,7 +8612,11 @@ Caused by: org.h2.mvstore.MVStoreException: The file is locked: C:/Users/Cristi/
 	at org.h2.mvstore.SingleFileStore.open(SingleFileStore.java:81)
 	at org.h2.mvstore.MVStore.<init>(MVStore.java:286)
 	... 138 more
+<<<<<<< HEAD
+2025-02-13 12:50:40.025863+02:00 database: close
+=======
 2025-02-12 19:55:12.075024+02:00 database: close
+>>>>>>> main
 org.h2.message.DbException: IO Exception: "Closing" [90028-232]
 	at org.h2.message.DbException.get(DbException.java:212)
 	at org.h2.mvstore.db.Store.close(Store.java:374)
@@ -8627,7 +8631,11 @@ org.h2.message.DbException: IO Exception: "Closing" [90028-232]
 	at com.zaxxer.hikari.pool.HikariPool.lambda$closeConnection$1(HikariPool.java:435)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+<<<<<<< HEAD
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+=======
 	at java.base/java.lang.Thread.run(Thread.java:1570)
+>>>>>>> main
 Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "Closing" [90028-232]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
@@ -8651,6 +8659,9 @@ Caused by: java.lang.AssertionError
 	at org.h2.mvstore.FileStore.executeFileStoreOperation(FileStore.java:1893)
 	at org.h2.mvstore.MVStore.executeFilestoreOperation(MVStore.java:922)
 	... 19 more
+<<<<<<< HEAD
+2025-02-13 12:51:57.156033+02:00 database: close
+=======
 2025-02-12 21:00:56.251556+02:00 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "STUDENT_ID" not found; SQL statement:
 alter table if exists loan add constraint FKfbonj141xsdw24nn37kvpcr4d foreign key (student_id) references student [42122-232]
@@ -10236,6 +10247,7 @@ Caused by: org.h2.jdbc.JdbcSQLInvalidAuthorizationSpecException: Wrong user name
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
 	... 58 more
 2025-02-13 08:58:33.569218+02:00 database: close
+>>>>>>> main
 org.h2.message.DbException: IO Exception: "Closing" [90028-232]
 	at org.h2.message.DbException.get(DbException.java:212)
 	at org.h2.mvstore.db.Store.close(Store.java:374)
@@ -10250,7 +10262,11 @@ org.h2.message.DbException: IO Exception: "Closing" [90028-232]
 	at com.zaxxer.hikari.pool.HikariPool.lambda$closeConnection$1(HikariPool.java:435)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+<<<<<<< HEAD
+	at java.base/java.lang.Thread.run(Thread.java:1575)
+=======
 	at java.base/java.lang.Thread.run(Thread.java:1570)
+>>>>>>> main
 Caused by: org.h2.jdbc.JdbcSQLNonTransientException: IO Exception: "Closing" [90028-232]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:566)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
