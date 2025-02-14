@@ -13,6 +13,7 @@ import basics.orar.Clasa.Ciclu;
 import repository.ClasaRepository;
 import repository.OrarRepository;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -32,12 +33,14 @@ public class OrarController {
         if (clasa != null) {
             orar = orarRepository.findByClasaNume(clasa);
         }
+        List<String> colors = Arrays.asList("#AF9FF1", "#FFED89", "#7EAEEC", "#E4FDB2", "#FEAAD8");
         List<Clasa> clase = clasaRepository.findByCiclu(ciclu);
         List<String> zile = List.of("Luni", "Marți", "Miercuri", "Joi", "Vineri");
         List<String> ore = List.of(
             "08:00 - 09:00", "09:00 - 10:00", "10:00 - 11:00",
             "11:00 - 12:00", "12:00 - 13:00", "13:00 - 14:00"
         );
+        model.addAttribute("colors", colors);
         model.addAttribute("zile", zile);
     model.addAttribute("orarOre", ore);
         model.addAttribute("clase", clase);
