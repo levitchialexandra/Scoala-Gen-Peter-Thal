@@ -1,0 +1,46 @@
+package ro.scoalaPeterThalClasses;
+
+import jakarta.persistence.*;
+
+@Entity
+public class Book {
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long ID;
+
+    private String Title;
+    private String Author;
+    private String Genre;
+    private int PublicationYear;
+	public Long getID() {
+		return ID;
+	}
+	public void setID(Long iD) {
+		ID = iD;
+	}
+	public String getTitle() {
+		return Title;
+	}
+	public void setTitle(String title) {
+		Title = title;
+	}
+	public String getAuthor() {
+		return Author;
+	}
+	public void setAuthor(String author) {
+		Author = author;
+	}
+	public String getGenre() {
+		return Genre;
+	}
+	public void setGenre(String genre) {
+		Genre = genre;
+	}
+	public int getYear() {
+		return Year;
+	}
+	public void setYear(int year) {
+		Year = year;
+	}
+	
+}

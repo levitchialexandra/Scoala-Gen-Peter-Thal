@@ -1,9 +1,3 @@
-.main-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 140px;
-}
-
 .svg-background {
     position: absolute;
     top: 0;

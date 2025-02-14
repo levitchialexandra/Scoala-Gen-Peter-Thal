@@ -1,0 +1,57 @@
+package ro.scoalaPeterThal;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+
+import repository.BookRepository;
+import repository.GenreRepository;
+import basics.*;
+import java.util.List;
+@Controller
+public class BookContrl {
+	@Autowired
+	BookRepository bookRepository;
+	
+	@Autowired
+	GenreRepository genreRepository;
+	@GetMapping("/books1")
+	public String BooksList() {
+		return "bookslist";
+	}
+	 public List<Genre> getAllGenres() {
+	        return genreRepository.findAll();
+	    }
+	 public List<Book> searchBooks(String title, String author, Genre genre, Integer publicationYear) {
+	        if (title != null && !title.isEmpty()) {
+	            return bookRepository.findByTitleContainingAndAuthorContainingAndGenreAndPublicationYear(title, author, genre, publicationYear);
+	        } else {
+	            return bookRepository.findAll();
+	        }
+	    }
+	 @GetMapping("/books")
+	    public String showBooks(
+	            @RequestParam(value = "title", required = false) String title,
+	            @RequestParam(value = "author", required = false) String author,
+	            @RequestParam(value = "genre", required = false) Genre genre,
+	            @RequestParam(value = "publicationYear", required = false) Integer publicationYear,
+	            Model model) {
+	        
+	        model.addAttribute("books", searchBooks(title, author, genre, publicationYear));
+	        model.addAttribute("genres", getAllGenres());  // Trimiterea genurilor
+	        return "books";
+	    }
+
+	    // Metoda AJAX pentru căutare în timp real
+	    @GetMapping("/searchBooks")
+	    @ResponseBody
+	    public List<Book> searchBooksAjax(
+	            @RequestParam(value = "title", required = false) String title,
+	            @RequestParam(value = "author", required = false) String author,
+	            @RequestParam(value = "genre", required = false) String genre,
+	            @RequestParam(value = "publicationYear", required = false) Integer publicationYear) {
+	        
+	        return searchBooks(title, author, genre, publicationYear);
+	    }
+}

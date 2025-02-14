@@ -17,10 +17,7 @@ public class Loan {
 	@Column(nullable = false)
 
 	private LocalDate returnDate;
-	@ManyToOne
-    @JoinColumn(name = "student_id", nullable = false)
-    private Student student; 
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -51,14 +48,6 @@ public class Loan {
 
 	public void setReturnDate(LocalDate returnDate) {
 		this.returnDate = returnDate;
-	}
-
-	public Student getStudent() {
-		return student;
-	}
-
-	public void setStudent(Student student) {
-		this.student = student;
 	}
 
 }
