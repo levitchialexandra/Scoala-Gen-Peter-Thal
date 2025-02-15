@@ -1,0 +1,23 @@
+package controllers;
+
+@Controller
+@RequestMapping("/books")
+public class BookController {
+
+    @Autowired
+    private BookService bookService;
+
+    @GetMapping
+    public String getBooks(Model model, @RequestParam(required = false) String title, 
+                           @RequestParam(required = false) String author, 
+                           @RequestParam(required = false) String genre, 
+                           @RequestParam(required = false) String sortBy) {
+        List<Book> books = bookService.searchBooks(title, author, genre);
+
+        if (sortBy != null) {
+            books = bookService.sortBooks(sortBy);
+        }
+
+        model.addAttribute("books", books);
+        return "books/list";
+    }

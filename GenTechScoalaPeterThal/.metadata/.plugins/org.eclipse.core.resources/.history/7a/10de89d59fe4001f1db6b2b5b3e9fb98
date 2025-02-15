@@ -1,0 +1,225 @@
+package ro.scoalaPeterThal;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.jpa.domain.Specification;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
+
+import repository.BookRepository;
+import repository.BookSpecification;
+import repository.GenreRepository;
+import basics.*;
+import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+@Controller
+public class BookContrl {
+	@Autowired
+	BookRepository bookRepository;
+	
+	@Autowired
+	GenreRepository genreRepository;
+	@Autowired
+	private HttpSession session;
+
+	@GetMapping("/books1")
+	public String BooksList() {
+		return "bookslist";
+	}
+	 public List<Genre> getAllGenres() {
+	        return genreRepository.findAll();
+	    }
+	 public List<Book> searchBooks1(String title, String author, Long genreId, Integer publicationYear) {
+		 Genre genre = null;
+	        
+	        
+	        if (genreId != null) {
+	            genre = genreRepository.findById(genreId).orElse(null);
+	        }
+	        
+	        if ((title != null && !title.isEmpty())||
+	        		(author != null && !author.isEmpty())||
+	        		(genre != null)||
+	        		publicationYear!=null) {
+	            return bookRepository.findByTitleContainingAndAuthorContainingAndGenreIdAndPublicationYear(title, author, genreId, publicationYear);
+	        } else {
+	        	List<Book> searchBooks= bookRepository.findAll();
+	        	
+	        	return searchBooks;
+	        }
+	    }
+	 
+	 public List<Book> searchBooks(String title, String author, Long genreId, Integer publicationYear, Sort sort) {
+	        
+	        Specification<Book> spec = BookSpecification.buildSpecification(title, author, genreId, publicationYear);
+	        
+	       
+	        return null;
+	        		//bookRepository.findAll(spec, sort);
+	    }
+	 @GetMapping("/books")
+	    public String showBooks(
+	            @RequestParam(value = "title", required = false) String title,
+	            @RequestParam(value = "author", required = false) String author,
+	            @RequestParam(value = "genre", required = false) Long genreId,
+	            @RequestParam(value = "publicationYear", required = false) Integer publicationYear,
+	            @RequestParam(defaultValue = "title",required = false) String sortBy,
+                @RequestParam(defaultValue = "asc", required = false) String direction,
+	            Model model) {
+		 Sort sort = Sort.by(Sort.Order.by(sortBy));
+	        if (direction.equals("desc")) {
+	            sort = sort.descending();
+	        }
+	        List<Book> filteredBooks=searchBooks(title, author, genreId, publicationYear,sort);
+	       System.out.println(filteredBooks);
+	       
+	        
+	        model.addAttribute("books", filteredBooks);
+	        model.addAttribute("genres", getAllGenres());  
+	        System.out.println(direction);
+	        model.addAttribute("sortBy", sortBy);
+	        model.addAttribute("direction", direction);
+	        return "bookslist";
+	    }
+
+	    @GetMapping("/booksSort")
+	    public String getBooks(Model model,
+	                           @RequestParam(defaultValue = "") String titleSearch,
+	                           @RequestParam(defaultValue = "") String authorSearch,
+	                           @RequestParam(defaultValue = "") Long genreSearch,
+	                           @RequestParam(defaultValue = "") Integer yearSearch,
+	                           @RequestParam(defaultValue = "title") String sortBy,
+	                           @RequestParam(defaultValue = "asc") String direction) {
+
+	        // Căutare și sortare
+	        Sort sort = Sort.by(Sort.Order.by(sortBy));
+	        if (direction.equals("desc")) {
+	            sort = sort.descending();
+	        }
+
+	        // Filtrarea cărților în funcție de parametrii de căutare
+	        var books = bookRepository.findByTitleContainingAndAuthorContainingAndGenreAndPublicationYear(
+	                titleSearch, authorSearch, genreSearch, yearSearch, sort);
+
+	        model.addAttribute("books", books);
+	        model.addAttribute("sortBy", sortBy);
+	        model.addAttribute("direction", direction);
+	        model.addAttribute("titleSearch", titleSearch);
+	        model.addAttribute("authorSearch", authorSearch);
+	        model.addAttribute("genreSearch", genreSearch);
+	        model.addAttribute("yearSearch", yearSearch);
+
+	        return "bookslist";  // Numele paginii Thymeleaf
+	    }
+	    // Metoda AJAX pentru căutare în timp real
+	    @GetMapping("/searchBooks1")
+	    @ResponseBody
+	    public List<Book> searchBooksAjax(
+	            @RequestParam(value = "title", required = false) String title,
+	            @RequestParam(value = "author", required = false) String author,
+	            @RequestParam(value = "genre", required = false) Long genre,
+	            @RequestParam(value = "publicationYear", required = false) Integer publicationYear,
+	            @RequestParam(defaultValue = "title", required = false) String sortBy,
+                @RequestParam(defaultValue = "asc", required = false) String direction) {
+	    	 Sort sort = Sort.by(Sort.Order.by(sortBy));
+		        if (direction.equals("desc")) {
+		            sort = sort.descending();
+		        }
+	        return searchBooks(title, author, genre, publicationYear, sort);
+	    }
+	    
+	    @GetMapping("/addBook")
+	    public String showAddBookForm(Model model) {
+	    	if(!CheckIfUserIsLoggedIn()) return "redirect:/login";
+	        model.addAttribute("book", new Book());  
+	        model.addAttribute("genres", genreRepository.findAll());  
+	        return "addBook";
+	    }
+	    
+	    @PostMapping("/addBook")
+	    public String addBook(@Valid @ModelAttribute Book book, BindingResult result, Model model) {
+	    	
+	    	if (result.hasErrors()) {
+	        	
+	            model.addAttribute("genres", genreRepository.findAll()); 
+	            return "addBook";  
+	        }
+	        bookRepository.save(book);  
+	        return "redirect:/";  
+	    }
+	    public Boolean CheckIfUserIsLoggedIn() {
+			AppUser sessionUser = (AppUser) session.getAttribute("sessionUser");
+			
+			return sessionUser!=null;
+		}
+	    
+	    
+	    @GetMapping("/searchBooks")
+	    public String searchBooks2(
+	    		@RequestParam(value = "title", required = false) String title,
+	            @RequestParam(value = "author", required = false) String author,
+	            @RequestParam(value = "genre", required = false) Long genreId,
+	            @RequestParam(value = "publicationYear", required = false) Integer publicationYear,
+	            @RequestParam(defaultValue = "title") String sortBy,
+	            @RequestParam(defaultValue = "asc") String direction,
+	            Pageable pageable,  // Use Pageable for pagination
+	            Model model) {
+
+	        // Creează un obiect Sort pentru a sorta datele pe baza coloanei selectate
+	        Sort sort = Sort.by(Sort.Order.by("title"));
+	        if (direction.equals("desc")) {
+	            sort = sort.descending();
+	        }
+
+	        // Specificațiile de căutare
+	        Specification<Book> spec = BookSpecification.buildSpecification(title, author, genreId, publicationYear);
+
+	        // Obține datele paginată
+	      //  Pageable pageable = PageRequest.of(start / length, length, sort);
+	        Page<Book> page = (Page<Book>) bookRepository.findAll(spec, pageable);
+
+	        // Creează răspunsul pentru DataTables
+	        model.addAttribute("books", page.getContent());  // Get the content of the page
+	        model.addAttribute("totalPages", page.getTotalPages());  // Total pages for pagination
+	        model.addAttribute("currentPage", page.getNumber());  // Current page
+	        model.addAttribute("sortBy", sortBy);
+	        model.addAttribute("direction", direction);
+	        return "bookslist";
+	    }
+	    
+	    @GetMapping("/searchBooks")
+	    @ResponseBody  // Ensure this makes it a JSON response
+	    public Map<String, Object> searchBooks(
+	            @RequestParam(value = "title", required = false) String title,
+	            @RequestParam(value = "author", required = false) String author,
+	            @RequestParam(value = "genre", required = false) Long genreId,
+	            @RequestParam(value = "publicationYear", required = false) Integer publicationYear,
+	            @RequestParam(defaultValue = "title") String sortBy,
+	            @RequestParam(defaultValue = "asc") String direction,
+	            Pageable pageable) {
+
+	        Sort sort = Sort.by(Sort.Order.by(sortBy));
+	        if (direction.equals("desc")) {
+	            sort = sort.descending();
+	        }
+	        Specification<Book> spec = BookSpecification.buildSpecification(title, author, genreId, publicationYear);
+	        Page<Book> page = bookRepository.findAll(spec, pageable.withPage(sort));
+	        Map<String, Object> response = new HashMap<>();
+	        response.put("draw", pageable.getPageNumber() + 1);  // Draw count, adjust as needed
+	        response.put("recordsTotal", page.getTotalElements());
+	        response.put("recordsFiltered", page.getTotalElements());
+	        response.put("data", page.getContent());  // List of books for DataTables to render
+
+	        return response;
+	    }
+}

@@ -3,28 +3,25 @@ let userMarker;
 
 
 const schoolLocation = { lat: 45.596806, lng: 25.468380 }; // Coordonatele Scoala gen Peter Thal
-document.addEventListener("DOMContentLoaded", function () {
-    setTimeout(() => {
-        initMap();
-    }, 300);
-
-
+document.addEventListener("DOMContentLoaded", function() {
+    initMap();
+    
 });
 function initMap() {
-
+    
     map = new google.maps.Map(document.getElementById("map"), {
         center: schoolLocation,
         zoom: 14,
     });
 
-
+    
     new google.maps.Marker({
         position: schoolLocation,
         map: map,
         title: "Școala generala Peter Thal"
     });
-    let checkbox = document.getElementById("cbTraseu");
-    if (!checkbox.checked) return;
+
+    
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             const userLocation = {
@@ -39,10 +36,10 @@ function initMap() {
                 title: "Locația mea"
             });
 
-
+           
             map.setCenter(userLocation);
 
-
+            
             const directionsService = new google.maps.DirectionsService();
             const directionsRenderer = new google.maps.DirectionsRenderer();
             directionsRenderer.setMap(map);
