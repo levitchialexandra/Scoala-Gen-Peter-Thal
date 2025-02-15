@@ -1,23 +1,55 @@
+/* Banner Intro */
 .banner-intro {
     background-image: url("../images/Banner-yellow.png");
     background-repeat: no-repeat;
-    background-size: cover;
-    width: 100vw;
-    height: 100%;
+    background-size: 100% 100%;
+    padding-top: clamp(1rem, 3vw, 2rem);
+    padding-bottom: clamp(1rem, 5vw, 2.8rem);
 }
 
-.banner-content {
-    overflow: hidden;
-    padding: 2vw;
+.banner-imagine {
+    max-width: 18rem;
 }
 
-.banner-copii {
-    width: clamp(12rem, 20vw, 20rem);
-
+.banner-text {
+    padding: 0 3vw;
 }
 
-.pdf {
-    width: 50vw;
-    height: 60vw;
-    padding: 5vw;
+.banner-text h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2rem);
+}
+
+.banner-text p {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+}
+
+/* PDF Section */
+.pdf-viewer {
+    width: 100%;
+    height: 1000px;
+    padding: 5vw 20vw;
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+    .banner-intro {
+        background-image: url("../images/Banner-yellow.png");
+        background-repeat: no-repeat;
+        background-size: 160% 100%;
+    }
+
+    .banner-text {
+        padding: 5vw;
+        padding-top: 1vw;
+    }
+
+    .banner-imagine {
+        max-width: 14rem;
+    }
+
+    .pdf-viewer {
+        width: 100%;
+        height: 600px;
+        padding: 5vw 10vw;
+    }
 }
