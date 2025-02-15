@@ -1,6 +1,6 @@
 .navbar {
     background-color: #ffffff;
-    max-height: 120px;
+    max-height: 100px;
     display: flex;
     justify-content: space-between;
     width: 100vw;
@@ -31,7 +31,7 @@
     background-color: #0A2E5C;
 }
 
-.title{
+.navbar-title{
     font-family: 'Tillana';
     font-weight: 500;
     color: #0A2E5C;
