@@ -1,0 +1,23 @@
+.banner-intro {
+    background-image: url("../images/Banner-yellow.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100%;
+}
+
+.banner-content {
+    overflow: hidden;
+    padding: 2vw;
+}
+
+.banner-copii {
+    width: clamp(12rem, 20vw, 20rem);
+
+}
+
+.pdf {
+    width: 50vw;
+    height: 60vw;
+    padding: 5vw;
+}

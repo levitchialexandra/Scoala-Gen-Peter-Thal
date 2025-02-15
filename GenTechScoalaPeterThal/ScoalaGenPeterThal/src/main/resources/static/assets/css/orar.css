@@ -1,39 +1,60 @@
 body {
-    background-image: url('/images/wood_texture.png');
+
     background-size: cover;
 }
-.button {
-    padding: 10px;
-    border: none;
+
+.main-container {
+    margin-top: 0px;
+}
+
+.button,
+select {
+    padding: 5px;
+    border: 1px solid black;
     cursor: pointer;
-    font-size: 16px;
-    border-radius: 10px;
+    font-size: 14px !important;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 200px;
 }
+
 .primary {
-    background-color: yellow;
+    background-color: #FFED89;
 }
+
 .secondary {
     background-color: lightgoldenrodyellow;
 }
+
 select {
-    font-size: 16px;
+    font-size: 14px;
     padding: 5px;
 }
 
-body {
-    background-color: #f3e1c3; /* Fundal bej deschis */
-   
-}
+.orar-container-emptyView,
 .orar-container {
-    width: 100%;
+    width: 90%;
+    max-width: 900px;
     margin: 30px auto;
     border-radius: 15px;
     overflow: hidden;
     background-color: white;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+
+    background-size: 100% 100%;
+    min-height: 600px;
+    padding: 20px;
+}
+
+.orar-container-emptyView {
     background-image: url("/assets/images/orarBg.jpeg");
     background-repeat: no-repeat;
 }
+
+.orar-container {
+    background-color: #E7B884;
+}
+
 .orar-header {
     background-color: #d49b6a;
     color: #1a1a1a;
@@ -42,34 +63,159 @@ body {
     padding: 15px;
     font-size: 20px;
 }
+
 .orar-table th {
-    background-color: #dff2a1;
+    background-color: #AEC99F;
     text-align: center;
     vertical-align: middle;
 }
-.orar-table td, .orar-table th {
+
+.thFirst {
+    background-color: #3b5998 !important;
+
+}
+
+.orar-table td,
+.orar-table th {
     border: 1px solid #ccc;
     text-align: center;
     padding: 10px;
+    width: 100px;
+    height: 70px !important;
+    vertical-align: middle;
 }
+
 .orar-table tbody td:first-child {
-    background-color: #a2c2e0;
-    font-weight: bold;
-    color: white;
+    background-color: #a2c2e0 !important;
+    ;
+    font-weight: 500;
+    color: black;
 }
-.orar-table{
-    width:80%;
+
+.orar-table {
+    width: 100%;
+    margin: auto;
+    min-height: 500px;
+    border-radius: 30px;
+    overflow: hidden;
+    border-collapse: separate;
+    border-spacing: 0;
 }
+
 .banner-intro {
-    background:
-    linear-gradient(
-      to bottom,
-      #3F6EAA,
-      #2C4E87
-    );
-    --mask:
-      radial-gradient(59.63px at 50% calc(100% - 82.5px),#000 99%,#0000 101%) calc(50% - 100px) 0/200px 100%,
-      radial-gradient(59.63px at 50% calc(100% + 32.5px),#0000 99%,#000 101%) 50% calc(100% - 50px)/200px 100% repeat-x;
-    -webkit-mask: var(--mask);
-            mask: var(--mask);
-  } 
+    background-image: url("/assets/images/IntroOrarFaraCopii.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    height: 400px;
+    margin-top:130px;
+}
+
+.orarCicluSelection {
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+    padding: 50px;
+}
+
+.orarClasa {
+    width: 200px;
+    margin: auto;
+    padding: 30px;
+}
+
+.orarClasa select,
+.form-select {
+    text-align: center;
+    border-radius: 15px !important;
+    width: 200px;
+    margin: auto;
+}
+
+.orarBtns {
+    width: 100%;
+    margin-top: 0px;
+}
+.imageCopii{
+    
+    background-image: url(/assets/images/logo_copii.png);
+    background-size: contain;
+    background-position: center;
+    height: 300px;
+    width: 25%;
+    background-repeat: no-repeat;
+    margin-top: 15px;
+   
+      
+}
+
+@media (max-width: 768px) {
+
+    .button,
+    select {
+        font-size: 12px !important;
+    }
+
+    .orar-container {
+        min-height: auto;
+        padding: 10px;
+    }
+
+    .orar-table td,
+    .orar-table th {
+        padding: 5px;
+        font-size: 12px;
+    }
+
+    .orar-container-emptyView {
+        background-image: url("/assets/images/orarBgMobile.jpeg");
+        background-repeat: no-repeat;
+    }
+
+    .orarBtns {
+        width: 100%;
+
+    }
+
+    .orar-tableMin {
+        border-radius: 30px;
+
+        overflow: hidden;
+
+        border-collapse: separate;
+
+        border-spacing: 0;
+    }
+
+    .orarZiMin {
+        text-transform: uppercase;
+        writing-mode: vertical-rl;
+        text-orientation: upright;
+        white-space: nowrap;
+        padding: 10px;
+
+    }
+
+    .dvClasaSelect {
+        margin-top: 10px;
+    }
+
+    .hour-block {
+        background-color: #007bff !important;
+       
+        color: white !important;
+        
+        width: 120px;
+        
+        text-align: center;
+       
+        padding: 5px 0;
+    }
+
+        .imageCopii img {
+            max-width: 80%; 
+            margin: 0 auto; 
+            display: block;
+          }
+    
+
+}

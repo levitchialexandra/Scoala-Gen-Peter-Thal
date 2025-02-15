@@ -1,4 +1,3 @@
-
 .top-container {
     position: relative;
     /* text-align: center; */
@@ -95,7 +94,6 @@
     line-height: 3vw;
     z-index: 2;
 
-
 }
 
 .img-cards-testimonial{
@@ -131,7 +129,6 @@
     font-size: 1.9vw;
     font-weight: 400;
     line-height: 3vw;
-    justify-content: center;
 }
 
 .comment-title1{
@@ -141,198 +138,5 @@
     left: 43vw;
 }
 .comment-title3 {
-    right: 9.9vw;
-}
-
-.comment-subtitle {
-    font-family: 'Poppins';
-    position: absolute;
-    top: 32.1vw;
-    max-width: fit-content;
-    z-index: 2;
-    font-size: 1.3vw;
-    font-weight: 400;
-    line-height: 2.1vw;
-    max-width: 14.2vw;
-}
-
-.comment-subtitle1 {
-    left: 7.7vw;
-}
-.comment-subtitle2 {
-    left: 42vw;
-}
-.comment-subtitle3 {
-    left: 75.2vw;
-}
-
-.titlu-istoric{
-    position: relative;
-    font-family: 'Poppins';
-    font-weight: 500;
-    font-size: 1.9vw;
-    line-height: 2vw;
-    color: #0A2E5C;
-}
-
-.titlu-istoric-text{
-position: relative;
-top: -11.5vw;
-}
-
-
-.timeline {
-    list-style: none;
-    padding: 0;
-    position: relative;
-    margin-inline: 7vw;
-}
-
-/* Linia verticală */
-.timeline::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 20px;
-    width: 4px;
-    height: 100%;
-    background-color: #0A2E5C;
-}
-
-/* Stil pentru fiecare eveniment */
-.timeline li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-/* Bulina */
-.timeline li::before {
-    content: "";
-    width: 20px;
-    height: 20px;
-    background-color: #0A2E5C;
-    border-radius: 50%;
-    position: absolute;
-    left: 10px;
-    top: 10px;
-}
-
-/* Stil pentru data */
-.timeline-date {
-    font-style: italic;
-    font-size: 18px;
-    font-weight: bold;
-    width: 100px;
-    text-align: right;
-    padding-right: 20px;
-}
-
-/* Stil pentru conținut */
-.timeline-content {
-    background-color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    flex: 1;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-
-
-@media(max-width: 1200px ){ 
-.img-comentariu1,
-    .img-comentariu2,
-    .img-comentariu3 {
-        position: absolute;
-        top: 21vw;
-        max-width: 6vw;
-        z-index: 2;
-    }
-
-       
-}
-
-@media (max-width: 767px) {
-
-    
-    .img-comentariu1 {
-        left: 14vw;
-    }
-
-    .img-comentariu2 {
-        left: 45.2vw;
-    }
-
-    .img-comentariu3 {
-        right: 11.1vw;
-    }
-
-    .comment-title1 {
-        left: 7vw;
-    }
-
-    .comment-title2 {
-        left: 41.5vw;
-    }
-
-    .comment-title3 {
-        right: 9.4vw;
-    }
-
-
-    .comment-subtitle1 {
-        left: 7.7vw;
-    }
-
-    .comment-subtitle2 {
-        left: 40.3vw;
-    }
-
-    .comment-subtitle3 {
-        left: 73vw;
-       
-    }
-
-}
-    
-@media (max-width: 479px) {
-
-    .img-comentariu1 {
-        left: 14vw;
-    }
-
-    .img-comentariu2 {
-        left: 43.9vw;
-    }
-
-    .img-comentariu3 {
-        right: 12.2vw;
-    }
-
-    .comment-title1 {
-        left: 7vw;
-    }
-
-    .comment-title2 {
-        left: 40.9vw;
-    }
-
-    .comment-title3 {
-        right: 11vw;
-    }
-
-
-    .comment-subtitle1 {
-        left: 9.1vw;
-    }
-
-    .comment-subtitle2 {
-        left: 39.4vw;
-    }
-
-    .comment-subtitle3 {
-        left: 69.9vw;
-    }
-
+    right: 10vw;
 }
