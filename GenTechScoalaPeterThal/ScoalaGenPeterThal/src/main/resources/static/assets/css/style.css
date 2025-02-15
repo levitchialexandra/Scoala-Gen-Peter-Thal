@@ -12,3 +12,8 @@ html, body {
     overflow-x: hidden;
 }
 
+.navbar .nav-link.active {
+    background-color: #0A2E5C; 
+    color: white !important; 
+    
+  }
