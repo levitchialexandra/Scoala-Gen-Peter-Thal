@@ -88,7 +88,7 @@ select {
 }
 
 .orar-container-emptyView {
-    background-image: url("/assets/images/orarBg.jpeg");
+    background-image: url("/assets/images/Banner-orar-desktop.png");
     background-repeat: no-repeat;
 }
 
@@ -189,7 +189,7 @@ select {
     }
 
     .orar-container-emptyView {
-        background-image: url("/assets/images/orarBgMobile.jpeg");
+        background-image: url("/assets/images/Banner-orar-mobile-png");
         background-repeat: no-repeat;
     }
 
