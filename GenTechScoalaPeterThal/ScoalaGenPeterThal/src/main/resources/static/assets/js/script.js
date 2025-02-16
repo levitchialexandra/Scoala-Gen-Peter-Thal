@@ -37,9 +37,25 @@ document.addEventListener("DOMContentLoaded", function () {
         .catch(error => console.error('Eroare la încărcarea header-ului:', error));
 });
 
-document.querySelectorAll('.flip-card').forEach(card => {
-    card.addEventListener('click', () => {
-        card.classList.toggle('flipped');
-    });
+document.querySelectorAll('.flip-card').forEach((card) => {
+  card.addEventListener('click', () => {
+    card.classList.toggle('flipped');
+  });
 });
 
+
+function copyToClipboard(element) {
+    const textElement = element.querySelector(".text-to-copy");
+    const originalText = textElement.innerText; 
+    const textCopied = textElement.getAttribute("data-value"); 
+
+    navigator.clipboard.writeText(originalText)
+        .then(() => {
+            textElement.innerText = textCopied;
+
+            setTimeout(() => {
+                textElement.innerHTML = originalText; 
+            }, 1500);
+        })
+        .catch(err => console.error("Error copying text: ", err));
+}
