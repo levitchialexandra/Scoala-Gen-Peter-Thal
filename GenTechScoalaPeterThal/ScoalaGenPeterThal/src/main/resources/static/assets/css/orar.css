@@ -31,8 +31,6 @@ body {
 /* For small screens */
 @media (max-width: 768px) {
     .banner-intro {
-        background-image: url("../images/Banner-blue.png");
-        background-repeat: no-repeat;
         background-size: 160% 100%;
     }
 

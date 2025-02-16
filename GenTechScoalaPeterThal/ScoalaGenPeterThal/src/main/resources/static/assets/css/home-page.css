@@ -102,7 +102,7 @@
 }
 
 .arrow-circle-up {
-    width: clamp(3.5rem, 6vw, 6rem);
+    width: clamp(4rem, 7vw, 6rem);
 }
 
 /* Tags section */
@@ -174,6 +174,7 @@
         border-radius: 20px;
         margin-bottom: 20px;
         text-align: center;
+        min-width: 18rem;
     }
 
     .text-container {
