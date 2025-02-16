@@ -1,214 +1,183 @@
-.main-container {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 140px;
+/* Secțiune Intro */
+
+.container-lines {
+    background-image: url("../images/Lines1.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
 }
 
-.svg-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 650px;
-    z-index: -1;
+@media (max-width: 768px) {
+    .container-lines {
+        background-size: 160% 100%;
+    }
 }
 
 .home-page-title {
     font-family: 'Tillana';
     font-weight: 500;
-    letter-spacing: -1px;
-    align-items: center; 
-    position: relative; 
-    z-index: 2;
-  
-   
+    align-items: center;
+    position: relative;
+    padding-top: 2vw;
 }
 
 .title-home-page {
     font-size: clamp(40px, 4vw, 50px);
     margin-bottom: -20px;
-   
 }
 
 .subtitle-home-page {
     font-size: clamp(60px, 4vw, 80px);
     margin-left: 8%;
-  
-}
-@media screen and (max-width: 768px) {
-  
-    .subtitle-home-page {
-        margin: auto;
-    }  
 }
 
 .citat-home-page {
-        font-family: 'Tillana';
-        font-weight: 400;
-        letter-spacing: -1px;
-        text-align: center;
-        font-style: italic;
-        margin-left: 10%;
+    font-family: 'Tillana';
+    text-align: center;
+    font-style: italic;
+    padding-left: 10vw;
 }
 
-.main-container svg {    
-    height: auto;
+/* Butoane link-uri */
+
+.rectangular1 {
+    background-image: url("../images/Banner-link1.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 220px;
 }
 
-.de-ce-sa-alegi-scoala-gimnaziala-rasnov{
-    min-height: 420px;
-    background-color: #FFED89;
-    border-radius: 50px;
-    padding-bottom: 40px;
-    margin-bottom: 200px;
-    
+.rectangular2 {
+    background-image: url("../images/Banner-link2.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 260px;
 }
 
-.titlu-sectiune-home-alegere{
-    font-family: 'Poppins';
-    font-weight: 500;
-    line-height: 40px;
-    letter-spacing: 1px;
+.rectangular3 {
+    background-image: url("../images/Banner-link3.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    min-height: 200px;
 }
-
-.subtitlu-sectiune-home-alegere{
-    font-family: 'Poppins';
-    font-weight: 600;
-    line-height: 40px;
-    letter-spacing: 2px;
-    margin-top: 20px;
-}
-
- .custom-card-parent .col:nth-child(2) .custom-card {
-    padding-top: 100px;
-   
- }
-
-.rectangulars-container{
-    margin-top: 100px;
-    margin-bottom: 100px;
-    overflow: hidden;
-}
-
-
 
 .rectangular1,
 .rectangular2,
 .rectangular3 {
-    margin-inline: 2.5vw;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-inline: 2vw;
+    box-shadow: -4px 5px 8px rgba(0, 0, 0, 20%);
     transition: all 0.3s;
     cursor: pointer;
-    border-radius: 30px;
-    overflow: hidden;
-   
+    border-radius: 38px;
 }
-    
-   .text-rectangulars {
-        font-family: 'Poppins';
-        font-weight: 500;
-        font-size: 2vw;
-        line-height: 39px;
-        letter-spacing: 1px;
-        text-align: center;
-        z-index: 3;
-    
-   }
 
-    .pictograma-rectangular{
-        margin-top: -7vh;
-        position: relative;
-        z-index: 3;
+.rectangular1:hover,
+.rectangular2:hover,
+.rectangular3:hover {
+    transform: scale(1.05);
+    box-shadow: -4px 5px 14px rgba(0, 0, 0, 20%);
+}
+
+.rectangular-title {
+    font-weight: 500;
+    font-size: clamp(0.9rem, 1.8vw, 1.5rem);
+    letter-spacing: 1px;
+    text-align: center;
+    padding-bottom: 2vw;
+    text-decoration: none;
+}
+
+.rectangular-link {
+    text-decoration: none;
+    color: #0A2E5C;
+}
+
+.pictograma-rectangular {
+    width: clamp(4.5rem, 10vw, 7rem);
+    position: relative;
+    margin-top: -10px;
+}
+
+.pictograma-education {
+    width: clamp(5.5rem, 12vw, 9rem);
+}
+
+.arrow-circle-up {
+    width: clamp(3.5rem, 6vw, 6rem);
+}
+
+/* Tags section */
+
+.rectangular0 {
+    background-size: 100% 100%;
+}
+
+.tags {
+    position: relative;
+    width: clamp(15rem, 28vw, 22rem);
+    top: 20px;
+    padding-right: 0;
+}
+
+@media (max-width: 992px) {
+    .tags {
+        top: 30px;
     }
 
-    .arrow-circle-up{
-        position: relative;
-        z-index: 3;
-    }
-    .yellow-shape-rectangular{
-        position: relative;
-        z-index: 2;
-        bottom: 28%;
-        left: 45%;
-        transform: translateX(-50%);
-    }
-
-    .green-shape-rectangular {
-        position: relative;
-        z-index: 2;
-        bottom: 70%;
-        left: 123%;
-        transform: translateX(-50%);
-    }
-
-    .purple-shape-rectangular{
-        position: relative;
-        bottom: 70%;
-        left: 45%;
-        transform: translateX(-50%);
-    }
-
-    .rectangular1:hover, .rectangular2:hover, .rectangular3:hover{
-        transform: scale(1.05);
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    }
     .rectangular1 {
-        background-color: #63D784;
-        border-radius: 30px;
-        height: 40vh;
-        width: 40vw;
-        min-height: 270px;
-}
+        min-height: 150px;
+    }
 
     .rectangular2 {
-        background-color: #AF9FF1;
-        border-radius: 30px;
-        height: 55vh;
-        width: 55vw;
-        min-height: 350px;
-    
+        min-height: 190px;
     }
 
     .rectangular3 {
-        background-color: #E4FDB2;
-        border-radius: 30px;
-        height: 30vh;
-        width: 30vw;
-        min-height: 270px;
-       
-       
+        min-height: 130px;
     }
 
-
-.htag-images{
-    position: relative;
-    
-      
-}
-.htag-images img{
-    position: absolute;
-    width: 25vw;
-    top: -11vh;
-    right: 4vh;
+    .pictograma-rectangular {
+        margin-bottom: 0;
+    }
 }
 
+/* Banner galben*/
+
+.banner-alegere-scoala {
+    min-height: 420px;
+    background-color: #FFED89;
+    border-radius: 50px;
+    margin-bottom: 200px;
+}
+
+.titlu-sectiune-home-alegere {
+    font-weight: 500;
+    line-height: 40px;
+    letter-spacing: 1px;
+    padding-top: 2vw;
+}
+
+.text-container {
+    padding: 2vw;
+    padding-top: 0;
+}
 
 
-@media (max-width: 767px) {
-    .de-ce-sa-alegi-scoala-gimnaziala-rasnov {
+@media (max-width: 992px) {
+    .banner-alegere-scoala {
         background-color: transparent !important;
         /* Elimină fundalul */
     }
 
     .custom-card {
         background-color: #FFED89;
-        border: 1px solid #ecda72;
-        padding: 20px;
+        padding: 2vw;
         border-radius: 20px;
         margin-bottom: 20px;
         text-align: center;
+    }
+
+    .text-container {
+        padding: 2vw;
     }
 
     .custom-card img {
@@ -224,195 +193,14 @@
     .col.col-4.col-sm-12 {
         width: 100%;
         max-width: 320px;
-      
     }
+
     .custom-card-parent .col:nth-child(2) .custom-card {
         padding-top: 20px;
-
-    }
-    .de-ce-sa-alegi-scoala-gimnaziala-rasnov {
-        
-    margin-bottom: -80px;
-
     }
 
-.rectangulars-container {
-    margin-top: 100px;
-    margin-bottom: 80px;
-    overflow: hidden;
-}
-
-
-
-.rectangular1,
-.rectangular2,
-.rectangular3 {
-    margin-inline: 1vw;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s;
-    cursor: pointer;
-    border-radius: 30px;
-    overflow: hidden;
-
-}
-
-.text-rectangulars {
-    font-family: 'Poppins';
-    font-weight: 500;
-    font-size: 2.8vh; 
-    line-height: 19px;
-    letter-spacing: 1px;
-    text-align: center;
-    z-index: 3;
-
-}
-
-.pictograma-rectangular {
-    margin-top: -8vh;
-    position: relative;
-    z-index: 3;
-    width: 17vw;
-}
-
-.arrow-circle-up {
-    margin-left: 72%;
-    position: relative;
-    z-index: 3;
-    width: 8vw;
-    
-}
-
-.yellow-shape-rectangular {
-    position: relative;
-    z-index: 2;
-    bottom: -12%;
-    left: 13%;
-    transform: translateX(-50%);
-    width: 8vw;
-}
-
-.green-shape-rectangular {
-    position: relative;
-    z-index: 2;
-    bottom: 45%;
-    left: 80%;
-    transform: translateX(-50%);
-    width: 12vw;
-}
-
-.purple-shape-rectangular {
-    position: relative;
-    bottom: 70%;
-    left: 15%;
-    transform: translateX(-50%);
-    width: 8vw;
-}
-
-.rectangular1:hover,
-.rectangular2:hover,
-.rectangular3:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-}
-
-.rectangular1 {
-    background-color: #63D784;
-    border-radius: 30px;
-    height: 40vh;
-    width: 40vw;
-    min-height: 170px;
-    max-height: 35vh;
-}
-
-.rectangular2 {
-    background-color: #AF9FF1;
-    border-radius: 30px;
-    height: 55vh;
-    width: 55vw;
-    min-height: 250px;
-    max-height: 45vh;
-
-}
-
-.rectangular3 {
-    background-color: #E4FDB2;
-    border-radius: 30px;
-    height: 30vh;
-    width: 30vw;
-    min-height: 170px;
-    max-height: 30vh;
-}
-
-.htag-images {
-    position: relative;
-}
-
-.htag-images img {
-    position: absolute;
-    width: 30vw;
-    top: 5vh;
-    right: -7vh;
-}
-
-}
-
-@media (max-width: 479px) {
-   
-.rectangular3 {
-    min-height: 130px;
-    max-height: 130px; 
-   
+    .banner-alegere-scoala {
+        margin-bottom: -50px;
     }
-
-.rectangular2{
-    min-height: 220px;
-    max-height: 220px;
-   
-
-}
-
-.rectangular1 {
-    min-height: 170px;
-    max-height: 170px; 
-  
-}
-
-.pictograma-rectangular {
-    margin-top: -4vh;
-    width: 17vw;
-}
-
-
-
-.yellow-shape-rectangular {
-    bottom: -21%;
-    left: 5%;
-
-}
-
-.green-shape-rectangular {
-
-    bottom: 52%;
-    left: 89%;
-
-}
-
-.purple-shape-rectangular {
-    bottom: 65%;
-    left: 8%;
-
-}
-.htag-images {
-    position: relative;
-}
-
-.htag-images img {
-    position: absolute;
-    width: 30vw;
-    top: 15vh;
-    right: 0vh;
-}
 
 }
