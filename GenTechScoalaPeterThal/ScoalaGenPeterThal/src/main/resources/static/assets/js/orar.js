@@ -1,63 +1,66 @@
 // Varianta parolă low-security
 document.addEventListener('DOMContentLoaded', function () {
-    const protectedContent = document.querySelector('#protected-content');
-    const passwordForm = document.querySelector('#password-form');
-    const errorMessage = document.querySelector('#error-message');
-    const passwordInput = document.querySelector('#password');
-  
-    protectedContent.style.display = 'none';
-  
-    async function checkPassword() {
-      const passwordValue = passwordInput.value;
-  
-      const response = await fetch("/check-password", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ password: passwordValue })
+  const protectedContent = document.querySelector('#protected-content');
+  const passwordForm = document.querySelector('#password-form');
+  const errorMessage = document.querySelector('#error-message');
+  const passwordInput = document.querySelector('#password');
+
+  protectedContent.style.display = 'none';
+  //btnChcekOrarPassword
+  const submitBtn = document.getElementById('btnChcekOrarPassword');
+
+  submitBtn.addEventListener('click', checkPassword);
+  async function checkPassword() {
+    const passwordValue = passwordInput.value;
+
+    const response = await fetch("/check-password", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ password: passwordValue })
     });
 
     const result = await response.json();
 
     if (result.success) {
-        protectedContent.style.display = 'block';
-        passwordForm.style.display = 'none';
-        passwordInput.value = '';
-  
-        const expirationTime = Date.now() + 10000; // 30 minutes
-        localStorage.setItem('hasAccess', expirationTime);
+      protectedContent.style.display = 'block';
+      passwordForm.style.display = 'none';
+      passwordInput.value = '';
 
-        setTimeout(removeAccess, 10000); // Auto-remove after 30 minutes
+      const expirationTime = Date.now() + 30 * 60 * 1000; // 30 minutes
+      localStorage.setItem('hasAccess', expirationTime);
 
-      } else {
-        errorMessage.style.visibility = 'visible';
-      }
+      setTimeout(removeAccess, 10000); // Auto-remove after 30 minutes
+
+    } else {
+      errorMessage.style.visibility = 'visible';
     }
-  
-    function removeAccess() {
-      localStorage.removeItem('hasAccess');
-      protectedContent.style.display = 'none';
-      passwordForm.style.display = 'block';
-      errorMessage.style.visibility = 'hidden';
+  }
+
+  function removeAccess() {
+    localStorage.removeItem('hasAccess');
+    protectedContent.style.display = 'none';
+    passwordForm.style.display = 'block';
+    errorMessage.style.visibility = 'hidden';
+  }
+
+  function checkAccess() {
+    const savedExpiration = localStorage.getItem('hasAccess');
+    if (savedExpiration && Date.now() < savedExpiration) {
+      protectedContent.style.display = 'block';
+      passwordForm.style.display = 'none';
+      setTimeout(removeAccess, savedExpiration - Date.now());
+    } else {
+      removeAccess();
     }
-  
-    function checkAccess() {
-      const savedExpiration = localStorage.getItem('hasAccess');
-      if (savedExpiration && Date.now() < savedExpiration) {
-        protectedContent.style.display = 'block';
-        passwordForm.style.display = 'none';
-        setTimeout(removeAccess, savedExpiration - Date.now()); 
-      } else {
-        removeAccess();
-      }
-    }
-  
-    checkAccess(); // Check access on page load
-  
-    document
-      .querySelector('#password-form button')
-      .addEventListener('click', checkPassword);
-  });
-  
+  }
+
+  checkAccess(); // Check access on page load
+
+  document
+    .querySelector('#password-form button')
+    .addEventListener('click', checkPassword);
+});
+
 
 
 
@@ -100,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
 //     if (savedExpiration && Date.now() < savedExpiration) {
 //       protectedContent.style.display = 'block';
 //       passwordForm.style.display = 'none';
-//       setTimeout(removeAccess, savedExpiration - Date.now()); 
+//       setTimeout(removeAccess, savedExpiration - Date.now());
 //     } else {
 //       removeAccess();
 //     }
