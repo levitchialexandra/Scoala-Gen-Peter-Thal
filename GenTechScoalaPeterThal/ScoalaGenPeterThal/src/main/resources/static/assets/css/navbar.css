@@ -79,6 +79,17 @@
 .dropdown-item.hover-roz:hover {
     background-color: #FEAAD8;
 }
+.dropdown-item.hover-movActive {
+    background-color: #AF9FF1 !important;
+}
+
+.dropdown-item.hover-galbenActive {
+    background-color: #FFED89;
+}
+
+.dropdown-item.hover-rozActive {
+    background-color: #FEAAD8;
+}
 
 /* !!De ingrosat linia ce desparte elementele din dropdown */
 .dropdown-divider {

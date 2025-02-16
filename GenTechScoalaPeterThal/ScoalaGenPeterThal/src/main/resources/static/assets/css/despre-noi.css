@@ -4,9 +4,10 @@
     color: white;
 }
 
-.main-container{
+.main-container {
     margin-bottom: 0;
 }
+
 .top-title {
     position: absolute;
     top: 8vw;
@@ -22,7 +23,6 @@
     position: absolute;
     top: 14vw;
     left: 8vw;
-    font-family: 'Poppins';
     font-weight: 400;
     font-size: 1.9vw;
     line-height: 2.8vw;
@@ -73,8 +73,7 @@
     position: relative;
     color: #0A2E5C;
     text-align: center;
-    font-family: 'Poppins', sans-serif;
-    padding-top: 8vw;
+    padding-top: 6vw;
 }
 
 .img-vector-testimonial {
@@ -97,8 +96,7 @@
     font-size: 2vw;
     line-height: 3vw;
     z-index: 2;
-
-
+    padding: 1vw;
 }
 
 .img-cards-testimonial {
@@ -128,7 +126,6 @@
 }
 
 .comment-title {
-    font-family: 'Poppins';
     position: absolute;
     top: 27.7vw;
     max-width: fit-content;
@@ -152,7 +149,6 @@
 }
 
 .comment-subtitle {
-    font-family: 'Poppins';
     position: absolute;
     top: 32.1vw;
     max-width: fit-content;
@@ -168,30 +164,29 @@
 }
 
 .comment-subtitle2 {
-    left: 42vw;
+    left: 41vw;
 }
 
 .comment-subtitle3 {
-    left: 75.2vw;
+    left: 74vw;
 }
 
-.img-sageata{
+.img-sageata {
     max-width: 90%;
 }
 
 .titlu-istoric {
     position: relative;
-    font-family: 'Poppins';
     font-weight: 500;
     font-size: 1.9vw;
     line-height: 2vw;
     color: #0A2E5C;
- 
+
 }
 
 .titlu-istoric-text {
     position: relative;
-    top: -11.5vw;
+    top: -10.5vw;
 }
 
 
@@ -206,7 +201,7 @@
     background-color: #0A2E5C;
     z-index: -1;
     } */
-    
+
 .container {
     width: 80%;
     margin: 0 auto;
@@ -263,7 +258,7 @@
     padding: 0 12vw 12vw 12vw;
 }
 
-.titlu-catedre{
+.titlu-catedre {
     font-family: 'Tillana';
     color: #0A2E5C;
     font-weight: 500;
@@ -277,8 +272,8 @@
     border-radius: 12px;
     box-shadow: -5px 10px 7.3px 0px #00000080;
     text-align: start;
-    
-    
+
+
 }
 
 .catedra h3 {
@@ -295,40 +290,49 @@
 
 .catedra li {
     font-size: clamp(16px, 1.5vw, 18px);
-    font-family: 'Poppins';
     font-weight: 500;
     color: #0A2E5C;
     /* line-height: 27px; */
-  
+
 }
 
-.catedra-invatatori{
+.catedra-invatatori {
     max-height: 250px;
     overflow: auto;
     background-color: #CEC2FF;
-    scrollbar-width:auto;
+    scrollbar-width: auto;
     scrollbar-color: #CEC2FF #EDEAFF;
-    
+
 }
 
-.catedra-romana, .catedra-matematica, .catedra-germana{
+.catedra-romana,
+.catedra-matematica,
+.catedra-germana {
     background-color: #e4fdb2;
 }
 
-.catedra-fizica, .catedra-civica, .catedra-tehnologica,
-.catedra-info{
+.catedra-fizica,
+.catedra-civica,
+.catedra-tehnologica,
+.catedra-info {
     background-color: #FFED89;
 }
 
-.catedra-istorie, .catedra-engleza, .catedra-religie{
+.catedra-istorie,
+.catedra-engleza,
+.catedra-religie {
     background-color: #B8D7FF;
 }
 
-.catedra-muzica, .catedra-desen, .catedra-chimie,
-.catedra-geografie, .catedra-biologie{
+.catedra-muzica,
+.catedra-desen,
+.catedra-chimie,
+.catedra-geografie,
+.catedra-biologie {
     background-color: #FFC8E6;
 }
-.catedra-sport{
+
+.catedra-sport {
     background-color: #FFE3C9;
 }
 
@@ -433,8 +437,9 @@
     .comment-subtitle3 {
         left: 69.9vw;
     }
-.timeline-year {
-    left: -8vw;
-}
+
+    .timeline-year {
+        left: -8vw;
+    }
 
 }
