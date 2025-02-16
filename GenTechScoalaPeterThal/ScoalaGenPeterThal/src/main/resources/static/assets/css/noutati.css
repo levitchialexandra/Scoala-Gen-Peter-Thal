@@ -42,7 +42,7 @@ p , h1 , h3 {
   font-family: poppins;
  }
 
- .main-container > .row > div > div {
+ .m-container > .row > div > div {
  width: 250px;
  height: 250px;
   border-radius: 30px;
