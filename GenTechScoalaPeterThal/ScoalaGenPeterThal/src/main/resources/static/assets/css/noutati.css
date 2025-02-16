@@ -7,16 +7,18 @@
     #63D784,
     #E4FDB2
   );
-  --mask:
-    radial-gradient(59.63px at 50% calc(100% - 82.5px),#000 99%,#0000 101%) calc(50% - 100px) 0/200px 100%,
-    radial-gradient(59.63px at 50% calc(100% + 32.5px),#0000 99%,#000 101%) 50% calc(100% - 50px)/200px 100% repeat-x;
-  -webkit-mask: var(--mask);
-          mask: var(--mask);
-} 
+
+    --mask:
+      radial-gradient(81.63px at 50% calc(100% - 112px),#000 99%,#0000 101%) calc(50% - 140px) 0/280px 100%,
+      radial-gradient(81.63px at 50% calc(100% + 42px),#0000 99%,#000 101%) 50% calc(100% - 70px)/280px 100% repeat-x;
+    -webkit-mask: var(--mask);
+            mask: var(--mask);
+  }
 .wrapper {
  
   padding-inline: 1rem;
-  padding-block: 4rem;
+  padding-block:4rem;
+  
 }
 /* imaginea din banner */
  .image-1 > img{
@@ -28,11 +30,16 @@
 
  .anunt{
   text-decoration: underline;
+  font-family: tillana;
  }
 
 p , h1 , h3 { 
   color: #0A2E5C;
   text-decoration-color: #0A2E5C ;
+ }
+
+ .poppins{
+  font-family: poppins;
  }
 
  .main-container > .row > div > div {
@@ -83,6 +90,26 @@ background-color: #63D784;
 border: #63D784 10px solid;
 }
 
+.content {
+  font-size: 1.2rem;
+            width: 100%;
+            white-space: normal;
+}
+
+.square-1, .square-2, .square-3, .square-4, .square-5, .square-6, .square-7, .square-8, .square-9 {
+  width: 100%;
+
+ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+
+}
 /* forma si gradient pentru sectiunea de noutati */
 
 .noutati{
