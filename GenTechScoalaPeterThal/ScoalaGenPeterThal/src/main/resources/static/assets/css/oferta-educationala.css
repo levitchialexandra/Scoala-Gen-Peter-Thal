@@ -1,0 +1,142 @@
+body {
+
+    background-size: cover;
+}
+
+/* Banner Intro */
+.banner-intro {
+    background-image: url("/assets/images/banner-resurse.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: clamp(1rem, 3vw, 2rem);
+    padding-bottom: clamp(1rem, 5vw, 2.8rem);
+}
+
+.banner-imagine {
+    max-width: 18rem;
+}
+
+.banner-text {
+    padding: 0 3vw;
+}
+
+.banner-text h2 {
+    font-size: clamp(1.6rem, 3.5vw, 2rem);
+}
+
+.banner-text p {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+}
+
+/* For small screens */
+@media (max-width: 768px) {
+    .banner-intro {
+        background-image: url("../images/banner-resurse.png");
+        background-repeat: no-repeat;
+        background-size: 160% 100%;
+    }
+
+    .banner-text {
+        padding: 5vw;
+        padding-top: 1vw;
+    }
+
+    .banner-imagine {
+        max-width: 14rem;
+    }
+}
+
+
+  .container-carduri {
+      padding: 2vw;
+      background-color: #FFE3C9;
+      border-radius: 25px;
+  }
+
+  .title {
+      font-size: 5vw;
+      /* font-weight: bold; */
+      display: flex;
+      justify-content: center;
+  }
+
+.subtitle {
+    font-size: 1.1vw;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+  }
+
+.cards {
+      display: flex;
+      justify-content: center;
+      gap: 6vw;
+      margin-top: 20px;
+  }
+
+.card {
+      width: 20vw;
+      height: 20vw;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .cardurile-gimnazial-primar{
+    background-color: #E4FDB2;
+   
+  }
+
+ 
+  @media (min-width: 1033px) {
+    
+  
+  .cardurile-gimnazial-primar .card {
+      width: 12vw;
+      height: 12vw;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+  }
+ .cardurile-gimnazial-primar .card p {
+     font-size: 1.2vw;
+     text-align: center;
+
+ }
+
+  .cardurile-gimnazial-primar .title {
+      font-size: 2.2vw;
+      display: flex;
+      justify-content: center;
+  }
+
+}
+
+.limba-germana-total {
+      background-color: #fde79b;
+  }
+
+.limba-romana-total {
+      background-color: #fcb6c4;
+  }
+
+  .card h2 {
+      font-size: 4vw;
+      margin: 0;
+    display: flex;
+      justify-content: center;
+  }
+
+  .card p {
+      font-size: 2vw;
+      text-align: center;
+      
+  }
+
+  .romana-gimnazial, .romana-primar{
+    background-color:#B8D7FF ;
+  }
+
+  .germana-primar, .germana-gimnazial {
+    background-color: #CBBEFF;
+  }
