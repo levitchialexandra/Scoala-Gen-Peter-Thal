@@ -45,19 +45,16 @@ document.querySelectorAll('.flip-card').forEach((card) => {
 
 
 function copyToClipboard(element) {
-    const textElement = element.querySelector(".text-to-copy"); // Find the child <p>
-    const originalText = textElement.innerText; // Save original text
-    const textCopied = textElement.getAttribute("data-value"); // Get "copied" message
+    const textElement = element.querySelector(".text-to-copy");
+    const originalText = textElement.innerText; 
+    const textCopied = textElement.getAttribute("data-value"); 
 
-    // Copy text to clipboard
     navigator.clipboard.writeText(originalText)
         .then(() => {
-            // Change text to "Text copiat!"
             textElement.innerText = textCopied;
 
-            // Restore original text after 2 seconds
             setTimeout(() => {
-                textElement.innerHTML = originalText; // Restore innerHTML to keep <br> tags
+                textElement.innerHTML = originalText; 
             }, 1500);
         })
         .catch(err => console.error("Error copying text: ", err));

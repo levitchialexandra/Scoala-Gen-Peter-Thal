@@ -64,7 +64,7 @@
 .rectangular2,
 .rectangular3 {
     margin-inline: 2vw;
-    box-shadow: -4px 5px 10px rgba(0, 0, 0, 20%);
+    box-shadow: -4px 5px 8px rgba(0, 0, 0, 20%);
     transition: all 0.3s;
     cursor: pointer;
     border-radius: 38px;
@@ -74,12 +74,12 @@
 .rectangular2:hover,
 .rectangular3:hover {
     transform: scale(1.05);
-    box-shadow: -2px 3px 10px rgba(0, 0, 0, 20%);
+    box-shadow: -4px 5px 14px rgba(0, 0, 0, 20%);
 }
 
 .rectangular-title {
     font-weight: 500;
-    font-size: clamp(1rem, 2vw, 1.5rem);
+    font-size: clamp(0.9rem, 1.8vw, 1.5rem);
     letter-spacing: 1px;
     text-align: center;
     padding-bottom: 2vw;
@@ -92,14 +92,17 @@
 }
 
 .pictograma-rectangular {
-    width: clamp(6rem, 12vw, 10rem);
+    width: clamp(4.5rem, 10vw, 7rem);
     position: relative;
     margin-top: -10px;
-    
+}
+
+.pictograma-education {
+    width: clamp(5.5rem, 12vw, 9rem);
 }
 
 .arrow-circle-up {
-    width: clamp(4rem, 6vw, 6rem);
+    width: clamp(3.5rem, 6vw, 6rem);
 }
 
 /* Tags section */
@@ -111,21 +114,29 @@
 .tags {
     position: relative;
     width: clamp(15rem, 28vw, 22rem);
-    top: 20px
+    top: 20px;
+    padding-right: 0;
 }
 
 @media (max-width: 992px) {
     .tags {
         top: 30px;
     }
+
     .rectangular1 {
-        min-height: 170px;
-    }
-    .rectangular2 {
-        min-height: 210px;
-    }
-    .rectangular3 {
         min-height: 150px;
+    }
+
+    .rectangular2 {
+        min-height: 190px;
+    }
+
+    .rectangular3 {
+        min-height: 130px;
+    }
+
+    .pictograma-rectangular {
+        margin-bottom: 0;
     }
 }
 
