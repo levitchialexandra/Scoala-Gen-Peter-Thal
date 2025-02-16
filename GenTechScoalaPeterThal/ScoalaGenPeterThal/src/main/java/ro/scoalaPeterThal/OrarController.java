@@ -13,9 +13,11 @@ import basics.orar.Clasa.Ciclu;
 import repository.ClasaRepository;
 import repository.OrarRepository;
 
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class OrarController {
@@ -35,14 +37,19 @@ public class OrarController {
         }
         List<String> colors = Arrays.asList("#AF9FF1", "#FFED89", "#7EAEEC", "#E4FDB2", "#FEAAD8");
         List<Clasa> clase = clasaRepository.findByCiclu(ciclu);
-        List<String> zile = List.of("Luni", "Marți", "Miercuri", "Joi", "Vineri");
-        List<String> ore = List.of(
-            "08:00 - 09:00", "09:00 - 10:00", "10:00 - 11:00",
-            "11:00 - 12:00", "12:00 - 13:00", "13:00 - 14:00"
-        );
+        List<String> zile = List.of("Luni", "Marti", "Miercuri", "Joi", "Vineri");
+
+        DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+        List<String> distinctOrarOre = orar.stream()
+                .map(orarEntry -> orarEntry.getOraInceput().format(timeFormatter)
+                        + " - " + orarEntry.getOraSfarsit().format(timeFormatter))
+                .distinct()
+                .sorted()
+                .collect(Collectors.toList());
+
         model.addAttribute("colors", colors);
         model.addAttribute("zile", zile);
-    model.addAttribute("orarOre", ore);
+        model.addAttribute("orarOre", distinctOrarOre);
         model.addAttribute("clase", clase);
         model.addAttribute("orar", orar);
         model.addAttribute("cicluSelectat", ciclu);
