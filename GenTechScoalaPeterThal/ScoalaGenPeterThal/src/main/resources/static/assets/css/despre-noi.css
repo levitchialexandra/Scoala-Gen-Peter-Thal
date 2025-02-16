@@ -4,6 +4,9 @@
     color: white;
 }
 
+.main-container{
+    margin-bottom: 0;
+}
 .top-title {
     position: absolute;
     top: 8vw;
@@ -172,6 +175,10 @@
     left: 75.2vw;
 }
 
+.img-sageata{
+    max-width: 90%;
+}
+
 .titlu-istoric {
     position: relative;
     font-family: 'Poppins';
@@ -179,6 +186,7 @@
     font-size: 1.9vw;
     line-height: 2vw;
     color: #0A2E5C;
+ 
 }
 
 .titlu-istoric-text {
@@ -214,7 +222,7 @@
     display: flex;
     align-items: center;
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .timeline-year {
@@ -246,20 +254,29 @@
 
 }
 
+
 .catedre {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: minmax(100px, auto);
     gap: 15px;
-    padding: 20px;
-    /* max-width: 1000px; */
+    padding: 0 12vw 12vw 12vw;
+}
+
+.titlu-catedre{
+    font-family: 'Tillana';
+    color: #0A2E5C;
+    font-weight: 500;
+    font-size: 8vw;
+    text-align: center;
 }
 
 .catedra {
     background: #f8f8f8;
     padding: 15px;
     border-radius: 12px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    text-align: center;
+    box-shadow: -5px 10px 7.3px 0px #00000080;
+    text-align: start;
     
     
 }
@@ -268,6 +285,7 @@
     font-size: clamp(16px, 2vw, 24px);
     color: #0A2E5C;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .catedra ul {
@@ -276,8 +294,44 @@
 }
 
 .catedra li {
-    font-size: clamp(12px, 1.5vw, 18px);
+    font-size: clamp(16px, 1.5vw, 18px);
+    font-family: 'Poppins';
+    font-weight: 500;
+    color: #0A2E5C;
+    /* line-height: 27px; */
+  
 }
+
+.catedra-invatatori{
+    max-height: 250px;
+    overflow: auto;
+    background-color: #CEC2FF;
+    scrollbar-width:auto;
+    scrollbar-color: #CEC2FF #EDEAFF;
+    
+}
+
+.catedra-romana, .catedra-matematica, .catedra-germana{
+    background-color: #e4fdb2;
+}
+
+.catedra-fizica, .catedra-civica, .catedra-tehnologica,
+.catedra-info{
+    background-color: #FFED89;
+}
+
+.catedra-istorie, .catedra-engleza, .catedra-religie{
+    background-color: #B8D7FF;
+}
+
+.catedra-muzica, .catedra-desen, .catedra-chimie,
+.catedra-geografie, .catedra-biologie{
+    background-color: #FFC8E6;
+}
+.catedra-sport{
+    background-color: #FFE3C9;
+}
+
 
 
 @media(max-width: 1200px) {
