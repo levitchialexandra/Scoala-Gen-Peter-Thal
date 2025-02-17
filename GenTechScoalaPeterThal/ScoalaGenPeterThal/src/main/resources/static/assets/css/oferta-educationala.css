@@ -1,9 +1,12 @@
+/* ===== BODY ===== */
 body {
-
+    background-image: url("../images/union.png");
+    background-repeat: no-repeat;
     background-size: cover;
+    background-position: center;
 }
 
-/* Banner Intro */
+/* ===== BANNER INTRO ===== */
 .banner-intro {
     background-image: url("/assets/images/banner-resurse.png");
     background-repeat: no-repeat;
@@ -28,115 +31,246 @@ body {
     font-size: clamp(1rem, 1.8vw, 1.2rem);
 }
 
-/* For small screens */
-@media (max-width: 768px) {
-    .banner-intro {
-        background-image: url("../images/banner-resurse.png");
-        background-repeat: no-repeat;
-        background-size: 160% 100%;
-    }
-
-    .banner-text {
-        padding: 5vw;
-        padding-top: 1vw;
-    }
-
-    .banner-imagine {
-        max-width: 14rem;
-    }
+/* ===== CONTAINER CARDURI ===== */
+.container-carduri {
+    padding: 2vw;
+    background-color: #FFE3C9;
+    border-radius: 25px;
 }
 
-
-  .container-carduri {
-      padding: 2vw;
-      background-color: #FFE3C9;
-      border-radius: 25px;
-  }
-
-  .title {
-      font-size: 5vw;
-      /* font-weight: bold; */
-      display: flex;
-      justify-content: center;
-  }
+/* ===== TITLURI ===== */
+.title {
+    font-size: 5vw;
+    display: flex;
+    justify-content: center;
+}
 
 .subtitle {
     font-size: 1.1vw;
     font-style: italic;
     display: flex;
     justify-content: center;
-  }
-
-.cards {
-      display: flex;
-      justify-content: center;
-      gap: 6vw;
-      margin-top: 20px;
-  }
-
-.card {
-      width: 20vw;
-      height: 20vw;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  }
-
-  .cardurile-gimnazial-primar{
-    background-color: #E4FDB2;
-   
-  }
-
- 
-  @media (min-width: 1033px) {
-    
-  
-  .cardurile-gimnazial-primar .card {
-      width: 12vw;
-      height: 12vw;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
-  }
- .cardurile-gimnazial-primar .card p {
-     font-size: 1.2vw;
-     text-align: center;
-
- }
-
-  .cardurile-gimnazial-primar .title {
-      font-size: 2.2vw;
-      display: flex;
-      justify-content: center;
-  }
-
 }
 
+/* ===== CARDURI ===== */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 6vw;
+    margin-top: 20px;
+}
+
+.card {
+    width: 20vw;
+    height: 20vw;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.card h2 {
+    font-size: 4vw;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.card p {
+    font-size: 2vw;
+    text-align: center;
+}
+
+/* ===== CARDURI SPECIFICE ===== */
+.card-ciclu-primar,
+.card-ciclu-gimnazial {
+    background-color: #E4FDB2;
+    border-radius: 24px;
+    max-width: 40vw;
+    padding-bottom: 2vw;
+}
+
+/* ===== CARDURI PE LIMBI ===== */
 .limba-germana-total {
-      background-color: #fde79b;
-  }
+    background-color: #fde79b;
+}
 
 .limba-romana-total {
-      background-color: #fcb6c4;
-  }
+    background-color: #fcb6c4;
+}
 
-  .card h2 {
-      font-size: 4vw;
-      margin: 0;
-    display: flex;
-      justify-content: center;
-  }
+.romana-gimnazial,
+.romana-primar {
+    background-color: #B8D7FF;
+}
 
-  .card p {
-      font-size: 2vw;
-      text-align: center;
-      
-  }
-
-  .romana-gimnazial, .romana-primar{
-    background-color:#B8D7FF ;
-  }
-
-  .germana-primar, .germana-gimnazial {
+.germana-primar,
+.germana-gimnazial {
     background-color: #CBBEFF;
-  }
+}
+
+/* ===== RESURSE ===== */
+.resurse-materiale,
+.resurse-umane {
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 2vw;
+    line-height: 1.2vw;
+    color: #0A2E5C;
+}
+
+.resurse-materiale h2,
+.resurse-umane h2 {
+    font-size: 3vw;
+}
+
+.resurse-umane {
+    text-align: end;
+    padding-bottom: 12vw;
+}
+
+/* ===== MEDIA QUERIES ===== */
+
+/* < 1033px */
+@media (min-width: 1033px) {
+    .cardurile-gimnazial-primar .card {
+        width: 12vw;
+        height: 12vw;
+        padding: 20px;
+    }
+
+    .cardurile-gimnazial-primar .card p {
+        font-size: 1.2vw;
+        text-align: center;
+    }
+
+    .cardurile-gimnazial-primar .title {
+        font-size: 2.2vw;
+        display: flex;
+        justify-content: center;
+    }
+}
+
+/* < 1033px */
+@media (max-width: 1033px) {
+    .row {
+        flex-wrap: nowrap;
+    }
+
+    .cardurile-gimnazial-primar .card {
+        width: 14vw;
+        height: 14vw;
+        padding: 10px;
+    }
+
+    .cardurile-gimnazial-primar .card p {
+        font-size: 1.3vw;
+        text-align: center;
+    }
+}
+
+/* < 780px */
+@media (max-width: 780px) {
+
+    .resurse-materiale h2,
+    .resurse-umane h2 {
+        font-size: 4.1vw;
+    }
+
+    .resurse-materiale,
+    .resurse-umane {
+        font-size: 2.8vw;
+    }
+
+    .card-ciclu-primar,
+    .card-ciclu-gimnazial {
+        width: 100%;
+        max-width: 100%;
+        padding: 2vw;
+        margin-bottom: 15px;
+        border-radius: 20px;
+        text-align: center;
+    }
+
+    .cardurile-gimnazial-primar .card h2 {
+        font-size: 2.5vw;
+    }
+
+    .cardurile-gimnazial-primar .card p {
+        font-size: 1.2vw;
+    }
+
+    .cardurile-gimnazial-primar .card {
+        width: 18vw;
+        height: 12vw;
+    }
+
+    .cardurile-gimnazial-primar .title {
+        font-size: 3.2vw;
+        display: flex;
+        justify-content: center;
+    }
+
+    .row {
+        flex-wrap: wrap;
+    }
+}
+
+/* < 479px */
+@media (max-width: 479px) {
+
+    .resurse-materiale h2,
+    .resurse-umane h2 {
+        font-size: 4.2vw;
+    }
+
+    .resurse-materiale,
+    .resurse-umane {
+        font-size: 3vw;
+        text-align: start;
+    }
+
+    .resurse-materiale {
+        padding-bottom: 10vw;
+    }
+
+    .cardurile-gimnazial-primar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .card-ciclu-primar,
+    .card-ciclu-gimnazial {
+        width: 100%;
+        max-width: 100%;
+        padding: 2vw;
+        margin-bottom: 15px;
+        border-radius: 20px;
+        text-align: center;
+    }
+
+    .cardurile-gimnazial-primar .card {
+        width: 24vw;
+        height: 24vw;
+    }
+
+    .cardurile-gimnazial-primar .title {
+        font-size: 5vw;
+        display: flex;
+        justify-content: center;
+    }
+
+    .cardurile-gimnazial-primar .card h2 {
+        font-size: 4vw;
+    }
+
+    .cardurile-gimnazial-primar .card p {
+        font-size: 2.5vw;
+    }
+}
+
+/* ===== CONTAINER PRINCIPAL ===== */
+.main-container {
+    margin-bottom: 0;
+}
