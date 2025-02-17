@@ -38,12 +38,12 @@ $(document).ready(function () {
 			//"/booksAjax",
 			"type": "GET",
 			"data": function (d) {
-				
+
 				d.title = $('#titleSearch').val();
-				d.author = $('#authorSearch').val();
-				d.publicationYear = $('#yearSearch').val();
-				d.genre = $('#genreSearch').val();
-				d.availability = $('#availabilityFilter').val();
+				d.author = $('#authorSearch').val() || "";
+				d.publicationYear = $('#yearSearch').val() || "";
+				d.genre = $('#genreSearch').val() || "";
+				d.availability = $('#availabilityFilter').val() || "";
 			},
 			"dataSrc": function (json) {
 
@@ -150,7 +150,7 @@ $(document).ready(function () {
 $(window).resize(function () {
 	adjustTable();
 	adjustTableHeight()
-	
+
 });
 function adjustTable() {
 	var table = $('#booksTable').DataTable();
@@ -165,19 +165,19 @@ function adjustTableHeight() {
 	tableContainer.style.maxHeight = `${windowHeight * 0.8}px`;
 	if ($(window).width() < 768) {
 		var tbWrrapper = $('#booksTable_wrapper');
-		console.log(tbWrrapper.width);
-		setTimeout(function () {
-			var bW =tbWrrapper.width()  - 25;
-			console.log(bW);
-			$("#booksTable").width(bW);
-			$(".sorting").hide().css("width", bW + " !important");
-			$("#booksTable td").width(bW);
-			
-		}, 0);
+
+
+		var bW = tbWrrapper.width() - 25;
+
+		$("#booksTable").width(bW);
+		$(".sorting").hide().css("width", bW + " !important");
+		$("#booksTable td").width(bW);
+
+
 
 		$("#titleSearch").attr("placeholder", "🔍 Căutare");
 	}
-	else{
+	else {
 		$(".sorting").show();
 	}
 }
