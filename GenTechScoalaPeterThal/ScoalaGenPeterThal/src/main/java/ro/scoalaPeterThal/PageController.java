@@ -48,4 +48,9 @@ public class PageController {
     public String contact() {
         return "pages/contact"; 
     }
+
+    @GetMapping("/pages/postare")
+    public String postare() {
+        return "pages/postare"; 
+    }
 }
