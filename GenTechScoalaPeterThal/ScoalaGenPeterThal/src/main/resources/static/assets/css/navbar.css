@@ -44,6 +44,12 @@
     padding: 0;
 }
 
+@media (max-width: 991px) {
+    .dropdown-menu.show {
+        border-radius: 0px 0px 30px 30px !important;
+    }
+}
+
 .dropdown-menu[data-bs-popper] {
     top: 93%;
     left: 0;
@@ -91,7 +97,6 @@
     background-color: #FEAAD8;
 }
 
-/* !!De ingrosat linia ce desparte elementele din dropdown */
 .dropdown-divider {
     background-color: #0A2E5C;
     margin: 0px 20px 0px 20px;
@@ -99,10 +104,6 @@
 
 .navbar-toggler {
     border: 2px solid #0A2E5C;
-    /* De facut modificari dupa ce e gata versiunea mobile design */
-    /* outline: none;
-    box-shadow: none; 
-    border-color: transparent;
-    color: transparent;
-   */
+  
 }
+
