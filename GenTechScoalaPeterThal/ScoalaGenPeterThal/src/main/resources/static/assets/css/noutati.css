@@ -184,6 +184,8 @@
   .noutati {
     background-size: 150% 100%;
     padding-bottom: clamp(2rem, 18vw, 20rem);
+    padding-top: clamp(1rem, 25vw, 5rem);
+
   }
 
   .noutati-imagine {
