@@ -17,7 +17,7 @@ $(document).ready(function () {
 	cols = isAdmin ? cols.concat(extraCols) : cols;
 	var table = $('#booksTable').DataTable({
 		"order": [],
-		"paging": false,  
+		"paging": false,
 		"lengthChange": true,
 		"pageLength": 10,
 		"searching": false,
@@ -38,7 +38,7 @@ $(document).ready(function () {
 			//"/booksAjax",
 			"type": "GET",
 			"data": function (d) {
-				console.log("Data sent to server:", d);
+				
 				d.title = $('#titleSearch').val();
 				d.author = $('#authorSearch').val();
 				d.publicationYear = $('#yearSearch').val();
@@ -51,7 +51,7 @@ $(document).ready(function () {
 					json.data.forEach(function (item) {
 						item.actions = '<button class="btn btn-danger btn-sm delete-btn" data-id="' + item.id + '">Șterge</button>';
 						if (item.availability === "Disponibil") {
-							item.actions += '<button class="btn btn-success btn-sm borrow-btn" data-id="' + item.id + '" data-title="'+item.title+'">Împrumută</button>';
+							item.actions += '<button class="btn btn-success btn-sm borrow-btn" data-id="' + item.id + '" data-title="' + item.title + '">Împrumută</button>';
 						} else {
 							item.actions += '<button class="btn btn-secondary btn-sm return-btn " data-id="' + item.id + '">Restituie</button>';
 						}
@@ -145,21 +145,39 @@ $(document).ready(function () {
 		}
 	});
 	adjustTableHeight();
+	adjustTable();
 });
 $(window).resize(function () {
+	adjustTable();
 	adjustTableHeight()
+	
 });
-
+function adjustTable() {
+	var table = $('#booksTable').DataTable();
+	var isMobile = $(window).width() < 768;
+	table.columns([1, 2, 3, 4]).visible(!isMobile);
+}
 function adjustTableHeight() {
 
 	const windowHeight = $(window).height();
 	const tableContainer = document.querySelector('.table-responsive');
 
 	tableContainer.style.maxHeight = `${windowHeight * 0.8}px`;
-	if( $(window).width()<768){
-		var tbWrrapper=document.querySelector('#booksTable_wrapper');
-	tableContainer.style.maxHeight =tbWrrapper.style.maxHeight= `${windowHeight * 0.5}px`;
-	
-	
+	if ($(window).width() < 768) {
+		var tbWrrapper = $('#booksTable_wrapper');
+		console.log(tbWrrapper.width);
+		setTimeout(function () {
+			var bW =tbWrrapper.width()  - 25;
+			console.log(bW);
+			$("#booksTable").width(bW);
+			$(".sorting").hide().css("width", bW + " !important");
+			$("#booksTable td").width(bW);
+			
+		}, 0);
+
+		$("#titleSearch").attr("placeholder", "🔍 Căutare");
+	}
+	else{
+		$(".sorting").show();
 	}
 }
