@@ -1,3 +1,15 @@
+.container-lines {
+  background-image: url("../images/Lines3.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+
+@media (max-width: 768px) {
+  .container-lines {
+    background-size: 160% 100%;
+  }
+}
+
 /* Banner Intro */
 .banner-intro {
   background-image: url("../images/Banner-noutati-desktop.png");
@@ -54,13 +66,15 @@
   border-radius: 30px;
 }
 
-.m-container p {
+.m-container a {
   font-size: clamp(1rem, 1.8vw, 1.2rem);
-
+  color: #0A2E5C;
+  cursor: pointer;
 }
 
 /* culori pentru fiecare patrat si border */
 .square-1 {
+  background-color: #fff;
   border: #AF9FF1 8px solid;
 }
 
@@ -69,6 +83,7 @@
 }
 
 .square-3 {
+  background-color: #fff;
   border: #FEAAD8 8px solid;
 }
 
@@ -77,6 +92,7 @@
 }
 
 .square-5 {
+  background-color: #fff;
   border: #E4FDB2 8px solid;
 }
 
@@ -86,6 +102,7 @@
 }
 
 .square-7 {
+  background-color: #fff;
   border:
     #FFED89 8px solid;
 }
@@ -95,6 +112,7 @@
 }
 
 .square-9 {
+  background-color: #fff;
   border: #63D784 8px solid;
 }
 
@@ -148,24 +166,19 @@
   border-radius: 10px;
 }
 
-.buton-redirectionare-right {
+.buton-redirectionare {
   font-weight: bold;
   color: #0A2E5C;
   text-decoration: none;
   display: flex;
-  justify-content: end;
   align-items: center;
   width: 100%;
 }
 
-.buton-redirectionare-left {
-  font-weight: bold;
-  color: #0A2E5C;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  width: 100%;
+.right {
+  justify-content: end;
 }
+
 
 .arrow-circle-up {
   width: clamp(2.5rem, 4vw, 3.5rem);
@@ -184,6 +197,8 @@
   .noutati {
     background-size: 150% 100%;
     padding-bottom: clamp(2rem, 18vw, 20rem);
+    padding-top: clamp(1rem, 25vw, 5rem);
+
   }
 
   .noutati-imagine {
@@ -240,3 +255,10 @@
   margin: 3vw auto 0;
   width: clamp(10rem, 60vw, 30rem);
 }
+
+.container-lines2 {
+  background-image: url("../images/Lines2.png");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+

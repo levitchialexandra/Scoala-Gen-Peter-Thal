@@ -1,12 +1,15 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
     background-color: #f4f7fc;
 }
 
 h1 {
     text-align: center;
     color: #333;
+}
+
+th {
+    color: #fff !important;
 }
 
 #searchForm {
