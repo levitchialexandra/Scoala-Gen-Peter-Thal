@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
       const expirationTime = Date.now() + 30 * 60 * 1000; // 30 minutes
       localStorage.setItem('hasAccess', expirationTime);
 
-      setTimeout(removeAccess, 10000); // Auto-remove after 30 minutes
+      setTimeout(removeAccess, 30 * 60 * 1000); // Auto-remove after 30 minutes
 
     } else {
       errorMessage.style.visibility = 'visible';
