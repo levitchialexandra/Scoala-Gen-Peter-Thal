@@ -239,15 +239,12 @@
   color: #0A2E5C;
 }
 
-/* To do: Manage active page */
-/* 
-.page-link:focus {
-  text-decoration: underline;
-} */
-
-.arrow {
-  font-size: 22px;
+.page-item.active .page-link {
+  background-color: transparent; 
+  color: #fff;
+  font-weight: bold;
 }
+
 
 /* Ilustratie */
 
