@@ -69,110 +69,21 @@
     text-align: center;
 }
 
-.testimonial-container {
-    position: relative;
-    color: #0A2E5C;
-    text-align: center;
-    padding-top: 6vw;
+
+
+.testimonial h1, .testimonial h2{
+   text-align: center;
+   padding-bottom: 2vw;
+   color: #0A2E5C;
+   font-family: 'Poppins';
+   font-weight: 500;
+   line-height: 8px;
 }
 
-.img-vector-testimonial {
-    position: absolute;
-    z-index: 1;
-    top: 19vw;
-    max-width: 95vw;
-}
-
-.testimonial-title {
-    font-weight: 400;
-    font-size: 6vw;
-    line-height: 6vw;
-    z-index: 2;
-
-}
-
-.testimonial-subtitle {
-    font-weight: 400;
-    font-size: 2vw;
-    line-height: 3vw;
-    z-index: 2;
-    padding: 1vw;
-}
-
-.img-cards-testimonial {
-
-    z-index: 2;
-}
-
-.img-comentariu1,
-.img-comentariu2,
-.img-comentariu3 {
-    position: absolute;
-    top: 21vw;
-    max-width: 8vw;
-    z-index: 2;
-}
-
-.img-comentariu1 {
-    left: 12vw;
-}
-
-.img-comentariu2 {
-    left: 46.2vw;
-}
-
-.img-comentariu3 {
-    right: 12vw;
-}
-
-.comment-title {
-    position: absolute;
-    top: 27.7vw;
-    max-width: fit-content;
-    z-index: 2;
-    font-size: 1.9vw;
-    font-weight: 400;
-    line-height: 3vw;
-    justify-content: center;
-}
-
-.comment-title1 {
-    left: 7vw;
-}
-
-.comment-title2 {
-    left: 43vw;
-}
-
-.comment-title3 {
-    right: 9.9vw;
-}
-
-.comment-subtitle {
-    position: absolute;
-    top: 32.1vw;
-    max-width: fit-content;
-    z-index: 2;
-    font-size: 1.3vw;
-    font-weight: 400;
-    line-height: 2.1vw;
-    max-width: 14.2vw;
-}
-
-.comment-subtitle1 {
-    left: 7.7vw;
-}
-
-.comment-subtitle2 {
-    left: 41vw;
-}
-
-.comment-subtitle3 {
-    left: 74vw;
-}
 
 .img-sageata {
-    max-width: 90%;
+    max-width: 50%;
+   
 }
 
 .titlu-istoric {
@@ -190,17 +101,7 @@
 }
 
 
-/* Linia verticala - de adaugat la final */
-/* .timeline::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 10vw;
-    width: 4px;
-    height: 100%;
-    background-color: #0A2E5C;
-    z-index: -1;
-    } */
+
 
 .container {
     width: 80%;
@@ -442,4 +343,162 @@
         left: -8vw;
     }
 
+}
+
+/* Zona pentru testimonial */
+/* Importing fonts from Google */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* De verificat daca sunt ok culorile sau nu */
+
+ @keyframes background-color {
+    0% {
+        background: linear-gradient(to bottom, #000428, #004683);
+    }
+
+    25% {
+        background: linear-gradient(135deg, #1a4223, #5ee95e);
+    }
+
+    50% {
+        background: linear-gradient(to bottom, #421a31, #e95ed2);
+    }
+
+    100% {
+        background: linear-gradient(-135deg, #fae37d, #881da8, #20668f);
+    }
+
+} 
+
+
+.container .col-lg-4 {
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    border: none;
+    background-color: inherit;
+    font-family: 'Poppins';
+}
+
+.card .face {
+    background: linear-gradient(to bottom, #000428, #004683);
+    animation: background-color 20s;
+    position: absolute;
+    color: #fff;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+    backface-visibility: hidden;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+
+}
+
+.card .face.front-face,
+.card .face.back-face {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .face.front-face .profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card .face.front-face .name {
+    letter-spacing: 2px;
+}
+
+.card .face.front-face .designation {
+    font-size: 0.8rem;
+    color: #ddd;
+    letter-spacing: 0.8px;
+}
+
+.card:hover .face.front-face {
+    transform: rotateY(180deg);
+}
+
+.card .face.back-face {
+    position: absolute;
+    background: linear-gradient(to bottom, #000428, #004683);
+    transform: rotateY(180deg);
+    padding: 20px 30px;
+    text-align: center;
+    user-select: none;
+}
+
+.card .face.back-face .fa-quote-left {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    font-size: 1.2rem;
+}
+
+.card .face.back-face .fa-quote-right {
+    position: absolute;
+    bottom: 35px;
+    right: 25px;
+    font-size: 1.2rem;
+}
+
+.card:hover .face.back-face {
+    transform: rotateY(360deg);
+}
+
+@media(max-width: 991.5px) {
+    .col-lg-4 {
+        margin-top: 40px;
+        margin-bottom: 20px;
+    }
+}
+
+
+
+
+
+
+/* Zona istoric */
+.istoric-container {
+  
+
+    gap: 180px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+   
+}
+
+.istoric-title {
+    font-family: 'Tillana', cursive;
+    font-size: 36px;
+    font-weight: 600;
+    color: #003366;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
+}
+
+.istoric-text {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #333;
+    line-height: 1.6;
+    max-width: 700px;
 }
