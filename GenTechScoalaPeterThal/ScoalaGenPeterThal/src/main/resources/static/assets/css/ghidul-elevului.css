@@ -24,6 +24,18 @@
 }
 
 /* PDF Section */
+.container-lines {
+    background-image: url("../images/Lines2.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+@media (max-width: 768px) {
+    .container-lines {
+        background-size: 160% 100%;
+    }
+}
+
 .pdf-viewer {
     width: 100%;
     height: 1000px;
@@ -33,8 +45,6 @@
 /* For small screens */
 @media (max-width: 768px) {
     .banner-intro {
-        background-image: url("../images/Banner-yellow.png");
-        background-repeat: no-repeat;
         background-size: 160% 100%;
     }
 

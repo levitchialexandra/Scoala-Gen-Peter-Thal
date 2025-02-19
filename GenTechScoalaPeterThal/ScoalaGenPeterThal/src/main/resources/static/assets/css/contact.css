@@ -1,0 +1,95 @@
+   #map {
+       height: 500px;
+       width: 100%;
+   }
+
+   .titlu-contact h1{
+    font-family: 'Tillana';
+    font-weight: 500;
+    font-size: 5vw;
+    line-height: -1vw;
+    text-align: right;
+   }
+
+.div-adresa{
+    position: relative;
+    display: flex;
+    align-items: start;
+    left: -13vw;
+    top: -12vw;
+    z-index: 1;
+}
+
+.img-adresa, .img-adresa .img-telefon{
+    max-width: 70%;
+}
+
+.text-adresa{   
+    position: absolute;
+    padding: 12vw;
+}
+
+.div-adresa h2, .div-email h2, .div-telefon h2{
+    font-family: 'Tillana';
+    font-weight: 500;
+    font-size: 4vw;
+}
+
+.div-adresa p, .div-email p, .div-telefon p{
+    font-family: 'Poppins';
+    font-weight: 500;
+    font-size: 2vw; 
+}
+
+.div-email {
+    position: relative;
+    display: flex;
+    align-items: end;
+    top: -35vw;
+    right: -36vw;
+    z-index: 1;
+}
+
+
+.text-email{
+    text-align: end;
+    position: absolute;
+    padding: 8vw 10vw 20vw 24vw;
+}
+
+.div-telefon {
+    position: relative;
+    display: flex;
+    align-items: start;
+    left: -13vw;
+    top: -45vw;
+    z-index: 1;
+}
+
+.text-telefon {
+    text-align: start;
+    position: absolute;
+    padding: 12vw 10vw 18vw 15vw;
+}
+.harta{
+    position: relative;
+    display: block;
+    margin-top: -40vw;
+}
+
+.harta h2{
+    width: 250px;
+    float: left
+}
+
+.harta div{
+    float: left;
+    padding-top: 10px
+}
+
+body {
+    background-image: url("../images/linie.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+}
