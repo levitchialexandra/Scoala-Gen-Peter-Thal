@@ -4,86 +4,240 @@
     color: white;
 }
 
-.main-container {
-    margin-bottom: 0;
+.container-fluid {
+    padding: 0;
 }
+
+.banner-background {
+    background-image: url("../images/sectiunea-de-sus.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: clamp(1rem, 3vw, 2rem);
+    padding-bottom: clamp(1rem, 5vw, 2.8rem);
+    height: 60vw;
+}
+
+.banner-ilustratii {
+    position: absolute;
+    top: -3vw;
+}
+
 
 .top-title {
     position: absolute;
-    top: 8vw;
-    left: 8vw;
+    top: 3vw;
+    left: 5vw;
     font-family: 'Tillana';
     font-weight: 500;
-    font-size: 4.5vw;
-    line-height: 5vw;
+    font-size: clamp(1.6rem, 4vw, 2.2rem);
     text-align: left;
 }
 
 .top-subtitle {
     position: absolute;
-    top: 14vw;
-    left: 8vw;
+    top: 8vw;
+    left: 5vw;
     font-weight: 400;
-    font-size: 1.9vw;
-    line-height: 2.8vw;
+    font-size: clamp(0.9rem, 2vw, 1.2rem);
     text-align: left;
-    max-width: 49vw;
+    max-width: 50vw;
 }
-
 
 .top-quote {
     position: absolute;
-    top: 13vw;
-    left: 58vw;
+    top: 15vw;
+    left: 60vw;
     font-family: 'Tillana';
     font-weight: 400;
-    font-size: 3.6vw;
-    line-height: 4.7vw;
+    font-size: clamp(1.4rem, 3.5vw, 2rem);
     text-align: right;
-    max-width: 33.7vw;
+    max-width: 35vw;
 }
 
 
 /* De facut curba pentru text Elevul !!  */
 .top-circle-title {
     position: absolute;
-    top: 40vw;
+    top: 38vw;
     left: 21vw;
     font-family: 'Tillana';
     font-weight: 400;
-    font-size: 4.6vw;
-    line-height: 4.7vw;
-
+    font-size: clamp(0.8rem, 2.2vw, 1.4rem);
 }
 
 
 .top-circle-subtitle {
     position: absolute;
-    top: 46vw;
+    top: 42vw;
     left: 17.2vw;
     font-family: 'Tillana';
     font-weight: 400;
-    font-size: 1.8vw;
-    line-height: 2.7vw;
+    font-size: clamp(0.65rem, 2vw, 1.2rem);
     max-width: 22.9vw;
     text-align: center;
 }
 
 
 
-.testimonial h1, .testimonial h2{
-   text-align: center;
-   padding-bottom: 2vw;
-   color: #0A2E5C;
-   font-family: 'Poppins';
-   font-weight: 500;
-   line-height: 8px;
+/* md */
+@media(max-width: 768px) {
+    .banner-background {
+        height: 80vw;
+    }
+
+    .banner-ilustratii {
+        top: 17vw;
+    }
+
+    .top-circle-title {
+        top: 56vw;
+    }
+
+    .top-circle-subtitle {
+        left: 16vw;
+        top: 60vw;
+    }
+
+    .top-title {
+        top: 4.5vw;
+        left: 6vw;
+    }
+
+    .top-subtitle {
+        top: 11.5vw;
+        left: 6vw;
+        max-width: 85vw;
+    }
+
+    .top-quote {
+        top: 34vw;
+        left: 40vw;
+        max-width: 50vw;
+    }
+}
+
+/* lg */
+@media(min-width: 992px) {
+    .banner-background {
+        background-size: 100% 100%;
+        height: 54.4vw;
+    }
+
+    .banner-ilustratii {
+        max-width: 90vw;
+        left: 5vw;
+    }
+
+    .top-circle-title {
+        left: 24vw;
+        top: 34vw;
+    }
+
+    .top-circle-subtitle {
+        left: 19vw;
+        top: 38vw;
+    }
 }
 
 
+/* xl */
+@media(min-width: 1140px) {
+    .banner-background {
+        background-size: 100% 100%;
+        height: 47vw;
+    }
+
+    .banner-ilustratii {
+        max-width: 80vw;
+        left: 10vw;
+    }
+
+    .top-circle-title {
+        left: 26vw;
+        top: 30vw;
+    }
+
+    .top-circle-subtitle {
+        left: 21vw;
+        top: 34vw;
+    }
+
+    .top-quote {
+        top: 14vw;
+    }
+}
+
+
+/* xxl */
+@media(min-width: 1320px) {
+    .banner-background {
+        background-size: 100% 100%;
+        height: 40.8vw;
+
+    }
+
+    .banner-ilustratii {
+        max-width: 70vw;
+        left: 15vw;
+    }
+
+    .top-circle-title {
+        left: 28vw;
+        top: 27vw;
+        font-size: clamp(1.2rem, 2vw, 2rem);
+    }
+
+    .top-circle-subtitle {
+        left: 23.5vw;
+        top: 31vw;
+        font-size: clamp(1rem, 1.4vw, 1.6rem);
+
+    }
+
+    .top-title {
+        top: 3vw;
+        left: 6vw;
+    }
+
+    .top-subtitle {
+        top: 7vw;
+        left: 6vw;
+    }
+
+    .top-quote {
+        top: 12vw;
+    }
+}
+
+
+/* Testimoniale */
+
+.testimonial-container-title {
+    margin: 8vw 0 2vw;
+}
+
+.testimonial {
+    padding: 2vw 0;
+}
+
+.testimonial-container-title h2,
+.testimonial-container-title h4 {
+    text-align: center;
+    color: #0A2E5C;
+    font-weight: 500;
+    font-family: 'Tillana';
+
+}
+
+.testimonial-container-title h2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Istoric */
+
 .img-sageata {
     max-width: 50%;
-   
+
 }
 
 .titlu-istoric {
@@ -92,16 +246,12 @@
     font-size: 1.9vw;
     line-height: 2vw;
     color: #0A2E5C;
-
 }
 
 .titlu-istoric-text {
     position: relative;
     top: -10.5vw;
 }
-
-
-
 
 .container {
     width: 80%;
@@ -147,7 +297,6 @@
     flex: 1;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     margin-left: 6vw;
-
 }
 
 
@@ -156,15 +305,16 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-auto-rows: minmax(100px, auto);
     gap: 15px;
-    padding: 0 12vw 12vw 12vw;
+    padding: 0 12vw;
 }
 
 .titlu-catedre {
     font-family: 'Tillana';
     color: #0A2E5C;
     font-weight: 500;
-    font-size: 8vw;
+    font-size: clamp(1.8rem, 5vw, 4rem);
     text-align: center;
+    margin: 8vw 0 3vw;
 }
 
 .catedra {
@@ -173,8 +323,6 @@
     border-radius: 12px;
     box-shadow: -5px 10px 7.3px 0px #00000080;
     text-align: start;
-
-
 }
 
 .catedra h3 {
@@ -349,27 +497,6 @@
 /* Importing fonts from Google */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-/* De verificat daca sunt ok culorile sau nu */
-
- @keyframes background-color {
-    0% {
-        background: linear-gradient(to bottom, #000428, #004683);
-    }
-
-    25% {
-        background: linear-gradient(135deg, #1a4223, #5ee95e);
-    }
-
-    50% {
-        background: linear-gradient(to bottom, #421a31, #e95ed2);
-    }
-
-    100% {
-        background: linear-gradient(-135deg, #fae37d, #881da8, #20668f);
-    }
-
-} 
-
 
 .container .col-lg-4 {
     display: flex;
@@ -383,7 +510,6 @@
     perspective: 500px;
     border: none;
     background-color: inherit;
-    font-family: 'Poppins';
 }
 
 .card .face {
@@ -470,19 +596,15 @@
 
 
 
-
-
-
 /* Zona istoric */
 .istoric-container {
-  
-
     gap: 180px;
     /* background: #f8f9fa; */
     padding: 20px;
     border-radius: 10px;
-    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
-   
+
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
 }
 
 .istoric-title {
@@ -501,9 +623,4 @@
     color: #333;
     line-height: 1.6;
     max-width: 700px;
-}
 
-
-.sageata{
-    max-width: 100%;
-}
