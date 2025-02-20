@@ -10,47 +10,59 @@ public class PageController {
     public String home() {
         return "/index";
     }
+
     @GetMapping("/index")
     public String homePage() {
         return "/index";
     }
+
     @GetMapping("/pages/biblioteca-digitala")
     public String bibliotecaDigitala() {
-        return "pages/biblioteca-digitala"; 
+        return "pages/biblioteca-digitala";
     }
+
     @GetMapping("/pages/despre-noi")
     public String about() {
-        return "pages/despre-noi"; 
+        return "pages/despre-noi";
     }
+
     @GetMapping("/pages/ghidul-elevului")
     public String ghidulElevului() {
-        return "pages/ghidul-elevului"; 
+        return "pages/ghidul-elevului";
     }
-    
+
     @GetMapping("/pages/inscrieri")
     public String inscrieri() {
-        return "pages/inscrieri"; 
+        return "pages/inscrieri";
     }
+
     @GetMapping("/pages/istoricul-scolii")
     public String istoriculScolii() {
-        return "pages/istoricul-scolii"; 
+        return "pages/istoricul-scolii";
     }
+
     @GetMapping("/pages/noutati")
     public String noutati() {
-        return "pages/noutati"; 
+        return "pages/noutati";
     }
+
     @GetMapping("/pages/oferta-educationala")
     public String ofertaEducationala() {
-        return "pages/oferta-educationala"; 
+        return "pages/oferta-educationala";
     }
-    
+
     @GetMapping("/pages/contact")
     public String contact() {
-        return "pages/contact"; 
+        return "pages/contact";
     }
 
     @GetMapping("/pages/postare")
     public String postare() {
-        return "pages/postare"; 
+        return "pages/postare";
+    }
+
+    @GetMapping("/pages/politica-cookie")
+    public String politicaCookie() {
+        return "pages/politica-cookie";
     }
 }

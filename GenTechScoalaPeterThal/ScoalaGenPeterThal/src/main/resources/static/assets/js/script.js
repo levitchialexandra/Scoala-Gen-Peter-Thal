@@ -69,3 +69,47 @@ function copyToClipboard(element) {
         })
         .catch(err => console.error("Error copying text: ", err));
 }
+
+
+// Functia pentru cookie
+
+window.addEventListener("load", function () {
+    function getCookie(name) {
+        return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+    }
+
+    function initCookieBanner() {
+        const cookieBanner = document.getElementById("cookie-banner");
+
+        if (!cookieBanner) {
+            console.error("❌ Cookie banner nu a fost găsit. Verifică dacă este inclus în `footer.html`!");
+            return;
+        }
+
+        // Dacă utilizatorul a acceptat deja cookie-urile, ascundem banner-ul
+        if (getCookie("accept_cookies") === "true") {
+            cookieBanner.style.display = "none";
+            return;
+        }
+
+        // Afișăm banner-ul
+        cookieBanner.style.display = "block";
+        console.log("✅ Cookie banner afișat.");
+
+        const acceptButton = document.getElementById("accept-cookies");
+        if (!acceptButton) {
+            console.error("❌ Butonul de acceptare a cookie-urilor nu a fost găsit!");
+            return;
+        }
+
+        acceptButton.addEventListener("click", function () {
+            document.cookie = "accept_cookies=true; path=/; max-age=2592000"; // 30 zile
+            cookieBanner.style.display = "none";
+            console.log("✅ Cookie acceptat și banner ascuns.");
+        });
+    }
+
+    initCookieBanner();
+});
+
+

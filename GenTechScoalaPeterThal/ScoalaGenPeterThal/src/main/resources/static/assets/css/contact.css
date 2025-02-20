@@ -1,9 +1,43 @@
    #map {
        height: 500px;
        width: 100%;
+       z-index: 2;
    }
 
-   .titlu-contact h1{
+.div-img-fundal{
+    position: relative;
+    /* left: -5vw; */
+}
+
+.img-fundal{
+    position: absolute;
+    z-index: 1;
+    /* width: 100%; */
+    /* max-width: 95vw;
+        height: auto; */
+}
+
+.row{
+    z-index: 2;
+}
+
+.main-container{
+    height: 100vw;
+}
+
+/* body {
+    background-image: url('/assets/images/fundal-contact.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    max-width: 100%;
+} */
+
+
+
+   /*!!  Varianta full absolut !! */
+    .titlu-contact h1{
     font-family: 'Tillana';
     font-weight: 500;
     font-size: 5vw;
@@ -92,4 +126,4 @@ body {
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center;
-}
+} 

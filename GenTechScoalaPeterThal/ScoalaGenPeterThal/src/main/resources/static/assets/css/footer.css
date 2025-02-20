@@ -192,3 +192,29 @@
     margin-bottom: 75px;
   }
 } */
+
+
+/* Cookie implementate */
+
+#cookie-banner {
+  display: none;
+  /* Inițial ascuns */
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Stil buton */
+#cookie-banner button {
+  background: green;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
