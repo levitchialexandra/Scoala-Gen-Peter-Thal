@@ -140,6 +140,12 @@
     }
 }
 
+@media (max-width: 360px) {
+    .tags {
+        visibility: hidden;
+    }
+}
+
 /* Banner galben*/
 
 .banner-alegere-scoala {
