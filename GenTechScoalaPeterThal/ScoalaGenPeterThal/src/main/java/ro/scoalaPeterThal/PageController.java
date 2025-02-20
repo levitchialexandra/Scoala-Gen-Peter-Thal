@@ -65,4 +65,9 @@ public class PageController {
     public String politicaCookie() {
         return "pages/politica-cookie";
     }
+
+    @GetMapping("/pages/termeni-si-conditii")
+    public String termeniSiConditii() {
+        return "pages/termeni-si-conditii";
+    }
 }
