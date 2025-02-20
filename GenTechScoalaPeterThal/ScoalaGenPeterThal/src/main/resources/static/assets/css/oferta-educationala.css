@@ -148,7 +148,7 @@ body {
 .resurse-materiale,
 .resurse-umane {
     font-weight: 500;
-    line-height: 1.2vw;
+    line-height: 24px;
     font-size: clamp(1rem, 1.8vw, 1.2rem);
     color: #0A2E5C;
 }
@@ -161,6 +161,11 @@ body {
 .resurse-umane {
     text-align: end;
     padding-bottom: 12vw;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
 }
 
 
