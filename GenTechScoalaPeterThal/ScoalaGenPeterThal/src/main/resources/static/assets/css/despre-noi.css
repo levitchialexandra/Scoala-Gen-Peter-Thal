@@ -478,10 +478,10 @@
   
 
     gap: 180px;
-    background: #f8f9fa;
+    /* background: #f8f9fa; */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
    
 }
 
@@ -501,4 +501,9 @@
     color: #333;
     line-height: 1.6;
     max-width: 700px;
+}
+
+
+.sageata{
+    max-width: 100%;
 }
