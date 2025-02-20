@@ -52,7 +52,7 @@ public class OrarController {
         model.addAttribute("orarOre", distinctOrarOre);
         model.addAttribute("clase", clase);
         model.addAttribute("orar", orar);
-        model.addAttribute("cicluSelectat", ciclu);
+        model.addAttribute("cicluSelectat", ciclu.name());
 
         model.addAttribute("clasaSelectata", clasa);
 

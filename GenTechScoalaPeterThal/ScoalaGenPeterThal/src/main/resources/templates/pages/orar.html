@@ -84,15 +84,17 @@
           class="container d-flex flex-column justify-content-center align-items-center"
           style="min-height: 80vh"
         >
-          <div class="orarBtns">
+          <div class="orarBtns"><form method="get">
             <div class="row justify-content-center mt-4">
+              
               <div class="col-6 col-md-4 text-center">
                 <button
                   type="submit"
                   name="ciclu"
                   value="PRIMAR"
                   id="btnCicluPrimar"
-                  class="button btnCiclu primary"
+                  class="button btnCiclu"
+                  th:classappend="${cicluSelectat == 'PRIMAR'} ? ' primary' : ''"
                 >
                   Orare ciclul primar
                 </button>
@@ -104,12 +106,13 @@
                   value="GIMNAZIAL"
                   id="btnCicluGimnazial"
                   class="button btnCiclu"
+                  th:classappend="${cicluSelectat == 'GIMNAZIAL'} ? ' primary' : ''"
                 >
                   Orare ciclul gimnazial
                 </button>
               </div>
               <div class="col-6 col-md-4 text-center dvClasaSelect">
-                <form method="get">
+                
                   <input
                     type="hidden"
                     name="ciclu"
@@ -129,10 +132,11 @@
                       th:selected="${c.nume == clasaSelectata}"
                     ></option>
                   </select>
-                </form>
+                
               </div>
+           
             </div>
-
+          </form>
             <!-- Class selection -->
             <div class="row justify-content-center mt-3"></div>
           </div>
