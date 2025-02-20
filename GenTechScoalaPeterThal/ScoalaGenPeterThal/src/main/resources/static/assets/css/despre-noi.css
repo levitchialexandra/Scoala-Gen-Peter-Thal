@@ -73,11 +73,11 @@
 
 .testimonial h1, .testimonial h2{
    text-align: center;
-   padding-bottom: 2vw;
+   padding-bottom: 1vw;
    color: #0A2E5C;
    font-family: 'Poppins';
    font-weight: 500;
-   line-height: 8px;
+   line-height: 24px;
 }
 
 
