@@ -218,7 +218,7 @@
                             >
                               <div
                                 class="fw-bold text-white text-center hour-block"
-                                th:text="${ora}"
+                                th:text="${#strings.substring(ora, 0, 5)}"
                               ></div>
 
                               <span
