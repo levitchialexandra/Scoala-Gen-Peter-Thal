@@ -277,3 +277,18 @@ select {
 
 
 }
+
+@media (max-width: 480px) {
+
+    .orar-tableMin {
+        border-radius: 20px;
+    }
+
+    .hour-block {
+        max-width: 50px;
+        display: flex;
+        align-self: stretch;
+        align-items: center;
+    }
+
+}
