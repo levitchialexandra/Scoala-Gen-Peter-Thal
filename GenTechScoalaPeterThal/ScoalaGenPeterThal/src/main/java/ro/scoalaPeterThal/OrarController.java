@@ -57,5 +57,6 @@ public class OrarController {
         model.addAttribute("clasaSelectata", clasa);
 
         return "pages/orar";
+        
     }
 }
