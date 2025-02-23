@@ -192,6 +192,34 @@
     }
 }
 
+
+@media (max-width: 479px) {
+    .img-top-container {
+        background-image: url("../images/sectiunea-de-sus-mobil.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        padding-top: clamp(1rem, 3vw, 2rem);
+        padding-bottom: clamp(1rem, 5vw, 2.8rem);
+        height: 110vw;
+    }
+
+    .top-quote {
+        top: 65vw;
+    }
+
+
+    .container-cerc {
+        top: 85vw;
+        min-width: 55vw;
+        min-height: 55vw;
+    }
+
+    .top-circle-subtitle {
+        max-width: 40vw;
+
+    }
+}
+
 /* Testimoniale */
 
 .testimonial-titles {
@@ -211,7 +239,13 @@
 @media(max-width: 576px) {
     .testimonial-titles {
         margin-top: 3rem;
+    }
+}
 
+
+@media(max-width: 479px) {
+    .testimonial-titles {
+        margin-top: 5rem;
     }
 }
 
