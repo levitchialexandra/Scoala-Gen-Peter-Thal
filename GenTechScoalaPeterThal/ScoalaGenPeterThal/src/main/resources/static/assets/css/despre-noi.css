@@ -320,41 +320,31 @@
 /* Zona istoric */
 .istoric-container {
     gap: 180px;
-    /* background: #f8f9fa; */
     padding: 20px;
     border-radius: 10px;
-    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
 }
 
 .istoric-title {
-    font-family: 'Tillana', cursive;
-    font-size: 36px;
-    font-weight: 600;
-    color: #003366;
+    font-family: 'Tillana';
+    color: #0A2E5C;
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 5rem) !important;
+    text-align: center;
+    margin: 4vw 0 2vw;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    white-space: nowrap;
 }
 
 .istoric-text {
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
     font-weight: 400;
     color: #333;
-    line-height: 1.6;
-    max-width: 700px;
 }
 
 .sageata {
-    max-width: 100%;
-    min-width: 8rem;
-    width: 20vw;
-    height: 20vw;
+    width: clamp(7rem, 12vw, 16rem);
+    height: auto;
 }
 
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
 
 .timeline {
     position: relative;
@@ -371,40 +361,56 @@
 }
 
 .timeline-year {
-    width: clamp(40px, 5vw, 80px);
-    height: clamp(20px, 3vw, 50px);
-    font-family: 'Tillana', sans-serif;
-    background-color: #7EAEEC;
-    color: #0A2E5C;
-    font-size: clamp(12px, 2vw, 22px);
-    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 28px;
     position: absolute;
-    left: -2vw;
+    left: -8vw;
     top: 50%;
+    width: clamp(45px, 5.5vw, 80px);
+    height: clamp(25px, 3.5vw, 40px);
+    font-family: 'Tillana', sans-serif;
+    background-color: #7EAEEC;
+    color: #0A2E5C;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: bold;
+    border-radius: 28px;
     transform: translateY(-50%);
 }
 
 
 .timeline-content {
     background-color: white;
-    padding: 10px 15px;
+    padding: 10px 15px 0;
     border-radius: 8px;
-    flex: 1;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
     margin-left: 3vw;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    width: 70vw;
 }
 
-.timeline-year {
-    left: -6vw;
-}
+
+
 
 @media (max-width: 479px) {
     .timeline-year {
-        left: -8vw;
+        left: -9vw;
+    }
+}
+
+@media (min-width: 720px) {
+    .timeline-year {
+        left: -5vw;
+    }
+}
+
+@media (min-width: 992px) {
+    .timeline-content {
+        width: 60vw;
+    }
+
+    .timeline-year {
+        left: -3vw;
     }
 }
 
