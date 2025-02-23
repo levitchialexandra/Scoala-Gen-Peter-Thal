@@ -2,7 +2,8 @@
   position: relative;
   background: linear-gradient(to bottom, #2C4E87, #0A2E5C);
   display: flex;
-  padding:clamp(0.6rem, 2vw, 1.6rem);
+  padding:clamp(0.6rem, 3vw, 1.6rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
   overflow: hidden;
 }
 
@@ -58,13 +59,12 @@
 .blog-link {
   color: #AF9FF1;
 }
+
 .termeni-si-conditii {
-  color:#63D784;
-  font-family: 'Poppins', sans-serif;
-  font-size: clamp(0.6rem, 1.4vw, 1.5rem);
+  color:#fff;
+  font-size: clamp(0.7rem, 1.4vw, 1rem);
   text-decoration: none;
   padding: 10px 10px;
-
 }
 
 
