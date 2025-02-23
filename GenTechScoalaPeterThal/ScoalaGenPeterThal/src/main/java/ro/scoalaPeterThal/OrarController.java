@@ -37,7 +37,7 @@ public class OrarController {
         }
         List<String> colors = Arrays.asList("#AF9FF1", "#FFED89", "#7EAEEC", "#E4FDB2", "#FEAAD8");
         List<Clasa> clase = clasaRepository.findByCiclu(ciclu);
-        List<String> zile = List.of("Luni", "Marti", "Miercuri", "Joi", "Vineri");
+        List<String> zile = List.of("Luni", "Marți", "Miercuri", "Joi", "Vineri");
 
         DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
         List<String> distinctOrarOre = orar.stream()
