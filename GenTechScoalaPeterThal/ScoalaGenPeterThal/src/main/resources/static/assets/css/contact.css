@@ -1,6 +1,12 @@
+   
+   
+   
+   
    #map {
        height: 500px;
        width: 100%;
+       border:3px solid #0A2E5C;
+       border-radius: 25px;
    }
 
    .titlu-contact h1{
@@ -9,72 +15,175 @@
     font-size: 5vw;
     line-height: -1vw;
     text-align: right;
+    padding: 30px;
+    color:#0A2E5C;
    }
 
-.div-adresa{
-    position: relative;
+   .main-container {
     display: flex;
-    align-items: start;
-    left: -13vw;
-    top: -12vw;
-    z-index: 1;
-}
+      flex-direction: column;
+      gap: 1rem;
+      width: 100%;
+      padding: 1rem;
+      min-height: 100vh;
+      justify-content: center;
+      position: relative;
+   }
 
-.img-adresa, .img-adresa .img-telefon{
-    max-width: 70%;
-}
+   .contact {
+    margin-top: 100px;
+   }
 
-.text-adresa{   
-    position: absolute;
-    padding: 12vw;
-}
-
-.div-adresa h2, .div-email h2, .div-telefon h2{
-    font-family: 'Tillana';
-    font-weight: 500;
-    font-size: 4vw;
-}
 
 .div-adresa p, .div-email p, .div-telefon p{
     font-family: 'Poppins';
     font-weight: 500;
-    font-size: 2vw; 
+
+  color:#0A2E5C;
 }
 
-.div-email {
-    position: relative;
+.forma {
+    width: 30vw;
+    height: 20vw;
+    background-color: #0d6efd;
+    color: white;
     display: flex;
-    align-items: end;
-    top: -35vw;
-    right: -36vw;
-    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    text-align: center;
+    padding: 1rem;
+    word-wrap: break-word;
+    box-sizing: border-box;
+   
+  }
+  .div-adresa h2, .div-email h2, .div-telefon h2{
+    font-family: 'Tillana';
+    font-weight: 500;
+    font-size: 2.1rem ;
+   color:#0A2E5C;
+}
+
+  .div-adresa , .div-telefon {
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 200px;
+    margin-left: 0;
+  }
+
+  .div-email {
+    border-top-left-radius: 200px;
+    border-bottom-left-radius: 200px;
+    margin-left: auto;
+    background-color: #CBBEFF;
+  }
+
+.div-adresa{
+    background-color: #E4FDB2;
+}
+.div-telefon{
+    background-color: #B8D7FF;
+}
+.bunny {
+    width: 8rem;
+    margin-left:11rem;
+   
+}
+.bear{
+    width: 5rem;
+    margin-right: 15rem;
 }
 
 
-.text-email{
-    text-align: end;
-    position: absolute;
-    padding: 8vw 10vw 20vw 24vw;
-}
+  @media (max-width: 768px) {
+   .forma  {
+      width: 200px;
+      height: 130px;
+      font-size: 1rem;
+      padding: 0.75rem;
+    }
+    .forma h2{
+       font-size: 1.2rem;
+        font-weight: 500;
+    }
 
-.div-telefon {
-    position: relative;
-    display: flex;
-    align-items: start;
-    left: -13vw;
-    top: -45vw;
-    z-index: 1;
-}
+    .div-telefon , .div-adresa {
+      border-top-right-radius: 130px;
+      border-bottom-right-radius: 130px;
+    }
 
-.text-telefon {
-    text-align: start;
-    position: absolute;
-    padding: 12vw 10vw 18vw 15vw;
-}
+   .div-email {
+      border-top-left-radius: 130px;
+      border-bottom-left-radius: 130px;
+    }
+    .bunny {
+        width: 5.2rem;
+        margin-left: 6rem;
+    }
+    .titlu-contact h1{
+        font-weight: 500;
+        font-size: 2rem;      
+       }
+
+       .bear{
+        width:3rem;
+        margin-right: 9rem;
+       }
+
+       .text-telefon{
+        padding-top: 10px;
+    }
+    .text-email{
+        padding-top: 10px;
+    }
+
+  }
+
+
+
+  @media (min-width: 769px) and
+  (max-width: 1024px) {
+    .forma  {
+       
+       font-size: 1.1rem;
+       padding: 0.75rem;
+     }
+     .forma h2{
+        font-size: 1.5rem;
+         font-weight: 500;
+     }
+
+     .bunny {
+        width: 7rem;
+        margin-left: 9rem;
+    }
+    .bear {
+        width: 4rem;
+        margin-right:11rem;
+    }
+ 
+    /* .div-telefon , .div-adresa {
+       border-top-right-radius: 130px;
+       border-bottom-right-radius: 130px;
+     }
+ 
+    .div-email {
+       border-top-left-radius: 130px;
+       border-bottom-left-radius: 130px;
+     } */
+   }
+ 
+
+
+
+
+
+
+
+
 .harta{
     position: relative;
     display: block;
-    margin-top: -40vw;
+ /*   margin-top: -40vw; */
 }
 
 .harta h2{
@@ -85,6 +194,12 @@
 .harta div{
     float: left;
     padding-top: 10px
+}
+
+
+.border-harta{
+    border: 10px solid black;
+    border-radius: 10px;
 }
 
 body {
