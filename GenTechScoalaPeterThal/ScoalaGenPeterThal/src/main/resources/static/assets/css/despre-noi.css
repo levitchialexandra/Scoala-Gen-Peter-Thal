@@ -8,344 +8,218 @@
     margin-bottom: 0;
 }
 
+.container-fluid {
+    padding: 0;
+}
+
+.img-top-container {
+    background-image: url("../images/sectiunea-de-sus.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: clamp(1rem, 3vw, 2rem);
+    padding-bottom: clamp(1rem, 5vw, 2.8rem);
+    height: 45vw;
+}
+
 .top-title {
     position: absolute;
-    top: 8vw;
-    left: 8vw;
+    top: 4vw;
+    left: 6vw;
     font-family: 'Tillana';
     font-weight: 500;
-    font-size: 4.5vw;
-    line-height: 5vw;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     text-align: left;
 }
 
 .top-subtitle {
     position: absolute;
-    top: 14vw;
-    left: 8vw;
+    top: 10vw;
+    left: 6vw;
     font-weight: 400;
-    font-size: 1.9vw;
-    line-height: 2.8vw;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
     text-align: left;
-    max-width: 49vw;
+    max-width: 48vw;
 }
-
 
 .top-quote {
     position: absolute;
-    top: 13vw;
-    left: 58vw;
+    top: 12vw;
+    right: 6vw;
     font-family: 'Tillana';
     font-weight: 400;
-    font-size: 3.6vw;
-    line-height: 4.7vw;
+    font-size: clamp(1.4rem, 3vw, 2rem);
     text-align: right;
-    max-width: 33.7vw;
 }
 
 
-/* De facut curba pentru text Elevul !!  */
 .top-circle-title {
-    position: absolute;
-    top: 40vw;
-    left: 21vw;
+    text-align: center;
+    margin-top: -3vw;
+    margin-left: -3vw;
     font-family: 'Tillana';
     font-weight: 400;
-    font-size: 4.6vw;
-    line-height: 4.7vw;
-
+    font-size: clamp(1.6rem, 3.2vw, 2rem);
+    max-width: 16rem;
 }
-
 
 .top-circle-subtitle {
-    position: absolute;
-    top: 46vw;
-    left: 17.2vw;
+    text-align: center;
     font-family: 'Tillana';
     font-weight: 400;
-    font-size: 1.8vw;
-    line-height: 2.7vw;
-    max-width: 22.9vw;
+    font-size: clamp(0.8rem, 1.8vw, 1.1rem);
     text-align: center;
+    max-width: 15rem;
 }
 
-
-
-.testimonial h1, .testimonial h2{
-   text-align: center;
-   padding-bottom: 1vw;
-   color: #0A2E5C;
-   font-family: 'Poppins';
-   font-weight: 500;
-   line-height: 24px;
-}
-
-
-.img-sageata {
-    max-width: 50%;
-   
-}
-
-.titlu-istoric {
-    position: relative;
-    font-weight: 500;
-    font-size: 1.9vw;
-    line-height: 2vw;
-    color: #0A2E5C;
-
-}
-
-.titlu-istoric-text {
-    position: relative;
-    top: -10.5vw;
-}
-
-
-
-
-.container {
-    width: 80%;
-    margin: 0 auto;
-}
-
-.timeline {
-    position: relative;
-    list-style: none;
-    padding: 0;
-}
-
-.timeline li {
+.container-cerc {
     display: flex;
-    align-items: center;
-    position: relative;
-    margin-bottom: 10px;
-}
-
-.timeline-year {
-    width: clamp(40px, 5vw, 80px);
-    height: clamp(20px, 3vw, 50px);
-    font-family: 'Tillana', sans-serif;
-    background-color: #7EAEEC;
-    color: #0A2E5C;
-    font-size: clamp(12px, 2vw, 22px);
-    font-weight: bold;
-    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 28px;
     position: absolute;
-    left: -2vw;
-    top: 50%;
-    transform: translateY(-50%);
+    top: 25vw;
+    left: 14vw;
+    background-image: url("../images/cerc.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-width: 20rem;
+    min-height: 20rem;
+}
+
+@media(min-width: 1320px) {
+    .container-cerc {
+        left: 20vw;
+    }
+
+    .top-title {
+        top: 6vw;
+    }
+
+    .top-subtitle {
+        top: 10vw;
+    }
 }
 
 
-.timeline-content {
-    background-color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    flex: 1;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    margin-left: 6vw;
+/* sub-lg */
+@media(max-width: 992px) {
+    .img-top-container {
+        background-image: url("../images/sectiunea-de-sus-mobil.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        padding-top: clamp(1rem, 3vw, 2rem);
+        padding-bottom: clamp(1rem, 5vw, 2.8rem);
+        height: 50vw;
+    }
 
+    .top-title {
+        left: 6vw;
+    }
+
+    .top-subtitle {
+        top: 11.5vw;
+        left: 6vw;
+        max-width: 80vw;
+    }
+
+    .top-quote {
+        top: 26vw;
+        right: 6vw;
+    }
+
+    .top-circle-title {
+        max-width: 30vw;
+
+    }
+
+    .top-circle-subtitle {
+        max-width: 30vw;
+
+    }
+
+    .container-cerc {
+        top: 28vw;
+        min-width: 35vw;
+        min-height: 35vw;
+        left: 5vw;
+    }
+}
+
+/* md */
+@media(max-width: 768px) {
+    .img-top-container {
+        background-image: url("../images/sectiunea-de-sus-mobil.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        padding-top: clamp(1rem, 3vw, 2rem);
+        padding-bottom: clamp(1rem, 5vw, 2.8rem);
+        height: 60vw;
+    }
+
+    .top-quote {
+        top: 32vw;
+    }
+
+
+    .container-cerc {
+        top: 38vw;
+        min-width: 40vw;
+        min-height: 40vw;
+    }
 }
 
 
-.catedre {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-auto-rows: minmax(100px, auto);
-    gap: 15px;
-    padding: 0 12vw 12vw 12vw;
+/* sm */
+@media(max-width: 576px) {
+    .img-top-container {
+        background-image: url("../images/sectiunea-de-sus-mobil.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        padding-top: clamp(1rem, 3vw, 2rem);
+        padding-bottom: clamp(1rem, 5vw, 2.8rem);
+        height: 80vw;
+    }
+
+    .top-quote {
+        top: 42vw;
+    }
+
+
+    .container-cerc {
+        top: 47vw;
+        min-width: 45vw;
+        min-height: 45vw;
+    }
 }
 
-.titlu-catedre {
-    font-family: 'Tillana';
-    color: #0A2E5C;
-    font-weight: 500;
-    font-size: 8vw;
+/* Testimoniale */
+
+.testimonial-titles {
     text-align: center;
-}
-
-.catedra {
-    background: #f8f8f8;
-    padding: 15px;
-    border-radius: 12px;
-    box-shadow: -5px 10px 7.3px 0px #00000080;
-    text-align: start;
-
-
-}
-
-.catedra h3 {
-    font-size: clamp(16px, 2vw, 24px);
-    color: #0A2E5C;
-    margin-bottom: 10px;
-    text-align: center;
-}
-
-.catedra ul {
-    list-style: none;
-    padding: 0;
-}
-
-.catedra li {
-    font-size: clamp(16px, 1.5vw, 18px);
     font-weight: 500;
-    color: #0A2E5C;
-    /* line-height: 27px; */
-
+    padding: 3vw 0;
+    margin-top: 2.5rem;
 }
-
-.catedra-invatatori {
-    max-height: 250px;
-    overflow: auto;
-    background-color: #CEC2FF;
-    scrollbar-width: auto;
-    scrollbar-color: #CEC2FF #EDEAFF;
-
-}
-
-.catedra-romana,
-.catedra-matematica,
-.catedra-germana {
-    background-color: #e4fdb2;
-}
-
-.catedra-fizica,
-.catedra-civica,
-.catedra-tehnologica,
-.catedra-info {
-    background-color: #FFED89;
-}
-
-.catedra-istorie,
-.catedra-engleza,
-.catedra-religie {
-    background-color: #B8D7FF;
-}
-
-.catedra-muzica,
-.catedra-desen,
-.catedra-chimie,
-.catedra-geografie,
-.catedra-biologie {
-    background-color: #FFC8E6;
-}
-
-.catedra-sport {
-    background-color: #FFE3C9;
-}
-
-
 
 @media(max-width: 1200px) {
+    .testimonial-titles {
+        margin-top: 5rem;
 
-    .img-comentariu1,
-    .img-comentariu2,
-    .img-comentariu3 {
-        position: absolute;
-        top: 21vw;
-        max-width: 6vw;
-        z-index: 2;
     }
-
-
 }
 
-@media (max-width: 767px) {
-
-
-    .img-comentariu1 {
-        left: 14vw;
-    }
-
-    .img-comentariu2 {
-        left: 45.2vw;
-    }
-
-    .img-comentariu3 {
-        right: 11.1vw;
-    }
-
-    .comment-title1 {
-        left: 7vw;
-    }
-
-    .comment-title2 {
-        left: 41.5vw;
-    }
-
-    .comment-title3 {
-        right: 9.4vw;
-    }
-
-
-    .comment-subtitle1 {
-        left: 7.7vw;
-    }
-
-    .comment-subtitle2 {
-        left: 40.3vw;
-    }
-
-    .comment-subtitle3 {
-        left: 73vw;
+@media(max-width: 576px) {
+    .testimonial-titles {
+        margin-top: 3rem;
 
     }
-
 }
 
-.timeline-year {
-    left: -6vw;
+.testimonial-titles h1 {
+    font-family: 'Tillana';
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-@media (max-width: 479px) {
-
-    .img-comentariu1 {
-        left: 14vw;
-    }
-
-    .img-comentariu2 {
-        left: 43.9vw;
-    }
-
-    .img-comentariu3 {
-        right: 12.2vw;
-    }
-
-    .comment-title1 {
-        left: 7vw;
-    }
-
-    .comment-title2 {
-        left: 40.9vw;
-    }
-
-    .comment-title3 {
-        right: 11vw;
-    }
-
-
-    .comment-subtitle1 {
-        left: 9.1vw;
-    }
-
-    .comment-subtitle2 {
-        left: 39.4vw;
-    }
-
-    .comment-subtitle3 {
-        left: 69.9vw;
-    }
-
-    .timeline-year {
-        left: -8vw;
-    }
-
-}
-
-/* Zona pentru testimonial */
 
 .container .col-lg-4 {
     display: flex;
@@ -359,7 +233,6 @@
     perspective: 500px;
     border: none;
     background-color: inherit;
-    font-family: 'Poppins';
 }
 
 .card .face {
@@ -439,47 +312,194 @@
 
 @media(max-width: 991.5px) {
     .col-lg-4 {
-        margin-top: 40px;
-        margin-bottom: 20px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Zona istoric */
+.istoric-container {
+    gap: 180px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.istoric-title {
+    font-family: 'Tillana';
+    color: #0A2E5C;
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 5rem) !important;
+    text-align: center;
+    margin: 4vw 0 2vw;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.istoric-text {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: 400;
+    color: #333;
+}
+
+.sageata {
+    width: clamp(7rem, 12vw, 16rem);
+    height: auto;
+}
+
+
+.timeline {
+    position: relative;
+    list-style: none;
+    padding: 0;
+    left: 6vw;
+}
+
+.timeline li {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.timeline-year {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: -8vw;
+    top: 50%;
+    width: clamp(45px, 5.5vw, 80px);
+    height: clamp(25px, 3.5vw, 40px);
+    font-family: 'Tillana', sans-serif;
+    background-color: #7EAEEC;
+    color: #0A2E5C;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: bold;
+    border-radius: 28px;
+    transform: translateY(-50%);
+}
+
+
+.timeline-content {
+    background-color: white;
+    padding: 10px 15px 0;
+    border-radius: 8px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-left: 3vw;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    width: 70vw;
+}
+
+
+
+
+@media (max-width: 479px) {
+    .timeline-year {
+        left: -9vw;
+    }
+}
+
+@media (min-width: 720px) {
+    .timeline-year {
+        left: -5vw;
+    }
+}
+
+@media (min-width: 992px) {
+    .timeline-content {
+        width: 60vw;
+    }
+
+    .timeline-year {
+        left: -3vw;
     }
 }
 
 
 
+/* Catedre */
 
-
-
-/* Zona istoric */
-.istoric-container {
-  
-
-    gap: 180px;
-    /* background: #f8f9fa; */
-    padding: 20px;
-    border-radius: 10px;
-    /* box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); */
-   
+.catedre {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-auto-rows: minmax(100px, auto);
+    gap: 15px;
+    padding: 0 12vw 12vw 12vw;
 }
 
-.istoric-title {
-    font-family: 'Tillana', cursive;
-    font-size: 36px;
-    font-weight: 600;
-    color: #003366;
+.titlu-catedre {
+    font-family: 'Tillana';
+    color: #0A2E5C;
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 5rem) !important;
+    text-align: center;
+    margin: 4vw 0 2vw;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-    white-space: nowrap;
 }
 
-.istoric-text {
-    font-family: 'Poppins', sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    color: #333;
-    line-height: 1.6;
-    max-width: 700px;
+.catedra {
+    background: #f8f8f8;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: -5px 10px 7.3px 0px #00000080;
+    text-align: start;
 }
 
+.catedra h3 {
+    font-size: clamp(16px, 2vw, 24px);
+    color: #0A2E5C;
+    margin-bottom: 10px;
+    text-align: center;
+}
 
-.sageata{
-    max-width: 100%;
+.catedra ul {
+    list-style: none;
+    padding: 0;
+}
+
+.catedra li {
+    font-size: clamp(16px, 1.5vw, 18px);
+    font-weight: 500;
+    color: #0A2E5C;
+    /* line-height: 27px; */
+
+}
+
+.catedra-invatatori {
+    max-height: 250px;
+    overflow: auto;
+    background-color: #CEC2FF;
+    scrollbar-width: auto;
+    scrollbar-color: #CEC2FF #EDEAFF;
+
+}
+
+.catedra-romana,
+.catedra-matematica,
+.catedra-germana {
+    background-color: #e4fdb2;
+}
+
+.catedra-fizica,
+.catedra-civica,
+.catedra-tehnologica,
+.catedra-info {
+    background-color: #FFED89;
+}
+
+.catedra-istorie,
+.catedra-engleza,
+.catedra-religie {
+    background-color: #B8D7FF;
+}
+
+.catedra-muzica,
+.catedra-desen,
+.catedra-chimie,
+.catedra-geografie,
+.catedra-biologie {
+    background-color: #FFC8E6;
+}
+
+.catedra-sport {
+    background-color: #FFE3C9;
 }
