@@ -180,14 +180,10 @@
         height: 80vw;
     }
 
-    .top-title {
-        top: 2vw;
-
-    }
-
     .top-quote {
         top: 42vw;
     }
+
 
     .container-cerc {
         top: 47vw;
@@ -207,48 +203,21 @@
         height: 110vw;
     }
 
+    .top-quote {
+        top: 65vw;
+    }
+
+
     .container-cerc {
         top: 85vw;
         min-width: 55vw;
         min-height: 55vw;
     }
 
-
-    .top-quote {
-        top: 65vw;
-    }
-
     .top-circle-subtitle {
         max-width: 40vw;
+
     }
-
-
-}
-
-@media (max-width: 360px) {
-
-    .top-title {
-        font-size: 1.2rem;
-    }
-
-    .top-subtitle {
-        font-size: 0.8rem;
-    }
-
-    .top-quote {
-        font-size: 1.2rem;
-        top: 65vw;
-    }
-
-    .top-circle-title {
-        font-size: 1.2rem;
-    }
-
-    .top-circle-subtitle {
-        font-size: 0.6rem;
-        max-width: 40vw;
-    }
-
 }
 
 /* Testimoniale */
