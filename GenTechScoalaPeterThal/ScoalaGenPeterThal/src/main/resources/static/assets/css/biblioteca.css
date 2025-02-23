@@ -9,7 +9,7 @@ h1 {
 }
 
 th {
-    color: #fff !important;
+    color: #123B70 !important;
 }
 
 #searchForm {
@@ -98,3 +98,23 @@ input[type="text"]:focus, input[type="number"]:focus, select:focus {
 .sortButton.sorted-desc i {
     transform: rotate(0deg);  
 }
+
+.titlu{
+    background-color: #E4FDB2 !important;
+}
+
+ .autor{
+    background-color: #B8D7FF !important;
+ }
+
+ .gen{
+    background-color: #FFC8E6 !important;
+ }
+
+ .anul-publicarii{
+    background-color: #FFE3C9 !important;
+ }
+
+ .disponibilitate{
+    background-color: #CEC2FF !important;
+ }
