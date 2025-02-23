@@ -70,6 +70,8 @@
     border-radius: 38px;
 }
 
+
+
 .rectangular1:hover,
 .rectangular2:hover,
 .rectangular3:hover {
@@ -140,11 +142,22 @@
     }
 }
 
-@media (max-width: 360px) {
-    .tags {
-        visibility: hidden;
+
+
+@media (max-width: 448px){
+    .rectangular1,
+    .rectangular2,
+    .rectangular3 {
+        height: 200px !important;
+        min-width: 12rem;
+        margin: 1rem 2rem 1rem 2rem;
     }
+
+         .tags {
+             visibility: hidden;
+         }
 }
+
 
 /* Banner galben*/
 
