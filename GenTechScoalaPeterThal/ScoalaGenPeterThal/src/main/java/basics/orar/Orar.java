@@ -1,9 +1,7 @@
 package basics.orar;
 
-import java.time.DayOfWeek;
-import java.time.LocalTime;
-import java.util.Locale;
 
+import java.time.LocalTime;
 import jakarta.persistence.*;
 
 @Entity

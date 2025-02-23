@@ -69,13 +69,10 @@ public class AdminController {
         Map<String, Boolean> response = new HashMap<>();
         try {
             String username = "oraruser";
-            AppUser appUser = loginUser(username, password);
-            //if (appUser != null) 
-            {
+            loginUser(username, password);
+            
                 response.put("success", true);
                 return ResponseEntity.ok(response);
-
-            }
 
         } catch (RuntimeException e) {
 
