@@ -250,7 +250,7 @@ select {
 
     .orarZiMin {
         text-transform: uppercase;
-        writing-mode: vertical-rl;
+        writing-mode: sideways-lr;
         text-orientation: upright;
         white-space: nowrap;
         padding: 10px;
@@ -275,5 +275,24 @@ select {
         display: block;
     }
 
+        .table-bordered>:not(caption)>*>* {
+            border: solid 2px #e7b884;
+        }
+
+}
+
+@media (max-width: 480px) {
+
+    .orar-tableMin {
+        border-radius: 20px;
+    }
+
+    .hour-block {
+        max-width: 50px;
+        display: flex;
+        align-self: stretch;
+        align-items: center;
+        padding-left: 5px;
+    }
 
 }

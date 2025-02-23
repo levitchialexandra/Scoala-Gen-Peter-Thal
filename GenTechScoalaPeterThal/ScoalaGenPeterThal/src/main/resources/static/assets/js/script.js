@@ -69,3 +69,53 @@ function copyToClipboard(element) {
         })
         .catch(err => console.error("Error copying text: ", err));
 }
+
+
+// cookies function
+window.addEventListener("load", function () {
+    function getCookie(name) {
+        return document.cookie.split('; ').find(row => row.startsWith(name + '='))?.split('=')[1];
+    }
+
+    function setCookie(name, value, days) {
+        let expires = "";
+        if (days) {
+            let date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + "; path=/" + expires;
+    }
+
+    function initCookieBanner() {
+        const cookieBanner = document.getElementById("cookie-banner");
+
+        if (!cookieBanner) {
+            console.error("❌ Cookie banner nu a fost găsit. Verifică dacă este inclus corect!");
+            return;
+        }
+
+        if (getCookie("accept_cookies") === "true" || getCookie("essential_cookies") === "true") {
+            cookieBanner.style.display = "none";
+            return;
+        }
+
+        cookieBanner.style.display = "block";
+
+        document.getElementById("accept-cookies").addEventListener("click", function () {
+            setCookie("accept_cookies", "true", 30);
+            cookieBanner.style.display = "none";
+            console.log("✅ Toate cookie-urile acceptate.");
+        });
+
+        document.getElementById("essential-cookies").addEventListener("click", function () {
+            setCookie("essential_cookies", "true", 30);
+            cookieBanner.style.display = "none";
+            console.log("✅ Doar cookie-urile esențiale acceptate.");
+        });
+    }
+
+    initCookieBanner();
+});
+
+

@@ -8,209 +8,383 @@
     margin-bottom: 0;
 }
 
+.container-fluid {
+    padding: 0;
+}
+
+.img-top-container {
+    background-image: url("../images/sectiunea-de-sus.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    padding-top: clamp(1rem, 3vw, 2rem);
+    padding-bottom: clamp(1rem, 5vw, 2.8rem);
+    height: 45vw;
+}
+
 .top-title {
     position: absolute;
-    top: 8vw;
-    left: 8vw;
+    top: 4vw;
+    left: 6vw;
     font-family: 'Tillana';
     font-weight: 500;
-    font-size: 4.5vw;
-    line-height: 5vw;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
     text-align: left;
 }
 
 .top-subtitle {
     position: absolute;
-    top: 14vw;
-    left: 8vw;
+    top: 10vw;
+    left: 6vw;
     font-weight: 400;
-    font-size: 1.9vw;
-    line-height: 2.8vw;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
     text-align: left;
-    max-width: 49vw;
+    max-width: 48vw;
 }
-
 
 .top-quote {
     position: absolute;
-    top: 13vw;
-    left: 58vw;
+    top: 12vw;
+    right: 6vw;
     font-family: 'Tillana';
     font-weight: 400;
-    font-size: 3.6vw;
-    line-height: 4.7vw;
+    font-size: clamp(1.4rem, 3vw, 2rem);
     text-align: right;
-    max-width: 33.7vw;
 }
 
 
-/* De facut curba pentru text Elevul !!  */
 .top-circle-title {
-    position: absolute;
-    top: 40vw;
-    left: 21vw;
+    text-align: center;
+    margin-top: -3vw;
+    margin-left: -3vw;
     font-family: 'Tillana';
     font-weight: 400;
-    font-size: 4.6vw;
-    line-height: 4.7vw;
-
+    font-size: clamp(1.6rem, 3.2vw, 2rem);
+    max-width: 16rem;
 }
-
 
 .top-circle-subtitle {
-    position: absolute;
-    top: 46vw;
-    left: 17.2vw;
+    text-align: center;
     font-family: 'Tillana';
     font-weight: 400;
-    font-size: 1.8vw;
-    line-height: 2.7vw;
-    max-width: 22.9vw;
+    font-size: clamp(0.8rem, 1.8vw, 1.1rem);
     text-align: center;
+    max-width: 15rem;
 }
 
-.testimonial-container {
-    position: relative;
-    color: #0A2E5C;
+.container-cerc {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 25vw;
+    left: 14vw;
+    background-image: url("../images/cerc.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    min-width: 20rem;
+    min-height: 20rem;
+}
+
+@media(min-width: 1320px) {
+    .container-cerc {
+        left: 20vw;
+    }
+
+    .top-title {
+        top: 6vw;
+    }
+
+    .top-subtitle {
+        top: 10vw;
+    }
+}
+
+
+/* sub-lg */
+@media(max-width: 992px) {
+    .img-top-container {
+        background-image: url("../images/sectiunea-de-sus-mobil.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        padding-top: clamp(1rem, 3vw, 2rem);
+        padding-bottom: clamp(1rem, 5vw, 2.8rem);
+        height: 50vw;
+    }
+
+    .top-title {
+        left: 6vw;
+    }
+
+    .top-subtitle {
+        top: 11.5vw;
+        left: 6vw;
+        max-width: 80vw;
+    }
+
+    .top-quote {
+        top: 26vw;
+        right: 6vw;
+    }
+
+    .top-circle-title {
+        max-width: 30vw;
+
+    }
+
+    .top-circle-subtitle {
+        max-width: 30vw;
+
+    }
+
+    .container-cerc {
+        top: 28vw;
+        min-width: 35vw;
+        min-height: 35vw;
+        left: 5vw;
+    }
+}
+
+/* md */
+@media(max-width: 768px) {
+    .img-top-container {
+        background-image: url("../images/sectiunea-de-sus-mobil.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        padding-top: clamp(1rem, 3vw, 2rem);
+        padding-bottom: clamp(1rem, 5vw, 2.8rem);
+        height: 60vw;
+    }
+
+    .top-quote {
+        top: 32vw;
+    }
+
+
+    .container-cerc {
+        top: 38vw;
+        min-width: 40vw;
+        min-height: 40vw;
+    }
+}
+
+
+/* sm */
+@media(max-width: 576px) {
+    .img-top-container {
+        background-image: url("../images/sectiunea-de-sus-mobil.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        padding-top: clamp(1rem, 3vw, 2rem);
+        padding-bottom: clamp(1rem, 5vw, 2.8rem);
+        height: 80vw;
+    }
+
+    .top-quote {
+        top: 42vw;
+    }
+
+
+    .container-cerc {
+        top: 47vw;
+        min-width: 45vw;
+        min-height: 45vw;
+    }
+}
+
+
+@media (max-width: 479px) {
+    .img-top-container {
+        background-image: url("../images/sectiunea-de-sus-mobil.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        padding-top: clamp(1rem, 3vw, 2rem);
+        padding-bottom: clamp(1rem, 5vw, 2.8rem);
+        height: 110vw;
+    }
+
+    .top-quote {
+        top: 65vw;
+    }
+
+
+    .container-cerc {
+        top: 85vw;
+        min-width: 55vw;
+        min-height: 55vw;
+    }
+
+    .top-circle-subtitle {
+        max-width: 40vw;
+
+    }
+}
+
+/* Testimoniale */
+
+.testimonial-titles {
     text-align: center;
-    padding-top: 6vw;
+    font-weight: 500;
+    padding: 3vw 0;
+    margin-top: 2.5rem;
 }
 
-.img-vector-testimonial {
-    position: absolute;
-    z-index: 1;
-    top: 19vw;
-    max-width: 95vw;
+@media(max-width: 1200px) {
+    .testimonial-titles {
+        margin-top: 5rem;
+
+    }
 }
 
-.testimonial-title {
-    font-weight: 400;
-    font-size: 6vw;
-    line-height: 6vw;
-    z-index: 2;
-
+@media(max-width: 576px) {
+    .testimonial-titles {
+        margin-top: 3rem;
+    }
 }
 
-.testimonial-subtitle {
-    font-weight: 400;
-    font-size: 2vw;
-    line-height: 3vw;
-    z-index: 2;
-    padding: 1vw;
+
+@media(max-width: 479px) {
+    .testimonial-titles {
+        margin-top: 5rem;
+    }
 }
 
-.img-cards-testimonial {
-
-    z-index: 2;
+.testimonial-titles h1 {
+    font-family: 'Tillana';
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.img-comentariu1,
-.img-comentariu2,
-.img-comentariu3 {
-    position: absolute;
-    top: 21vw;
-    max-width: 8vw;
-    z-index: 2;
-}
 
-.img-comentariu1 {
-    left: 12vw;
-}
-
-.img-comentariu2 {
-    left: 46.2vw;
-}
-
-.img-comentariu3 {
-    right: 12vw;
-}
-
-.comment-title {
-    position: absolute;
-    top: 27.7vw;
-    max-width: fit-content;
-    z-index: 2;
-    font-size: 1.9vw;
-    font-weight: 400;
-    line-height: 3vw;
+.container .col-lg-4 {
+    display: flex;
     justify-content: center;
 }
 
-.comment-title1 {
-    left: 7vw;
+.card {
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    perspective: 500px;
+    border: none;
+    background-color: inherit;
 }
 
-.comment-title2 {
-    left: 43vw;
-}
-
-.comment-title3 {
-    right: 9.9vw;
-}
-
-.comment-subtitle {
+.card .face {
+    background: linear-gradient(to bottom, #000428, #004683);
+    animation: background-color 20s;
     position: absolute;
-    top: 32.1vw;
-    max-width: fit-content;
-    z-index: 2;
-    font-size: 1.3vw;
-    font-weight: 400;
-    line-height: 2.1vw;
-    max-width: 14.2vw;
-}
-
-.comment-subtitle1 {
-    left: 7.7vw;
-}
-
-.comment-subtitle2 {
-    left: 41vw;
-}
-
-.comment-subtitle3 {
-    left: 74vw;
-}
-
-.img-sageata {
-    max-width: 90%;
-}
-
-.titlu-istoric {
-    position: relative;
-    font-weight: 500;
-    font-size: 1.9vw;
-    line-height: 2vw;
-    color: #0A2E5C;
-
-}
-
-.titlu-istoric-text {
-    position: relative;
-    top: -10.5vw;
-}
-
-
-/* Linia verticala - de adaugat la final */
-/* .timeline::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 10vw;
-    width: 4px;
+    color: #fff;
+    width: 100%;
     height: 100%;
-    background-color: #0A2E5C;
-    z-index: -1;
-    } */
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transform-style: preserve-3d;
+    transition: 0.5s;
+    backface-visibility: hidden;
+    border-top: 1px solid #ddd;
+    border-left: 1px solid #ddd;
 
-.container {
-    width: 80%;
-    margin: 0 auto;
 }
+
+.card .face.front-face,
+.card .face.back-face {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card .face.front-face .profile {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.card .face.front-face .name {
+    letter-spacing: 2px;
+}
+
+.card .face.front-face .designation {
+    font-size: 0.8rem;
+    color: #ddd;
+    letter-spacing: 0.8px;
+}
+
+.card:hover .face.front-face {
+    transform: rotateY(180deg);
+}
+
+.card .face.back-face {
+    position: absolute;
+    background: linear-gradient(to bottom, #000428, #004683);
+    transform: rotateY(180deg);
+    padding: 20px 30px;
+    text-align: center;
+    user-select: none;
+}
+
+.card .face.back-face .fa-quote-left {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    font-size: 1.2rem;
+}
+
+.card .face.back-face .fa-quote-right {
+    position: absolute;
+    bottom: 35px;
+    right: 25px;
+    font-size: 1.2rem;
+}
+
+.card:hover .face.back-face {
+    transform: rotateY(360deg);
+}
+
+@media(max-width: 991.5px) {
+    .col-lg-4 {
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Zona istoric */
+.istoric-container {
+    gap: 180px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.istoric-title {
+    font-family: 'Tillana';
+    color: #0A2E5C;
+    font-weight: 500;
+    font-size: clamp(2rem, 5vw, 5rem) !important;
+    text-align: center;
+    margin: 4vw 0 2vw;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.istoric-text {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: 400;
+    color: #333;
+}
+
+.sageata {
+    width: clamp(7rem, 12vw, 16rem);
+    height: auto;
+}
+
 
 .timeline {
     position: relative;
     list-style: none;
     padding: 0;
+    left: 6vw;
 }
 
 .timeline li {
@@ -221,34 +395,62 @@
 }
 
 .timeline-year {
-    width: clamp(40px, 5vw, 80px);
-    height: clamp(20px, 3vw, 50px);
-    font-family: 'Tillana', sans-serif;
-    background-color: #7EAEEC;
-    color: #0A2E5C;
-    font-size: clamp(12px, 2vw, 22px);
-    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 28px;
     position: absolute;
-    left: -2vw;
+    left: -8vw;
     top: 50%;
+    width: clamp(45px, 5.5vw, 80px);
+    height: clamp(25px, 3.5vw, 40px);
+    font-family: 'Tillana', sans-serif;
+    background-color: #7EAEEC;
+    color: #0A2E5C;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    font-weight: bold;
+    border-radius: 28px;
     transform: translateY(-50%);
 }
 
 
 .timeline-content {
     background-color: white;
-    padding: 10px 15px;
+    padding: 10px 15px 0;
     border-radius: 8px;
-    flex: 1;
     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    margin-left: 6vw;
-
+    margin-left: 3vw;
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    width: 70vw;
 }
 
+
+
+
+@media (max-width: 479px) {
+    .timeline-year {
+        left: -9vw;
+    }
+}
+
+@media (min-width: 720px) {
+    .timeline-year {
+        left: -5vw;
+    }
+}
+
+@media (min-width: 992px) {
+    .timeline-content {
+        width: 60vw;
+    }
+
+    .timeline-year {
+        left: -3vw;
+    }
+}
+
+
+
+/* Catedre */
 
 .catedre {
     display: grid;
@@ -262,8 +464,10 @@
     font-family: 'Tillana';
     color: #0A2E5C;
     font-weight: 500;
-    font-size: 8vw;
+    font-size: clamp(2rem, 5vw, 5rem) !important;
     text-align: center;
+    margin: 4vw 0 2vw;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .catedra {
@@ -272,8 +476,6 @@
     border-radius: 12px;
     box-shadow: -5px 10px 7.3px 0px #00000080;
     text-align: start;
-
-
 }
 
 .catedra h3 {
@@ -334,112 +536,4 @@
 
 .catedra-sport {
     background-color: #FFE3C9;
-}
-
-
-
-@media(max-width: 1200px) {
-
-    .img-comentariu1,
-    .img-comentariu2,
-    .img-comentariu3 {
-        position: absolute;
-        top: 21vw;
-        max-width: 6vw;
-        z-index: 2;
-    }
-
-
-}
-
-@media (max-width: 767px) {
-
-
-    .img-comentariu1 {
-        left: 14vw;
-    }
-
-    .img-comentariu2 {
-        left: 45.2vw;
-    }
-
-    .img-comentariu3 {
-        right: 11.1vw;
-    }
-
-    .comment-title1 {
-        left: 7vw;
-    }
-
-    .comment-title2 {
-        left: 41.5vw;
-    }
-
-    .comment-title3 {
-        right: 9.4vw;
-    }
-
-
-    .comment-subtitle1 {
-        left: 7.7vw;
-    }
-
-    .comment-subtitle2 {
-        left: 40.3vw;
-    }
-
-    .comment-subtitle3 {
-        left: 73vw;
-
-    }
-
-}
-
-.timeline-year {
-    left: -6vw;
-}
-
-@media (max-width: 479px) {
-
-    .img-comentariu1 {
-        left: 14vw;
-    }
-
-    .img-comentariu2 {
-        left: 43.9vw;
-    }
-
-    .img-comentariu3 {
-        right: 12.2vw;
-    }
-
-    .comment-title1 {
-        left: 7vw;
-    }
-
-    .comment-title2 {
-        left: 40.9vw;
-    }
-
-    .comment-title3 {
-        right: 11vw;
-    }
-
-
-    .comment-subtitle1 {
-        left: 9.1vw;
-    }
-
-    .comment-subtitle2 {
-        left: 39.4vw;
-    }
-
-    .comment-subtitle3 {
-        left: 69.9vw;
-    }
-
-    .timeline-year {
-        left: -8vw;
-    }
-
 }
