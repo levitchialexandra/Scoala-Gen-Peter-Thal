@@ -53,11 +53,13 @@ document.querySelectorAll('.flip-card').forEach((card) => {
     });
 });
 
-
+// copiere date contact
 function copyToClipboard(element) {
     const textElement = element.querySelector(".text-to-copy");
     const originalText = textElement.innerText;
     const textCopied = textElement.getAttribute("data-value");
+
+    element.onclick = null;
 
     navigator.clipboard.writeText(originalText)
         .then(() => {
@@ -65,11 +67,18 @@ function copyToClipboard(element) {
 
             setTimeout(() => {
                 textElement.innerHTML = originalText;
+                element.onclick = function () {
+                    copyToClipboard(element);
+                };
             }, 1500);
         })
-        .catch(err => console.error("Error copying text: ", err));
+        .catch(err => {
+            console.error("Error copying text: ", err);
+            element.onclick = function () {
+                copyToClipboard(element);
+            };
+        });
 }
-
 
 // cookies function
 window.addEventListener("load", function () {

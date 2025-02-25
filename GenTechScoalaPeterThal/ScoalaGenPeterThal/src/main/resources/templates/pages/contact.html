@@ -23,47 +23,60 @@
   <body>
     <!-- Loader-ul navbar-ului  -->
     <div id="navbar-container"></div>
+    <canvas id="fireworks"></canvas>
 
     <div class="contact">
       <div class="titlu-contact">
         <h1>Nu ezita să ne <br />contactezi!</h1>
       </div>
-
-      <div class="container d-flex align-items-center justify-content-start">
-        <div class="div-adresa forma" onclick="copyToClipboard(this)">
-          <div class="text-adresa">
-            <h2>Treci pe la noi!</h2>
-            <p  class="text-to-copy" data-value="Adresă 
-            copiată!">
-              Ne găsești chiar aici: <br />
-              Strada Izvor Nr. 10
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="container d-flex align-items-center justify-content-end">
-        <div class="div-email forma" onclick="copyToClipboard(this)">
-          <div class="text-email">
-            <h2>Email</h2>
-            <p class="text-to-copy" data-value="Adresă de email copiată!">
-              <a href="mailto:rasnovgenerala2@yahoo.com"
-                >rasnovgenerala2@yahoo.com</a
+      <div class="wheel">
+        <div class="">
+          <div class="div-adresa forma" onclick="copyToClipboard(this)">
+            <div class="text-adresa">
+              <h2>Treci pe la noi!</h2>
+              <p
+                class="text-to-copy"
+                data-value="Adresă 
+            copiată!"
               >
-            </p>
-            <div>
-              <img class="bunny" src="/assets/images/e-mail-2.png" alt="" />
+                Ne găsești chiar aici: <br/>
+                Strada Izvor Nr. 10
+              </p>
             </div>
           </div>
         </div>
-      </div>
 
-      <div class="container d-flex align-items-center justify-content-start">
-        <div class="div-telefon forma" onclick="copyToClipboard(this)">
-          <div class="text-telefon">
-            <h2>Sună-ne!</h2>
-            <p class="text-to-copy" data-value="Număr copiat!">0268 257 399</p>
-            <div><img class="bear" src="/assets/images/bear.png" alt="" /></div>
+        <div class="" >
+          <div class="div-email forma" onclick="copyToClipboard(this)">
+            <div class="text-email">
+              <h2>Email</h2>
+
+              <button
+                onclick="window.open('https://mail.google.com/mail/?view=cm&fs=1&to=rasnovgenerala2@yahoo.com', '_blank')"
+              >
+                <p>
+                  rasnovgenerala2 <br/>
+                  @yahoo.com
+                </p>
+              </button>
+              <div>
+                <img class="bunny" src="/assets/images/e-mail-2.png" alt="" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="">
+          <div class="div-telefon forma" onclick="copyToClipboard(this)">
+            <div class="text-telefon">
+              <h2>Sună-ne!</h2>
+              <p class="text-to-copy" data-value="Număr copiat!">
+                0268 257 399
+              </p>
+              <div>
+                <img class="bear" src="/assets/images/bear.png" alt="" />
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -95,6 +108,7 @@
     <div id="footer-container"></div>
 
     <script src="/assets/js/script.js"></script>
+    <script src="/assets/js/contactArtificii.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- 

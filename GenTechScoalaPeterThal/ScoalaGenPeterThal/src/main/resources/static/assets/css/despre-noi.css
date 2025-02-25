@@ -538,6 +538,10 @@
 
 }
 
+.catedra-desen{
+    background-color: #CEC2FF;
+}
+
 .catedra-romana,
 .catedra-matematica,
 .catedra-germana {
@@ -558,7 +562,6 @@
 }
 
 .catedra-muzica,
-.catedra-desen,
 .catedra-chimie,
 .catedra-geografie,
 .catedra-biologie {

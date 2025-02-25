@@ -180,6 +180,13 @@
   transform: rotateY(180deg);
 }
 
+button{
+  background-color: inherit;
+  color: #0A2E5C ;
+  border: none;
+  text-decoration: none;
+  border-radius: 30px;
+}
 
 /* Extra large screens */
 /* @media (min-width: 1201px) {
